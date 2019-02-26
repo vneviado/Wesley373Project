@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  philosophy: MyString
+  entrance_criteria: MyString
+  exclusion_criteria: MyString
+  exit_criteria: MyString
+  level_of_care: MyString
+  average_length_of_stay: MyString
+  referral_process: MyString
+  matching_elements: MyString
+  created_by: MyString
+  updated_by: MyString
+  category: 
+  contact: 
+  location: 
+
+two:
+  name: MyString
+  description: MyString
+  philosophy: MyString
+  entrance_criteria: MyString
+  exclusion_criteria: MyString
+  exit_criteria: MyString
+  level_of_care: MyString
+  average_length_of_stay: MyString
+  referral_process: MyString
+  matching_elements: MyString
+  created_by: MyString
+  updated_by: MyString
+  category: 
+  contact: 
+  location: 

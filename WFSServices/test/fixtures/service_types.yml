@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  cost: 
+  staff: MyString
+  created_by: MyString
+  updated_by: MyString
+  service: 
+
+two:
+  name: MyString
+  cost: 
+  staff: MyString
+  created_by: MyString
+  updated_by: MyString
+  service: 
