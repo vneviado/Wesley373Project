@@ -10,12 +10,10 @@
       <th>Phone number</th>
       <th>Street 1</th>
       <th>City 1</th>
-      <th>Zip 1</th>
+      <th>Zipcode 1</th>
       <th>Street 2</th>
       <th>City 2</th>
-      <th>Zip 2</th>
-      <th>Created by</th>
-      <th>Updated by</th>
+      <th>Zipcode 2</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -28,12 +26,10 @@
         <td><%= contact.phone_number %></td>
         <td><%= contact.street_1 %></td>
         <td><%= contact.city_1 %></td>
-        <td><%= contact.zip_1 %></td>
+        <td><%= contact.zipcode_1 %></td>
         <td><%= contact.street_2 %></td>
         <td><%= contact.city_2 %></td>
-        <td><%= contact.zip_2 %></td>
-        <td><%= contact.created_by %></td>
-        <td><%= contact.updated_by %></td>
+        <td><%= contact.zipcode_2 %></td>
         <td><%= link_to 'Show', contact %></td>
         <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
         <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>

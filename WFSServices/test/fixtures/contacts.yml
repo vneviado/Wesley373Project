@@ -6,12 +6,10 @@ one:
   phone_number: MyString
   street_1: MyString
   city_1: MyString
-  zip_1: MyString
+  zipcode_1: MyString
   street_2: MyString
   city_2: MyString
-  zip_2: MyString
-  created_by: MyString
-  updated_by: MyString
+  zipcode_2: MyString
 
 two:
   name: MyString
@@ -19,9 +17,7 @@ two:
   phone_number: MyString
   street_1: MyString
   city_1: MyString
-  zip_1: MyString
+  zipcode_1: MyString
   street_2: MyString
   city_2: MyString
-  zip_2: MyString
-  created_by: MyString
-  updated_by: MyString
+  zipcode_2: MyString
