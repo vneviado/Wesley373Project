@@ -3,8 +3,13 @@ class ServicesController < ApplicationController
 
   # GET /services
   # GET /services.json
+  # allows search on index page
   def index
-    @services = Service.all
+    @services = if params[:term]
+      Service.search(params[:term]).paginate(page: params[:page]).per_page(13)
+    else
+      Service.all.paginate(page: params[:page]).per_page(13)
+    end
   end
 
   # GET /services/1
