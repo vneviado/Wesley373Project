@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @service.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @service.description %>
+</p>
+
+<p>
+  <strong>Philosophy:</strong>
+  <%= @service.philosophy %>
+</p>
+
+<p>
+  <strong>Entrance criteria:</strong>
+  <%= @service.entrance_criteria %>
+</p>
+
+<p>
+  <strong>Exclusion criteria:</strong>
+  <%= @service.exclusion_criteria %>
+</p>
+
+<p>
+  <strong>Exit criteria:</strong>
+  <%= @service.exit_criteria %>
+</p>
+
+<p>
+  <strong>Level of care:</strong>
+  <%= @service.level_of_care %>
+</p>
+
+<p>
+  <strong>Average length of stay:</strong>
+  <%= @service.average_length_of_stay %>
+</p>
+
+<p>
+  <strong>Referral process:</strong>
+  <%= @service.referral_process %>
+</p>
+
+<p>
+  <strong>Matching elements:</strong>
+  <%= @service.matching_elements %>
+</p>
+
+<p>
+  <strong>Created by:</strong>
+  <%= @service.created_by %>
+</p>
+
+<p>
+  <strong>Updated by:</strong>
+  <%= @service.updated_by %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @service.category %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @service.contact %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @service.location %>
+</p>
+
+<%= link_to 'Edit', edit_service_path(@service) %> |
+<%= link_to 'Back', services_path %>
