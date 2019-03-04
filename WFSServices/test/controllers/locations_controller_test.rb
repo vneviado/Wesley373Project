@@ -17,7 +17,11 @@ class LocationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create location" do
     assert_difference('Location.count') do
+<<<<<<< HEAD
       post locations_url, params: { location: { city: @location.city, created_by: @location.created_by, name: @location.name, phone_number: @location.phone_number, street: @location.street, updated_by: @location.updated_by, zip: @location.zip } }
+=======
+      post locations_url, params: { location: { city: @location.city, name: @location.name, phone_number: @location.phone_number, street: @location.street, zipcode: @location.zipcode } }
+>>>>>>> location
     end
 
     assert_redirected_to location_url(Location.last)
@@ -34,7 +38,11 @@ class LocationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update location" do
+<<<<<<< HEAD
     patch location_url(@location), params: { location: { city: @location.city, created_by: @location.created_by, name: @location.name, phone_number: @location.phone_number, street: @location.street, updated_by: @location.updated_by, zip: @location.zip } }
+=======
+    patch location_url(@location), params: { location: { city: @location.city, name: @location.name, phone_number: @location.phone_number, street: @location.street, zipcode: @location.zipcode } }
+>>>>>>> location
     assert_redirected_to location_url(@location)
   end
 
