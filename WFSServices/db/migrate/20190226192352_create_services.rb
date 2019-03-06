@@ -13,10 +13,10 @@ class CreateServices < ActiveRecord::Migration[5.1]
       t.string :matching_elements
       t.string :created_by
       t.string :updated_by
-      t.reference :category
-      t.reference :contact
-      t.reference :location
-
+      t.references :category
+      t.references :contact
+      t.references :location
+      t.references :service_type
       t.timestamps
     end
   end

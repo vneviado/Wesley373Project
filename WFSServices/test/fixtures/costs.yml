@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  unit_cost: 1.5
+  unit_rate: 1.5
+  avg_los: 1.5
+  rev_los: 1.5
+  staff: 1
+  frequency: 1.5
+
+two:
+  unit_cost: 1.5
+  unit_rate: 1.5
+  avg_los: 1.5
+  rev_los: 1.5
+  staff: 1
+  frequency: 1.5
