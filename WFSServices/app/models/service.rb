@@ -10,6 +10,7 @@ class Service < ApplicationRecord
     validates_presence_of :contact
     validates_presence_of :location
     validates_presence_of :category
+    validates_presence_of :service_type
 
     #Scopes
     scope :alphabetical, -> { order( 'name' ) }
