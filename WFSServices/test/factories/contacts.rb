@@ -1,6 +1,7 @@
 FactoryBot.define do
     factory :contact do
-      name "John Smith"
+      first_name "John" 
+      last_name "Smith"
       work_numer "(412)123-4568"
       phone_number "(412)123-4567"
       street_1 "104 Beta Dr"
