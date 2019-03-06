@@ -16,7 +16,7 @@ class CreateServices < ActiveRecord::Migration[5.1]
       t.reference :category
       t.reference :contact
       t.reference :location
-
+      t.references :service_type
       t.timestamps
     end
   end
