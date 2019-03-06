@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20190228000420) do
     t.string "phone_number"
     t.string "street"
     t.string "city"
-    t.string "zip"
+    t.string "zipcode"
     t.string "created_by"
     t.string "updated_by"
     t.datetime "created_at", null: false
