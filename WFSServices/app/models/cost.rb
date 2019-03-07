@@ -1,6 +1,6 @@
 class Cost < ApplicationRecord
   #Relationships
-  belongs_to :service
+  belongs_to :service_type
 
   #Validations
 
