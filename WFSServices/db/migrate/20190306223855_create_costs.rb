@@ -5,8 +5,7 @@ class CreateCosts < ActiveRecord::Migration[5.1]
       t.float :unit_rate
       t.float :avg_los
       t.float :rev_los
-      t.integer :staff
-      t.float :frequency
+      t.string :frequency
 
       t.timestamps
     end

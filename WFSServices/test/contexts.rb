@@ -4,29 +4,31 @@ require './test/sets/contacts'
 require './test/sets/locations'
 require './test/sets/service_types'
 require './test/sets/services'
+require './test/sets/costs'
 
 module Contexts
   # explicitly include all sets of contexts used for testing 
   include Contexts::Categories
   include Contexts::Contacts
   include Contexts::Locations
-  include Contexts::Service_types
+  include Contexts::ServiceTypes
   include Contexts::Services
+  include Contexts::Costs
 
   # a build_all method to quickly create a full testing context
   def build_all
-    create_costs
-    puts "Built costs"
     create_categories
     puts "Built categories"
     create_contacts
     puts "Built contacts"
     create_locations
     puts "Built locations"
-    create_service_types
-    puts "Built service types"
     create_services
     puts "Built services"
+    create_costs
+    puts "Built costs"
+    create_service_types
+    puts "Built service types"
   end
 
   # a destroy_all method to quickly destroy the testing context

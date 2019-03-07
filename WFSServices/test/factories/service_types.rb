@@ -1,10 +1,9 @@
 FactoryBot.define do
     factory :service_type do
-      name "Beta"
-      phone_number "(412)123-4567"
-      street "104 Beta Dr"
-      city "Pittsburgh"
-      zipcode "15238"
+      name "Group Therapy Level 1"
+      staff "Therapist"
       created_by "Test Admin"
+      updated_by "Test Admin"
+      association :service
     end
 end

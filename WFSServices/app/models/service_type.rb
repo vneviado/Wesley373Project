@@ -1,6 +1,6 @@
 class ServiceType < ApplicationRecord
 	belongs_to :service
-	# has_one :cost
+	has_many :costs
 
 	validates_presence_of :name
 	validates_presence_of :staff

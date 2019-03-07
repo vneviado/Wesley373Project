@@ -40,8 +40,7 @@ ActiveRecord::Schema.define(version: 20190306223855) do
     t.float "unit_rate", limit: 24
     t.float "avg_los", limit: 24
     t.float "rev_los", limit: 24
-    t.integer "staff"
-    t.float "frequency", limit: 24
+    t.string "frequency"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

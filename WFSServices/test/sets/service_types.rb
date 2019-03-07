@@ -1,13 +1,14 @@
 module Contexts
     module ServiceTypes
+
       def create_service_types
-        @beekind = FactoryBot.create(:service)
-        @grouptherapy = FactoryBot.create(:service, name:"Group Therapy")  
+        @grouptherapylevel1 = FactoryBot.create(:service_type, service: @beekind)
+        @grouptherapylevel2 = FactoryBot.create(:service_type, name:"Group Therapy", service: @grouptherapy)  
       end
       
-      def destroy_services
-        @beekind.delete
-        @grouptherapy.delete
+      def destroy_service_types
+        @grouptherapylevel1.delete
+        @grouptherapylevel2.delete
       end
     end
 end

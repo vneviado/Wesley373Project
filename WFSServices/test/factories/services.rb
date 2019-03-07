@@ -11,9 +11,9 @@ FactoryBot.define do
       referral_process "We contact educational settings to schedule the program."
       matching_elements "Trained volunteers can be used."
       created_by "Test Admin"
+      updated_by "Test Admin"
       association :category
-      association :contact
       association :location
-      association :service_type
+      association :contact
     end
 end
