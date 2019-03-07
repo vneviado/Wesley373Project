@@ -1,7 +1,7 @@
 class CreateServices < ActiveRecord::Migration[5.1]
   def change
     create_table :services do |t|
-      t.string :name
+      t.string :sname
       t.string :description
       t.string :philosophy
       t.string :entrance_criteria

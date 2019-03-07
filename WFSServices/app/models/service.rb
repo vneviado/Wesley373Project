@@ -15,5 +15,5 @@ class Service < ApplicationRecord
 
     #Scopes
     scope :alphabetical, -> { order( 'name' ) }
-    scope :search, ->(term) { Service.joins(:category).where('name LIKE ? OR category LIKE ?', "%#{term}%", "%#{term}%") }
+    scope :search, ->(term) { Service.joins(:category).where('services.name LIKE ? OR categories.name LIKE ?', "%#{term}%", "%#{term}%") }
 end
