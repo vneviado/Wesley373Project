@@ -25,10 +25,10 @@ module Contexts
     puts "Built locations"
     create_services
     puts "Built services"
-    create_costs
-    puts "Built costs"
     create_service_types
     puts "Built service types"
+    create_costs
+    puts "Built costs"
   end
 
   # a destroy_all method to quickly destroy the testing context
@@ -43,5 +43,7 @@ module Contexts
     puts "Destroyed contacts"
     destroy_categories
     puts "Destroyed categories"
+    destroy_costs
+    puts "Destroyed costs"
   end
 end
