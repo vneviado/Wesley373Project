@@ -5,7 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>First Name</th>
+      <th>Last Name</th>
       <th>Work number</th>
       <th>Phone number</th>
       <th>Street 1</th>
@@ -21,7 +22,8 @@
   <tbody>
     <% @contacts.each do |contact| %>
       <tr>
-        <td><%= contact.name %></td>
+        <td><%= contact.first_name %></td>
+        <td><%= contact.last_name %></td>
         <td><%= contact.work_number %></td>
         <td><%= contact.phone_number %></td>
         <td><%= contact.street_1 %></td>

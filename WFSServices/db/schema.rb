@@ -41,8 +41,10 @@ ActiveRecord::Schema.define(version: 20190306223855) do
     t.float "avg_los", limit: 24
     t.float "rev_los", limit: 24
     t.string "frequency"
+    t.bigint "service_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["service_type_id"], name: "index_costs_on_service_type_id"
   end
 
   create_table "locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
