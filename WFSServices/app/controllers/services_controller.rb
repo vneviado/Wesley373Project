@@ -15,6 +15,8 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
+    @s_locations = @service.locations
+    @s_contacts = @service.contacts
   end
 
   # GET /services/new

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190306223855) do
+ActiveRecord::Schema.define(version: 20190322032920) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -59,6 +59,24 @@ ActiveRecord::Schema.define(version: 20190306223855) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "service_contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "service_id"
+    t.bigint "contact_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contact_id"], name: "index_service_contacts_on_contact_id"
+    t.index ["service_id"], name: "index_service_contacts_on_service_id"
+  end
+
+  create_table "service_locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "service_id"
+    t.bigint "location_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["location_id"], name: "index_service_locations_on_location_id"
+    t.index ["service_id"], name: "index_service_locations_on_service_id"
+  end
+
   create_table "service_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "staff"
@@ -97,4 +115,8 @@ ActiveRecord::Schema.define(version: 20190306223855) do
     t.index ["service_type_id"], name: "index_services_on_service_type_id"
   end
 
+  add_foreign_key "service_contacts", "contacts"
+  add_foreign_key "service_contacts", "services"
+  add_foreign_key "service_locations", "locations"
+  add_foreign_key "service_locations", "services"
 end

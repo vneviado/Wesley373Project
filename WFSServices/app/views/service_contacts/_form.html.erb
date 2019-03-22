@@ -1,0 +1,27 @@
+<%= form_with(model: service_contact, local: true) do |form| %>
+  <% if service_contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(service_contact.errors.count, "error") %> prohibited this service_contact from being saved:</h2>
+
+      <ul>
+      <% service_contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :service_id %>
+    <%= form.text_field :service_id, id: :service_contact_service_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contact_id %>
+    <%= form.text_field :contact_id, id: :service_contact_contact_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -13,7 +13,5 @@ FactoryBot.define do
       created_by "Test Admin"
       updated_by "Test Admin"
       association :category
-      association :location
-      association :contact
     end
 end
