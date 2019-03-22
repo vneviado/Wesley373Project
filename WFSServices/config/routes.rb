@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :service_contacts
+  resources :service_locations
   resources :costs
   resources :services
   resources :service_types

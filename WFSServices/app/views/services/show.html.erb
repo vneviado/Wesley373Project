@@ -65,15 +65,41 @@
   <%= @service.category %>
 </p>
 
+
 <p>
-  <strong>Contact:</strong>
-  <%= @service.contact %>
+  <strong>Contacts:</strong>
+
+  <% if @s_contacts.empty? %>
+    <p>No contacts at this time</p>
+  <% else %>
+    <ul>
+      <% @s_contacts.each do |i| %>
+        <li>
+          <%= i.first_name + ' ' + i.last_name %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
 </p>
 
 <p>
-  <strong>Location:</strong>
-  <%= @service.location %>
+  <strong>Locations:</strong>
+
+  <% if @s_locations.empty? %>
+    <p>No locations at this time</p>
+  <% else %>
+    <ul>
+      <% @s_locations.each do |i| %>
+        <li>
+          <%= i.name %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
 </p>
+
 
 <%= link_to 'Edit', edit_service_path(@service) %> |
 <%= link_to 'Back', services_path %>

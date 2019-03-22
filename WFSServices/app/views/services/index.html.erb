@@ -23,8 +23,6 @@
       <th>Created by</th>
       <th>Updated by</th>
       <th>Category</th>
-      <th>Contact</th>
-      <th>Location</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -44,9 +42,7 @@
         <td><%= service.matching_elements %></td>
         <td><%= service.created_by %></td>
         <td><%= service.updated_by %></td>
-        <td><%= service.category %></td>
-        <td><%= service.contact %></td>
-        <td><%= service.location %></td>
+        <td><%= service.category.name %></td>
         <td><%= link_to 'Show', service %></td>
         <td><%= link_to 'Edit', edit_service_path(service) %></td>
         <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
