@@ -14,9 +14,6 @@ class CreateServices < ActiveRecord::Migration[5.1]
       t.string :created_by
       t.string :updated_by
       t.references :category
-      t.references :contact
-      t.references :location
-      t.references :service_type
       t.timestamps
     end
   end
