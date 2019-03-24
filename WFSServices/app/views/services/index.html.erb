@@ -43,8 +43,6 @@
         <td><%= service.created_by %></td>
         <td><%= service.updated_by %></td>
         <td><%= service.category.name %></td>
-        <td><%= service.contact.name %></td>
-        <td><%= service.location.name %></td>
         <td><%= link_to 'Show', service %></td>
         <td><%= link_to 'Edit', edit_service_path(service) %></td>
         <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
