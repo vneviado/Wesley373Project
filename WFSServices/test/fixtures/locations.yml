@@ -5,23 +5,17 @@ one:
   phone_number: MyString
   street: MyString
   city: MyString
-<<<<<<< HEAD
-  zip: MyString
+  zipcode: MyString
   created_by: MyString
   updated_by: MyString
-=======
-  zipcode: MyString
->>>>>>> location
 
 two:
   name: MyString
   phone_number: MyString
   street: MyString
   city: MyString
-<<<<<<< HEAD
-  zip: MyString
+  zipcode: MyString
   created_by: MyString
   updated_by: MyString
-=======
-  zipcode: MyString
->>>>>>> location
+
+

@@ -14,8 +14,6 @@ one:
   created_by: MyString
   updated_by: MyString
   category: 
-  contact: 
-  location: 
 
 two:
   name: MyString
@@ -30,6 +28,4 @@ two:
   matching_elements: MyString
   created_by: MyString
   updated_by: MyString
-  category: 
-  contact: 
-  location: 
+  category:  

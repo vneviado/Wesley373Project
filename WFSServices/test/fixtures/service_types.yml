@@ -2,7 +2,6 @@
 
 one:
   name: MyString
-  cost: 
   staff: MyString
   created_by: MyString
   updated_by: MyString
@@ -10,7 +9,6 @@ one:
 
 two:
   name: MyString
-  cost: 
   staff: MyString
   created_by: MyString
   updated_by: MyString
