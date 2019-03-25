@@ -4,11 +4,12 @@ module Contexts
         @grouptherapy = FactoryBot.create(:service, name:"Group Therapy", category: @autism)
         @beekind = FactoryBot.create(:service, category: @justice)  
       end
-      
+
       def destroy_services
-        @grouptherapy.delete
-        @beekind.delete
+        @grouptherapy.destroy 
+        @beekind.destroy
       end
+      
     end
 end
   
