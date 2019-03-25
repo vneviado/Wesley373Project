@@ -1,8 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  cost: 
+  name: MyStrings
   staff: MyString
   created_by: MyString
   updated_by: MyString
@@ -10,8 +9,7 @@ one:
 
 two:
   name: MyString
-  cost: 
   staff: MyString
   created_by: MyString
   updated_by: MyString
-  service: 
+  service:

@@ -1,13 +1,13 @@
 module Contexts
     module Services
       def create_services
-        @beekind = FactoryBot.create(:service, category: @justice)
-        @grouptherapy = FactoryBot.create(:service, name:"Group Therapy")  
+        @grouptherapy = FactoryBot.create(:service, name:"Group Therapy", category: @autism)
+        @beekind = FactoryBot.create(:service, category: @justice)  
       end
       
       def destroy_services
-        @beekind.delete
         @grouptherapy.delete
+        @beekind.delete
       end
     end
 end
