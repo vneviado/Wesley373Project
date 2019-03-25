@@ -6,7 +6,8 @@ class ServiceType < ApplicationRecord
 	validates_presence_of :staff
 	validates_presence_of :created_by
 	validates_presence_of :updated_by
+	validates_presence_of :service
 
-	scope :name_alphabetical, -> { order('name') }
+	scope :alphabetical, -> { order('name') }
 	scope :staff, -> { order('staff') }
 end

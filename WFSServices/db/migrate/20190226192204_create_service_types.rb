@@ -6,7 +6,6 @@ class CreateServiceTypes < ActiveRecord::Migration[5.1]
       t.string :created_by
       t.string :updated_by
       t.references :service
-      t.references :cost
 
       t.timestamps
     end
