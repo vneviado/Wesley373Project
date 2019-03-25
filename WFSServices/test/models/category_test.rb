@@ -16,7 +16,7 @@ class CategoryTest < ActiveSupport::TestCase
     teardown do
       destroy_categories
     end
-
+    
     # Scope Testss
     should "have an alphabetical scope to order by name" do
       assert_equal [@autism, @justice], Category.alphabetical.to_a
