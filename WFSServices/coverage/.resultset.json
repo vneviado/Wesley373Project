@@ -37,33 +37,17 @@
         1,
         null
       ],
-      "/Users/sandy/Desktop/WesleyProject/Wesley373Project/WFSServices/app/models/contact.rb": [
+      "/Users/sandy/Desktop/WesleyProject/Wesley373Project/WFSServices/app/models/cost.rb": [
         1,
         null,
-        1,
-        1,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
         1,
         null,
         null,
         null,
         1,
-        2,
+        null,
+        null,
+        null,
         null,
         null,
         null
@@ -73,27 +57,15 @@
         1,
         null
       ],
-      "/Users/sandy/Desktop/WesleyProject/Wesley373Project/WFSServices/app/models/service_contact.rb": [
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/sandy/Desktop/WesleyProject/Wesley373Project/WFSServices/app/models/service.rb": [
-        1,
-        null,
-        1,
-        null,
-        1,
-        1,
+      "/Users/sandy/Desktop/WesleyProject/Wesley373Project/WFSServices/app/models/service_type.rb": [
         1,
         1,
         1,
         null,
-        null,
         1,
         1,
-        null,
+        1,
+        1,
         null,
         1,
         1,
@@ -113,18 +85,34 @@
         0,
         0
       ],
-      "/Users/sandy/Desktop/WesleyProject/Wesley373Project/WFSServices/app/models/cost.rb": [
+      "/Users/sandy/Desktop/WesleyProject/Wesley373Project/WFSServices/app/models/contact.rb": [
         0,
         null,
         0,
-        null,
-        null,
-        null,
         0,
         null,
         null,
         null,
+        0,
         null,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        0,
+        0,
+        0,
         null,
         0
       ],
@@ -154,15 +142,27 @@
         null,
         0
       ],
-      "/Users/sandy/Desktop/WesleyProject/Wesley373Project/WFSServices/app/models/service_type.rb": [
+      "/Users/sandy/Desktop/WesleyProject/Wesley373Project/WFSServices/app/models/service_contact.rb": [
         0,
         0,
+        0,
+        0
+      ],
+      "/Users/sandy/Desktop/WesleyProject/Wesley373Project/WFSServices/app/models/service.rb": [
+        0,
+        null,
         0,
         null,
         0,
         0,
         0,
         0,
+        0,
+        null,
+        null,
+        0,
+        0,
+        null,
         null,
         0,
         0,
@@ -806,6 +806,6 @@
         0
       ]
     },
-    "timestamp": 1553479106
+    "timestamp": 1553479192
   }
 }
