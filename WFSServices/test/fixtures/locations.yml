@@ -6,6 +6,8 @@ one:
   street: MyString
   city: MyString
   zipcode: MyString
+  created_by: MyString
+  updated_by: MyString
 
 two:
   name: MyString
@@ -13,3 +15,7 @@ two:
   street: MyString
   city: MyString
   zipcode: MyString
+  created_by: MyString
+  updated_by: MyString
+
+

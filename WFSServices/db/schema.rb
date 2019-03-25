@@ -104,15 +104,9 @@ ActiveRecord::Schema.define(version: 20190322032920) do
     t.string "created_by"
     t.string "updated_by"
     t.bigint "category_id"
-    t.bigint "contact_id"
-    t.bigint "location_id"
-    t.bigint "service_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_services_on_category_id"
-    t.index ["contact_id"], name: "index_services_on_contact_id"
-    t.index ["location_id"], name: "index_services_on_location_id"
-    t.index ["service_type_id"], name: "index_services_on_service_type_id"
   end
 
   add_foreign_key "service_contacts", "contacts"
