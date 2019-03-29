@@ -13,4 +13,7 @@ class Location < ApplicationRecord
 
   #Scopes
   #Methods
+  def self.for_service(service)
+    service.locations.to_a
+  end
 end

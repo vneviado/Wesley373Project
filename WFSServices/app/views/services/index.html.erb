@@ -21,8 +21,39 @@
     
 <p id="notice"><%= notice %></p>
 
+<% @categories.each do |category| %>
+
+<% puts category.name %>
+
+<div class="row columns">
+  <div class="column">
+    <div class="card large">
+        <div class="card-content">
+          <div class="media">
+              <div class="media-content">
+                <p class="title is-4 no-padding"><%=category.name%></p>
+                
+                <% category.services.each do |service| %>
+                  <p><span class="title is-6"><%=link_to service.name, service %></span></p>
+                  <p class="subtitle is-6"><%= service.description %></p>
+                    <%= link_to 'Edit |', edit_service_path(service) %>
+                    <%= link_to ' Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %>
+
+              </div>
+          </div>
+          <!-- <div class="content">Category: 
+              <%#= service.category.name %>
+          </div> -->
+        </div>
+    </div>
+  </div>
+</div>
+                
+<% end %>
+
 <table class="table">
-  <thead>
+<!--   <thead>
     <tr>
       <th>Service</th>
       <th>Category</th>
@@ -31,15 +62,16 @@
   </thead>
 
   <tbody>
-    <% @services.each do |service| %>
+    
       <tr>
-        <td><%= link_to service.name, service %></td>
-        <td><%= service.category.name %></td>
-        <td><%= link_to 'Edit', edit_service_path(service) %></td>
-        <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <%#=link_to service.name, service%>
+        <td><%#= link_to service.name, service %></td>
+        <td><%#= service.category.name %></td>
+        <td><%#= link_to 'Edit', edit_service_path(service) %></td>
+        <td><%#= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
-  </tbody>
+    
+  </tbody> -->
 </table>
 
 </div>

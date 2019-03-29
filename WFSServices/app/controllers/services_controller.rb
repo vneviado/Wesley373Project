@@ -10,6 +10,7 @@ class ServicesController < ApplicationController
     else
       Service.all.paginate(page: params[:page]).per_page(13)
     end
+    @categories = Category.all
   end
 
   # GET /services/1

@@ -1,4 +1,4 @@
- <div class="container">
+<div class="container">
         <div id="flow">
             <span class="flow-1"></span>
             <span class="flow-2"></span>
@@ -23,11 +23,15 @@
                                 <%= @service.description%>
                                 <div class="background-icon"><span class="icon-twitter"></span></div>
                             </div>
+                            <div class="content"><span class="title is-6">Locations: </span>
+                                <% @s_locations.each do |i| %>
+                                    <p><%= link_to i.name, i %></p>
+                                <% end %>
+                                <div class="background-icon"><span class="icon-twitter"></span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-          
-          
-                </div>
             </div>
+</div>
