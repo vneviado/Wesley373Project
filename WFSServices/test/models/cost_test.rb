@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class CostTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  # Relationship Matcher
+  should belong_to(:service_type)
+
+  # Validation 
+  should validate_presence_of(:service_type)
 end

@@ -1,7 +1,7 @@
 class Contact < ApplicationRecord
   #Relationships
-  has_many :services_contacts
-  has_many :services, through: :services_contacts
+  has_many :service_contacts
+  has_many :services, through: :service_contacts
 
   #Validations
 

@@ -12,4 +12,4 @@ two:
   staff: MyString
   created_by: MyString
   updated_by: MyString
-  service: 
+  service:
