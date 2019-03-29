@@ -1,39 +1,28 @@
-<p id="notice"><%= notice %></p>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title"><%= @location.name %></h1>
+      <br/>
+    </div>
+    <div class="container">
+      <h3>Contact Information:</h3>
+      <p>
+        <strong>Phone number:</strong>
+        <%= @location.phone_number %>
+      </p>
+    </div>
+    <div class="container">
+      <strong>Street:</strong>
+      <%= @location.street %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @location.name %>
-</p>
+      <strong>City:</strong>
+      <%= @location.city %>
 
-<p>
-  <strong>Phone number:</strong>
-  <%= @location.phone_number %>
-</p>
+      <strong>Zipcode:</strong>
+      <%= @location.zipcode %>
+    </div><br/>
 
-<p>
-  <strong>Street:</strong>
-  <%= @location.street %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @location.city %>
-</p>
-
-<p>
-  <strong>Zipcode:</strong>
-  <%= @location.zipcode %>
-</p>
-
-<p>
-  <strong>Created by:</strong>
-  <%= @location.created_by %>
-</p>
-
-<p>
-  <strong>Updated by:</strong>
-  <%= @location.updated_by %>
-</p>
-
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
+    <%= link_to 'Edit', edit_location_path(@location) %> |
+    <%= link_to 'Back', locations_path %>
+  </div>
+</section>
