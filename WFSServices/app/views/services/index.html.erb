@@ -1,49 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<%= form_tag(services_path, method: :get) do %>
-    <%= text_field_tag :term, params[:term] %>
-    <%= submit_tag 'Search', name:nil %>
-<% end %>
-
-<h1>Services</h1>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+    <h1 class="title">Services</h1>
+    <table>
+      <tr>
+        <td>
+          <%= form_tag(services_path, method: :get) do %>
+          <%= text_field_tag :term, params[:term] %>
+          <%= submit_tag 'Search', name:nil %>
+          <% end %>
+      <br/>
+        </td>
+        <td>
+          <%= link_to 'New Service', new_service_path %>
+        </td>
+      </tr>
+    </table>
+    
+<p id="notice"><%= notice %></p>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Philosophy</th>
-      <th>Entrance criteria</th>
-      <th>Exclusion criteria</th>
-      <th>Exit criteria</th>
-      <th>Level of care</th>
-      <th>Average length of stay</th>
-      <th>Referral process</th>
-      <th>Matching elements</th>
-      <th>Created by</th>
-      <th>Updated by</th>
+      <th>Service</th>
       <th>Category</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @services.each do |service| %>
       <tr>
-        <td><%= service.name %></td>
-        <td><%= service.description %></td>
-        <td><%= service.philosophy %></td>
-        <td><%= service.entrance_criteria %></td>
-        <td><%= service.exclusion_criteria %></td>
-        <td><%= service.exit_criteria %></td>
-        <td><%= service.level_of_care %></td>
-        <td><%= service.average_length_of_stay %></td>
-        <td><%= service.referral_process %></td>
-        <td><%= service.matching_elements %></td>
-        <td><%= service.created_by %></td>
-        <td><%= service.updated_by %></td>
+        <td><%= link_to service.name, service %></td>
         <td><%= service.category.name %></td>
-        <td><%= link_to 'Show', service %></td>
         <td><%= link_to 'Edit', edit_service_path(service) %></td>
         <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -51,6 +42,6 @@
   </tbody>
 </table>
 
-<br>
+</div>
 
-<%= link_to 'New Service', new_service_path %>
+<br>
