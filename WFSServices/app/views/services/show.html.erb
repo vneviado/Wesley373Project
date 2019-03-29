@@ -1,105 +1,33 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @service.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @service.description %>
-</p>
-
-<p>
-  <strong>Philosophy:</strong>
-  <%= @service.philosophy %>
-</p>
-
-<p>
-  <strong>Entrance criteria:</strong>
-  <%= @service.entrance_criteria %>
-</p>
-
-<p>
-  <strong>Exclusion criteria:</strong>
-  <%= @service.exclusion_criteria %>
-</p>
-
-<p>
-  <strong>Exit criteria:</strong>
-  <%= @service.exit_criteria %>
-</p>
-
-<p>
-  <strong>Level of care:</strong>
-  <%= @service.level_of_care %>
-</p>
-
-<p>
-  <strong>Average length of stay:</strong>
-  <%= @service.average_length_of_stay %>
-</p>
-
-<p>
-  <strong>Referral process:</strong>
-  <%= @service.referral_process %>
-</p>
-
-<p>
-  <strong>Matching elements:</strong>
-  <%= @service.matching_elements %>
-</p>
-
-<p>
-  <strong>Created by:</strong>
-  <%= @service.created_by %>
-</p>
-
-<p>
-  <strong>Updated by:</strong>
-  <%= @service.updated_by %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @service.category %>
-</p>
-
-
-<p>
-  <strong>Contacts:</strong>
-
-  <% if @s_contacts.empty? %>
-    <p>No contacts at this time</p>
-  <% else %>
-    <ul>
-      <% @s_contacts.each do |i| %>
-        <li>
-          <%= i.name %>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
-
-</p>
-
-<p>
-  <strong>Locations:</strong>
-
-  <% if @s_locations.empty? %>
-    <p>No locations at this time</p>
-  <% else %>
-    <ul>
-      <% @s_locations.each do |i| %>
-        <li>
-          <%= i.name %>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
-
-</p>
-
-
-<%= link_to 'Edit', edit_service_path(@service) %> |
-<%= link_to 'Back', services_path %>
+ <div class="container">
+        <div id="flow">
+            <span class="flow-1"></span>
+            <span class="flow-2"></span>
+            <span class="flow-3"></span>
+        </div>
+            <!-- Description and tile box -->
+            <div class="row columns">
+                <div class="column">
+                    <div class="card large">
+                        <div class="card-content">
+                          
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-4 no-padding"><%=@service.name%></p>
+                                    <p><span class="title is-6">Philosophy</span></p>
+                                    <p class="subtitle is-6"><%= @service.philosophy%></p>
+                                </div>
+                            </div>
+                            <div class="content">Description: 
+                                <%= @service.description%>
+                                <div class="background-icon"><span class="icon-twitter"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+          
+          
+                </div>
+            </div>
