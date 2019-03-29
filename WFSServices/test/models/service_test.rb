@@ -31,7 +31,7 @@ class ServiceTest < ActiveSupport::TestCase
 
     should "have a search scope that searches by service names and categories" do
       assert_equal [], Service.search("hello").to_a
-      assert_equal [@beekind], Servcice.search("bee").to_a
+      assert_equal [@beekind], Service.search("bee").to_a
       assert_equal [@beekind], Service.search("Bee").to_a
       assert_equal [@beekind], Service.search("BEE").to_a
       assert_equal [@grouptherapy], Service.search("autism").to_a

@@ -83,10 +83,8 @@ ActiveRecord::Schema.define(version: 20190322032920) do
     t.string "created_by"
     t.string "updated_by"
     t.bigint "service_id"
-    t.bigint "cost_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cost_id"], name: "index_service_types_on_cost_id"
     t.index ["service_id"], name: "index_service_types_on_service_id"
   end
 

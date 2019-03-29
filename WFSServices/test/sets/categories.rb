@@ -1,13 +1,13 @@
 module Contexts
     module Categories
       def create_categories
-        @autism = FactoryBot.create(:category)
         @justice = FactoryBot.create(:category, name:"Justice and Child Welfare")  
+        @autism = FactoryBot.create(:category)
       end
       
       def destroy_categories
-        @autism.delete
         @justice.delete
+        @autism.delete
       end
     end
 end
