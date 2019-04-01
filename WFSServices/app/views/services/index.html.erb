@@ -6,12 +6,6 @@
     <h1 class="title">Services</h1>
     <table>
       <tr>
-        <td>
-          <%= form_tag(services_path, method: :get) do %>
-          <%= text_field_tag :term, params[:term] %>
-          <%= submit_tag 'Search', name:nil %>
-          <% end %>
-      <br/>
         </td>
         <td>
           <%= link_to 'New Service', new_service_path %>

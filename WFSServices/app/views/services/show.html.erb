@@ -1,37 +1,32 @@
 <div class="container">
-        <div id="flow">
-            <span class="flow-1"></span>
-            <span class="flow-2"></span>
-            <span class="flow-3"></span>
-        </div>
-            <!-- Description and tile box -->
-            <div class="row columns">
-                <div class="column">
-                    <div class="card large">
-                        <div class="card-content">
-                          
-                        </div>
-                        <div class="card-content">
-                            <div class="media">
-                                <div class="media-content">
-                                    <p class="title is-4 no-padding"><%=@service.name%></p>
-                                    <p><span class="title is-6">Philosophy</span></p>
-                                    <p class="subtitle is-6"><%= @service.philosophy%></p>
-                                </div>
-                            </div>
-                            <div class="content">Description: 
-                                <%= @service.description%>
-                                <div class="background-icon"><span class="icon-twitter"></span></div>
-                            </div>
-                            <div class="content"><span class="title is-6">Locations: </span>
-                                <% @s_locations.each do |i| %>
-                                    <p><%= link_to i.name, i %></p>
-                                <% end %>
-                                <div class="background-icon"><span class="icon-twitter"></span></div>
-                            </div>
+    <!-- Description and tile box -->
+    <div class="row columns">
+        <div class="column">
+            <div class="card large">
+                <div class="card-content">
+                    
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-content">
+                            <p class="title is-4 no-padding"><%=@service.name%></p>
+                            <p><span class="title is-6">Philosophy</span></p>
+                            <p class="subtitle is-6"><%= @service.philosophy%></p>
                         </div>
                     </div>
+                    <div class="content">Description: 
+                        <%= @service.description%>
+                        <div class="background-icon"><span class="icon-twitter"></span></div>
+                    </div>
+                    <div class="content"><span class="title is-6">Locations: </span>
+                        <% @s_locations.each do |i| %>
+                            <p><%= link_to i.name, i %></p>
+                        <% end %>
+                        <div class="background-icon"><span class="icon-twitter"></span></div>
+                    </div>
                 </div>
-                
             </div>
+        </div>
+ 
+    </div>
 </div>
