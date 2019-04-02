@@ -3,18 +3,14 @@
 <section class="hero">
   <div class="hero-body">
     <div class="container">
-    <h1 class="title">Services</h1>
+  
     <table>
       <tr>
         <td>
-          <%= form_tag(services_path, method: :get) do %>
-          <%= text_field_tag :term, params[:term] %>
-          <%= submit_tag 'Search', name:nil %>
-          <% end %>
-      <br/>
+          <h1 class="title">Services</h1>
         </td>
         <td>
-          <%= link_to 'New Service', new_service_path %>
+          
         </td>
       </tr>
     </table>
@@ -23,34 +19,36 @@
 
 <% @categories.each do |category| %>
 
-<% puts category.name %>
-
-<div class="row columns">
+<div class="columns is-multiline is-mobile">
   <div class="column">
     <div class="card large">
         <div class="card-content">
-          <div class="media">
               <div class="media-content">
                 <p class="title is-4 no-padding"><%=category.name%></p>
-                
+                <table>
                 <% category.services.each do |service| %>
+                <tr>
+                <td>
                   <p><span class="title is-6"><%=link_to service.name, service %></span></p>
                   <p class="subtitle is-6"><%= service.description %></p>
+                  </td>
+                  <td style="vertical-align: middle;">
                     <%= link_to 'Edit |', edit_service_path(service) %>
                     <%= link_to ' Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </td>
                 <% end %>
-
+                </tr>
+                </table>
               </div>
-          </div>
-          <!-- <div class="content">Category: 
-              <%#= service.category.name %>
-          </div> -->
         </div>
     </div>
   </div>
 </div>
                 
 <% end %>
+
+<%= link_to 'New Service', new_service_path %>
+<%= link_to 'New Category', new_category_path %>
 
 <table class="table">
 <!--   <thead>

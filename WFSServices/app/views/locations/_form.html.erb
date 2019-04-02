@@ -1,5 +1,3 @@
-
-
 <%= form_with(model: location, local: true) do |form| %>
   <% if location.errors.any? %>
     <div id="error_explanation">
@@ -34,9 +32,8 @@
   </div>
 
   <div class="field">
-<<<<<<< HEAD
-    <%= form.label :zip %>
-    <%= form.text_field :zip, id: :location_zip %>
+    <%= form.label :zipcode %>
+    <%= form.text_field :zipcode, id: :location_zipcode %>
   </div>
 
   <div class="field">
@@ -47,10 +44,6 @@
   <div class="field">
     <%= form.label :updated_by %>
     <%= form.text_field :updated_by, id: :location_updated_by %>
-=======
-    <%= form.label :zipcode %>
-    <%= form.text_field :zipcode, id: :location_zipcode %>
->>>>>>> location
   </div>
 
   <div class="actions">
