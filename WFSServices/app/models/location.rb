@@ -12,8 +12,11 @@ class Location < ApplicationRecord
   validates_format_of :zipcode, with: /\A\d{5}\z/, message: "should be five digits long", allow_blank: true
 
   #Scopes
+
+
   #Methods
   def self.for_service(service)
     service.locations.to_a
   end
+
 end
