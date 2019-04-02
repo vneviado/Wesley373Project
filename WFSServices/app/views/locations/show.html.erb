@@ -1,29 +1,45 @@
+<div class="container">
+  <div class="row columns">
+    <div class="column">
+      <div class="card large">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4 no-padding"><%= @location.name %></p>
+            </div>
+          </div>
 
-<section class="hero">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title"><%= @location.name %></h1>
-      <br/>
+          <div class="content"><strong>Address: </strong><br/>
+            Street: <%= @location.street %>
+            <br/>
+            City: <%= @location.city %>
+            <br/>
+            Zipcode: <%= @location.zipcode %>
+          </div>
+
+          <div class="content"><span class="title is-6">Contact: </span>
+            <br/>Phone number: <%= number_to_phone @location.phone_number %>
+          </div>
+
+          <div class="content"><span class="title is-6">Services: </span><br/>
+            <% @location.services.each do |s| %>
+              <%= link_to s.name, s %><br/>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="card-content">
+          <div class="card medium">
+            <%= link_to 'Edit', edit_location_path(@location) %> |
+            <%= link_to 'Destroy', @location, method: :delete, data: { confirm: 'Are you sure?' } %> |
+            <%= link_to 'Back', locations_path %>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="container">
-      <h3>Contact Information:</h3>
-      <p>
-        <strong>Phone number:</strong>
-        <%= @location.phone_number %>
-      </p>
-    </div>
-    <div class="container">
-      <strong>Street:</strong>
-      <%= @location.street %>
-
-      <strong>City:</strong>
-      <%= @location.city %>
-
-      <strong>Zipcode:</strong>
-      <%= @location.zipcode %>
-    </div><br/>
-
-    <%= link_to 'Edit', edit_location_path(@location) %> |
-    <%= link_to 'Back', locations_path %>
   </div>
-</section>
+</div>
+
+<%# <%= link_to edit_location_path(@location) do %>
+  <!-- <i class="material-icons pencil">edit</i> -->
+<%# end %>

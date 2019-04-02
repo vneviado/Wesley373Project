@@ -1,29 +1,35 @@
+<div class="container">
+  <div class="row columns">
+    <div class="column">
+      <div class="card large">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4 no-padding">Locations</p>
+            </div>
+          </div>
+        </div>
+      </div><br/>
 
-<section class="hero">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">Locations</h1>
-      <%= link_to 'New Location', new_location_path %>
-      <br/>
-      <br/>
-    </div>
-<p id="notice"><%= notice %></p>
+      <% @locations.each do |location| %>
+        <div class="card large">
+          <div class="card-content">
+            <p class="title is-4 no-padding"><%= link_to location.name, location %></p>
+            <span class="title is-6">Address: </span><br/>
+            <%= location.street %>, <%= location.city %> PA, <%= location.zipcode %><br/><br/>
+          <span class="title is-6">Services: </span><br/>
+            <% location.services.each do |s| %>
+              - <%= link_to s.name, s %><br/>
+            <% end %>
+          </div>
+        </div><br/>
+      <% end %>
 
-
-<table>
-
-  <tbody>
-    
-    <% @locations.each do |location| %>
-      <div class="container">
-        <h3><%= link_to location.name, location %></h3>
-
-        <%= location.street %>, <%= location.city %> PA, <%= location.zipcode %><br/>
-
-        <%= link_to 'Edit', edit_location_path(location) %>
-        <%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <br/><br/>
+      <div class="card large">
+        <div class="card-content">
+          <%= link_to 'New Location', new_location_path %>
+        </div>
       </div>
-    <% end %>
+    </div>
   </div>
-</section>
+</div>
