@@ -1,8 +1,15 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://wfspa.org/">
+    <%# <a class="navbar-item" href="https://wfspa.org/">
       <%= image_tag "logo.png", :size => "200x150" %>
-    </a>
+    <%# </a> %>
+
+     <a class="navbar-item">
+        <%= image_tag('logo.png') %>
+          <%# <img src="../../assest/images/logo.png" alt="Logo"> %>
+      </a>
+
+       <%# <%= link_to(image_tag('logos/logo_v2_80x80.png'), home_path) %>
 
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
