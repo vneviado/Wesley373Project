@@ -17,60 +17,105 @@
     
 <p id="notice"><%= notice %></p>
 
-<% @categories.each do |category| %>
+<% i = 0 %>
 
 <div class="columns is-multiline is-mobile">
-  <div class="column">
-    <div class="card large">
+
+<%# @categories.each do |category| %>
+<% len = @categories.to_a.length - 1 %>
+<% (0..len).step(3).each do |i| %>
+<% $value1 = @categories.to_a[i].nil? ? 0 : @categories.to_a[i] %>
+<% $value2 = @categories.to_a[i+1].nil? ? 0 : @categories.to_a[i+1] %>
+<% $value3 = @categories.to_a[i+2].nil? ? 0 : @categories.to_a[i+2] %>
+<% end %>
+
+
+  <div class="column is-one-third">
+    <% if $value1 != 0 %>
+      <div class="card large">
         <div class="card-content">
-              <div class="media-content">
-                <p class="title is-4 no-padding"><%=category.name%></p>
-                <table>
-                <% category.services.each do |service| %>
+          <p class="title is-4 no-padding"><%=$value1.name%></p>
+
+            <table>
+            <% $value1.services.each do |service| %>
                 <tr>
                 <td>
                   <p><span class="title is-6"><%=link_to service.name, service %></span></p>
                   <p class="subtitle is-6"><%= service.description %></p>
                   </td>
                   <td style="vertical-align: middle;">
-                    <%= link_to 'Edit |', edit_service_path(service) %>
+                    <%= link_to 'Edit ', edit_service_path(service) %>
                     <%= link_to ' Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
                   </td>
                 <% end %>
                 </tr>
-                </table>
-              </div>
+            </table>
+
         </div>
-    </div>
+      </div>
+    <% end %>
   </div>
+
+  <div class="column is-one-third">
+    <% if $value2 != 0 %>
+      <div class="card large">
+        <div class="card-content">
+          <p class="title is-4 no-padding"><%=$value2.name%></p>
+
+            <table>
+            <% $value2.services.each do |service| %>
+                <tr>
+                <td>
+                  <p><span class="title is-6"><%=link_to service.name, service %></span></p>
+                  <p class="subtitle is-6"><%= service.description %></p>
+                  </td>
+                  <td style="vertical-align: middle;">
+                    <%= link_to 'Edit ', edit_service_path(service) %>
+                    <%= link_to ' Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </td>
+                <% end %>
+                </tr>
+            </table>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="column is-one-third">
+    <% if $value3 != 0 %>
+      <div class="card large">
+        <div class="card-content">
+          <p class="title is-4 no-padding"><%=$value3.name%></p>
+
+            <table>
+            <% $value3.services.each do |service| %>
+                <tr>
+                <td>
+                  <p><span class="title is-6"><%=link_to service.name, service %></span></p>
+                  <p class="subtitle is-6"><%= service.description %></p>
+                  </td>
+                  <td style="vertical-align: middle;">
+                    <%= link_to 'Edit ', edit_service_path(service) %>
+                    <%= link_to ' Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </td>
+                <% end %>
+                </tr>
+            </table>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+<div class="column">
+
+    <%= link_to 'New Service', new_service_path, class: "button is-rounded" %>
+    <%= link_to 'New Category', new_category_path, class: "button is-rounded" %></a>
+
 </div>
-                
-<% end %>
 
-<%= link_to 'New Service', new_service_path %>
-<%= link_to 'New Category', new_category_path %>
-
-<table class="table">
-<!--   <thead>
-    <tr>
-      <th>Service</th>
-      <th>Category</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    
-      <tr>
-      <%#=link_to service.name, service%>
-        <td><%#= link_to service.name, service %></td>
-        <td><%#= service.category.name %></td>
-        <td><%#= link_to 'Edit', edit_service_path(service) %></td>
-        <td><%#= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    
-  </tbody> -->
-</table>
 
 </div>
 
