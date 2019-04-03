@@ -1,177 +1,82 @@
-<section class="hero">
-  <h1 class="title is-center">New Service</h1>
-  <div class = "hero-body">
-    <div class="container">
-      <div class="field">
-        <label class="label">Service Name</label>
-        <div class="control">
-          <input class="input" >
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Category</label>
-        <div class="control">
-          <div class="select">
-            <select>
-              <option>Select dropdown</option>
-              <option> Autism </option>
-              <option> Justice and Child Welfare
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Description</label>
-        <div class="control">
-          <textarea class="textarea"></textarea>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Philosophy</label>
-        <div class="control has-icons-left has-icons-right">
-          <input class="input" type="text">
-          <span class="icon is-small is-left">
-            <i class="fas fa-user"></i>
-          </span>
-          <span class="icon is-small is-right">
-            <i class="fas fa-check"></i>
-          </span>
-        </div>
-
-      </div>
-
-      <div class="field">
-        <label class="label">Contact</label>
-        <div class="control has-icons-left has-icons-right">
-          <input class="input" placeholder="i.e. John Smith">
-          <span class="icon is-small is-left">
-            <i class="fas fa-envelope"></i>
-          </span>
-          <span class="icon is-small is-right">
-            <i class="fas fa-exclamation-triangle"></i>
-          </span>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Entrance Criteria</label>
-        <div class="control has-icons-left has-icons-right">
-          <input class="input" type="text">
-          <span class="icon is-small is-left">
-            <i class="fas fa-user"></i>
-          </span>
-          <span class="icon is-small is-right">
-            <i class="fas fa-check"></i>
-          </span>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Exclusion Criteria</label>
-        <div class="control has-icons-left has-icons-right">
-          <input class="input" type="text">
-          <span class="icon is-small is-left">
-            <i class="fas fa-user"></i>
-          </span>
-          <span class="icon is-small is-right">
-            <i class="fas fa-check"></i>
-          </span>
-        </div>
-
-      </div>
-      <div class="field">
-        <label class="label">Exit Criteria/label>
-        <div class="control has-icons-left has-icons-right">
-          <input class="input" type="text">
-          <span class="icon is-small is-left">
-            <i class="fas fa-user"></i>
-          </span>
-          <span class="icon is-small is-right">
-            <i class="fas fa-check"></i>
-          </span>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Level of Care</label>
-        <div class="control has-icons-left has-icons-right">
-          <input class="input" type="text">
-          <span class="icon is-small is-left">
-            <i class="fas fa-user"></i>
-          </span>
-          <span class="icon is-small is-right">
-            <i class="fas fa-check"></i>
-          </span>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Average length of stay</label>
-        <div class="control has-icons-left has-icons-right">
-          <input class="input" type="text">
-          <span class="icon is-small is-left">
-            <i class="fas fa-user"></i>
-          </span>
-          <span class="icon is-small is-right">
-            <i class="fas fa-check"></i>
-          </span>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Referral Process</label>
-        <div class="control has-icons-left has-icons-right">
-          <input class="input" type="text">
-          <span class="icon is-small is-left">
-            <i class="fas fa-user"></i>
-          </span>
-          <span class="icon is-small is-right">
-            <i class="fas fa-check"></i>
-          </span>
-        </div>
-      </div>
-
-
-      <div class="field">
-        <label class="label">Matching Elements</label>
-        <div class="control has-icons-left has-icons-right">
-          <input class="input" type="text">
-          <span class="icon is-small is-left">
-            <i class="fas fa-user"></i>
-          </span>
-          <span class="icon is-small is-right">
-            <i class="fas fa-check"></i>
-          </span>
-        </div>
-      </div>
-
-
-      <div class="field">
-        <label class="label">Created By</label>
-        <div class="control has-icons-left has-icons-right">
-          <input class="input" type="text">
-          <span class="icon is-small is-left">
-            <i class="fas fa-user"></i>
-          </span>
-          <span class="icon is-small is-right">
-            <i class="fas fa-check"></i>
-          </span>
-        </div>
-      </div>
-
-      <div class="field is-grouped">
-        <div class="control">
-          <button class="button is-link">Submit</button>
-        </div>
-        <div class="control">
-          <button class="button is-text">
-          <%= link_to 'Cancel', services_path %>
-          </button>
-        </div>
-      </div>
+<%= form_with(model: service, local: true) do |form| %>
+  <% if service.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
+      <ul>
+      <% service.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
     </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :service_name %>
   </div>
-</div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :service_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :philosophy %>
+    <%= form.text_field :philosophy, id: :service_philosophy %>
+  </div>
+
+  <div class="field">
+    <%= form.label :entrance_criteria %>
+    <%= form.text_field :entrance_criteria, id: :service_entrance_criteria %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exclusion_criteria %>
+    <%= form.text_field :exclusion_criteria, id: :service_exclusion_criteria %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exit_criteria %>
+    <%= form.text_field :exit_criteria, id: :service_exit_criteria %>
+  </div>
+
+  <div class="field">
+    <%= form.label :level_of_care %>
+    <%= form.text_field :level_of_care, id: :service_level_of_care %>
+  </div>
+
+  <div class="field">
+    <%= form.label :average_length_of_stay %>
+    <%= form.text_field :average_length_of_stay, id: :service_average_length_of_stay %>
+  </div>
+
+  <div class="field">
+    <%= form.label :referral_process %>
+    <%= form.text_field :referral_process, id: :service_referral_process %>
+  </div>
+
+  <div class="field">
+    <%= form.label :matching_elements %>
+    <%= form.text_field :matching_elements, id: :service_matching_elements %>
+  </div>
+
+  <div class="field">
+    <%= form.label :created_by %>
+    <%= form.text_field :created_by, id: :service_created_by %>
+  </div>
+
+  <div class="field">
+    <%= form.label :updated_by %>
+    <%= form.text_field :updated_by, id: :service_updated_by %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.select :category_id, options_for_select(Category.all.map{|s|[s.name, s.id]}) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+    <!-- #, class: "button is-success" -->
+  </div>
+<% end %>
