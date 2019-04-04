@@ -39,9 +39,10 @@
         <div class="rows">
             <div class="card large">
                 <div class="card-content"><span class="title is-6 p">Contacts </span>
+    
                         <% @s_contacts.each do |c| %>
                             <p><%= link_to c.name, c %></p>
-                            <%= c.phone_number%>
+                            <%= number_to_phone c.phone_number%>
                         <% end %>
                 </div>
             </div>
