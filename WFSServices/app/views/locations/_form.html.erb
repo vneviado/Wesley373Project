@@ -1,15 +1,22 @@
 <%= form_with(model: location, local: true) do |form| %>
   <% if location.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(location.errors.count, "error") %> prohibited this location from being saved:</h2>
+      <div id="column">
+        <article class="message is-danger">
+          <div class="message-body">
+            <h2><%= pluralize(location.errors.count, "error") %> prohibited this location from being saved:</h2>
 
-      <ul>
-      <% location.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+            <ul>
+              <% location.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        </article>
+      </div>
     </div>
   <% end %>
+  
   <div class="container">
     <div class="row columns">
       <div class="column">

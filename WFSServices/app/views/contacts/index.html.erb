@@ -1,45 +1,84 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<h1>Contacts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Work number</th>
-      <th>Phone number</th>
-      <th>Street 1</th>
-      <th>City 1</th>
-      <th>Zipcode 1</th>
-      <th>Street 2</th>
-      <th>City 2</th>
-      <th>Zipcode 2</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @contacts.each do |contact| %>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+  
+    <table>
       <tr>
-        <td><%= contact.first_name %></td>
-        <td><%= contact.last_name %></td>
-        <td><%= contact.work_number %></td>
-        <td><%= contact.phone_number %></td>
-        <td><%= contact.street_1 %></td>
-        <td><%= contact.city_1 %></td>
-        <td><%= contact.zipcode_1 %></td>
-        <td><%= contact.street_2 %></td>
-        <td><%= contact.city_2 %></td>
-        <td><%= contact.zipcode_2 %></td>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <h1 class="title">Contacts</h1>
+        </td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </table>
 
-<br>
+    <div class="columns is-multiline is-mobile">
 
-<%= link_to 'New Contact', new_contact_path %>
+      <% len = @contacts.to_a.length - 1 %>
+      <% (0..len).step(3).each do |i| %>
+        <% $value1 = @contacts.to_a[i].nil? ? 0 : @contacts.to_a[i] %>
+        <% $value2 = @contacts.to_a[i+1].nil? ? 0 : @contacts.to_a[i+1] %>
+        <% $value3 = @contacts.to_a[i+2].nil? ? 0 : @contacts.to_a[i+2] %>
+
+        
+        <% if $value1 != 0 %>
+        <div class="column is-one-third">
+          <div class="card large">
+              <table>
+                  <div class="card-content">
+                    <p class="title is-4 no-padding"><%= link_to $value1.name, $value1 %></p>
+                    <span class="title is-6">Work number: </span><br/>
+                      <%= $value1.work_number %><br/><br/>
+                    <span class="title is-6">Phone number: </span><br/>
+                      <%= $value1.phone_number %><br/><br/>
+                  </div>
+                <br/>
+              </table>
+          </div>
+        </div>
+        <% end %>
+
+
+        <% if $value2 != 0 %>
+        <div class="column is-one-third">
+          <div class="card large">
+              <table>
+                  <div class="card-content">
+                    <p class="title is-4 no-padding"><%= link_to $value2.name, $value2 %></p>
+                    <span class="title is-6">Work number: </span><br/>
+                      <%= $value2.work_number %><br/><br/>
+                    <span class="title is-6">Phone number: </span><br/>
+                      <%= $value2.phone_number %><br/><br/>
+                  </div>
+                <br/>
+              </table>
+          </div>
+        </div>
+        <% end %>
+
+        <% if $value3 != 0 %>
+        <div class="column is-one-third">
+          <div class="card large">
+              <table>
+                  <div class="card-content">
+                    <p class="title is-4 no-padding"><%= link_to $value3.name, $value3 %></p>
+                    <span class="title is-6">Work number: </span><br/>
+                      <%= $value3.work_number %><br/><br/>
+                    <span class="title is-6">Phone number: </span><br/>
+                      <%= $value3.phone_number %><br/><br/>
+                  </div>
+                <br/>
+              </table>
+          </div>
+        </div>
+        <% end %>
+        
+      <% end %>
+    </div>
+    <%= link_to 'New Contact', new_contact_path, class: "button is-info is-rounded" %>
+    </div>
+  </div>
+</div> 
+
+
+
