@@ -27,19 +27,15 @@
             <% end %>
           </div>
         </div>
-
-        <div class="card-content">
-          <div class="card medium">
-            <%= link_to 'Edit', edit_location_path(@location) %> |
-            <%= link_to 'Destroy', @location, method: :delete, data: { confirm: 'Are you sure?' } %> |
-            <%= link_to 'Back', locations_path %>
-          </div>
+        <div class="column">
+          <%= link_to 'Edit', edit_location_path(@location), class: "button is-info is-rounded" %> 
+          <%= link_to 'Destroy', @location, method: :delete, data: { confirm: 'Are you sure?' } , class: "button is-danger is-rounded"%> 
         </div>
+      </div>
+      <div class="column">
+        <%= link_to 'Back', locations_path, class: "button is-info is-rounded" %>
       </div>
     </div>
   </div>
 </div>
 
-<%# <%= link_to edit_location_path(@location) do %>
-  <!-- <i class="material-icons pencil">edit</i> -->
-<%# end %>
