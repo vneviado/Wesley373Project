@@ -19,3 +19,25 @@ td, th {
 a {
   color: #591b6b;
 }
+
+.is-purple{
+  background-color: #591b6b;
+}
+
+.is-white {
+  background-color: #FFFFFF
+}
+
+.navbar-brand {
+  position: relative;
+  background: url(../images/official_logo_purple.png) center center;
+  width: 200px;
+  background-size: contain;
+}
+
+.img-responsive {
+  height: auto;
+  width: auto;
+  max-height: 72px;
+  max-width: 250px;
+}
