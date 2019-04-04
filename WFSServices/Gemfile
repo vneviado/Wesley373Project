@@ -52,6 +52,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem "bulma-rails", "~> 0.7.4"
+  gem 'simple_form'
 end
 
 # Gems only used in testing
