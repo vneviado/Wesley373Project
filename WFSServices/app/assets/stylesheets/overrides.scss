@@ -3,13 +3,13 @@ td, th {
   color: #591F6A;
 }
 
-.navbar{
-  background-color: #591F6A;
-  height: 30px;
-}
-
 .padding-left{
   padding-left: 30px;
+}
+
+#nav ul a {
+  color: #ffd600;
+  font-size: 1.2rem;
 }
 
 .field {
@@ -18,6 +18,10 @@ td, th {
 
 a {
   color: #591b6b;
+}
+
+.is-black{
+  background-color: #000000;
 }
 
 .is-purple{

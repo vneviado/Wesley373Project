@@ -1,39 +1,35 @@
 
-<body>
-    <section class="hero is-purple is-fullheight">
-        <div class="hero-head is-white">
-            <nav class="navbar">
-                <div class="container">
-                    <div class="navbar-brand">
+<nav class="navbar is-purple">
+    <div class="container">
+        <div class="navbar-brand">
 
-                        <a class="navbar-item" href="../">
-                            <%= image_tag('official_logo_purple.png') %>
-                        </a>
+            <a class="navbar-item" href="../">
+                <%= image_tag('white_logo.png') %>
+            </a>
 
-                        <span class="navbar-burger burger" data-target="navbarMenu">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </span>
-                    </div>
+            <span class="navbar-burger burger" data-target="navbarMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+        </div>  
 
-                    <div id="navbarMenu" class="navbar-menu">
-                        <div class="navbar-end">
+        <div id="navbarMenu" class="navbar-menu">
+            <div class="navbar-end">
 
-                            <span class="navbar-item is-white">
-                                <%= link_to "Services", services_path %>
-                            </span>
+                <span class="navbar-item">
+                    <%= link_to "Services", services_path, style: 'color:#FFFFFF;', class: 'css_class' %>
+                </span>
 
-                            <span class="navbar-item is-white">
-                                <%= link_to "Locations", locations_path %>
-                            </span>
+                <span class="navbar-item">
+                    <%= link_to "Locations", locations_path, style: 'color:#FFFFFF;', class: 'css_class' %>
+                </span>
 
-                            <span class="navbar-item is-white">
-                                <%= link_to "Contacts", contacts_path %>
-                            </span>
-                        </div>
-                    </div>
+                <span class="navbar-item">
+                    <%= link_to "Contacts", contacts_path, style: 'color:#FFFFFF;', class: 'css_class' %>
+                </span>
+            </div>
+        </div>
 
-                </div>
-            </nav>
-          </div>
+    </div>
+</nav>
