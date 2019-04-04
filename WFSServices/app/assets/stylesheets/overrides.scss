@@ -3,15 +3,6 @@ td, th {
   color: #591F6A;
 }
 
-.padding-left{
-  padding-left: 30px;
-}
-
-#nav ul a {
-  color: #ffd600;
-  font-size: 1.2rem;
-}
-
 .field {
   margin: 8px 0;
 }
@@ -32,16 +23,18 @@ a {
   background-color: #FFFFFF
 }
 
-.navbar-brand {
-  position: relative;
-  background: url(../images/official_logo_purple.png) center center;
-  width: 200px;
-  background-size: contain;
+.padding-top {
+  padding-top: 70px;
 }
 
-.img-responsive {
-  height: auto;
-  width: auto;
-  max-height: 72px;
-  max-width: 250px;
+.padding-right {
+  padding-right: 30px;
+}
+
+.padding-left{
+  padding-left: 30px;
+}
+
+.topbar{
+  background-color: #591b6b;
 }

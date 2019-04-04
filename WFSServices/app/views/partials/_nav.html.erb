@@ -3,10 +3,6 @@
     <div class="container">
         <div class="navbar-brand">
 
-            <a class="navbar-item" href="../">
-                <%= image_tag('white_logo.png') %>
-            </a>
-
             <span class="navbar-burger burger" data-target="navbarMenu">
                 <span></span>
                 <span></span>
@@ -15,18 +11,18 @@
         </div>  
 
         <div id="navbarMenu" class="navbar-menu">
-            <div class="navbar-end">
+            <div class="navbar-start">
 
                 <span class="navbar-item">
-                    <%= link_to "Services", services_path, style: 'color:#FFFFFF;', class: 'css_class' %>
+                    <%= link_to "Services", services_path, style: 'color:#FFFFFF; font-size: 20px;', class: 'css_class' %>
                 </span>
 
                 <span class="navbar-item">
-                    <%= link_to "Locations", locations_path, style: 'color:#FFFFFF;', class: 'css_class' %>
+                    <%= link_to "Locations", locations_path, style: 'color:#FFFFFF; font-size: 20px;', class: 'css_class' %>
                 </span>
 
                 <span class="navbar-item">
-                    <%= link_to "Contacts", contacts_path, style: 'color:#FFFFFF;', class: 'css_class' %>
+                    <%= link_to "Contacts", contacts_path, style: 'color:#FFFFFF; font-size: 20px;', class: 'css_class' %>
                 </span>
             </div>
         </div>
