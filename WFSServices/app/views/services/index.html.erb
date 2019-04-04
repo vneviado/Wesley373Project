@@ -9,15 +9,10 @@
         <td>
           <h1 class="title">Services</h1>
         </td>
-        <td>
-          
-        </td>
       </tr>
     </table>
     
 <p id="notice"><%= notice %></p>
-
-<% i = 0 %>
 
 <div class="columns is-multiline is-mobile">
 
@@ -27,8 +22,6 @@
 <% $value1 = @categories.to_a[i].nil? ? 0 : @categories.to_a[i] %>
 <% $value2 = @categories.to_a[i+1].nil? ? 0 : @categories.to_a[i+1] %>
 <% $value3 = @categories.to_a[i+2].nil? ? 0 : @categories.to_a[i+2] %>
-<% end %>
-
 
   <div class="column is-one-third">
     <% if $value1 != 0 %>
@@ -107,12 +100,12 @@
       </div>
     <% end %>
   </div>
-
+<% end %>
 
 <div class="column">
 
-    <%= link_to 'New Service', new_service_path, class: "button is-rounded" %>
-    <%= link_to 'New Category', new_category_path, class: "button is-rounded" %></a>
+    <%= link_to 'New Service', new_service_path, class: "button is-info is-rounded" %>
+    <%= link_to 'New Category', new_category_path, class: "button is-info is-rounded" %></a>
 
 </div>
 
