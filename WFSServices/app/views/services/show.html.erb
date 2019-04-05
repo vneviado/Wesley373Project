@@ -119,6 +119,7 @@
         <div class="column">
             <%= link_to 'Edit', edit_service_path(@service), class: "button is-info is-rounded" %>  
             <%= link_to 'Back', services_path, class: "button is-info is-rounded" %>
+            <%= link_to 'Destroy', @contact, method: :delete, data: { confirm: 'Are you sure?' } , class: "button is-danger is-rounded"%>
         </div>
         
     </div>
