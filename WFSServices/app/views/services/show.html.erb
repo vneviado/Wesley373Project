@@ -1,8 +1,21 @@
 <div class="container">
 
+<<<<<<< HEAD
     <div class="columns padding-top ">
         <div class="column ">
             <div class="card large">
+=======
+
+    <div class="rows padding-top">
+
+    <div class="column">
+    <%= link_to 'New Service Type', new_service_type_path(service_id: @service.id), class: "button is-info is-rounded" %>
+    </div>
+
+        <div class="row">
+            <div class="card large">
+                
+>>>>>>> 784dc94915dfbb4bb708f793f1e4e645630ec63c
                 <div class="card-content">
                     <div class="media">
                         <div class="media-content">
@@ -97,5 +110,19 @@
         </div>
     </div>
 
+<<<<<<< HEAD
    
+=======
+    <div class="container">
+        <div class="rows">
+            <div class="card large">
+                <div class="card-content"><span class="title is-6">Service Types </span>
+                    <% @service.service_types.each do |i| %>
+                        <p><%= link_to i.name, i %></p>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+>>>>>>> 784dc94915dfbb4bb708f793f1e4e645630ec63c
 
