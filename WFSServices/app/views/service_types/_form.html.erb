@@ -1,49 +1,66 @@
 <%= form_with(model: service_type, local: true) do |form| %>
   <% if service_type.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(service_type.errors.count, "error") %> prohibited this service_type from being saved:</h2>
+      <div id="column">
+        <article class="message is-danger">
+          <div class="message-body">
+            <h2><%= pluralize(service_type.errors.count, "error") %> prohibited this service_type from being saved:</h2>
 
-      <ul>
-      <% service_type.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+            <ul>
+              <% service_type.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        </article>
+      </div>
     </div>
   <% end %>
 
-  <h4>New Service Type for <%= @service.name %>:</h4>
+  <div class="container">
+    <div class="row columns">
+      <div class="column">
+        <div class="card large">
+          <div class="card-content">
+            <div class="field">
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :service_type_name %>
-  </div>
+                <div class="field">
+                  <%= form.label :name %>
+                  <%= form.text_field :name, id: :service_type_name %>
+                </div>
 
-  <div class="field">
-    <%= form.label :cost %>
-    <%= form.select :cost_id, options_for_select(Cost.all.map{|s|[s.id]}) %>
-  </div>
+                <div class="field">
+                  <%= form.label :cost %>
+                  <%= form.select :cost_id, options_for_select(Cost.all.map{|s|[s.id]}) %>
+                </div>
 
-  <div class="field">
-    <%= form.label :staff %>
-    <%= form.text_field :staff, id: :service_type_staff %>
-  </div>
+                <div class="field">
+                  <%= form.label :staff %>
+                  <%= form.text_field :staff, id: :service_type_staff %>
+                </div>
 
-  <div class="field">
-    <%= form.label :service_id %>
-    <%= form.text_field :service_id, id: :service_type_service_id, as: :hidden, input_html: { value: @service.id } %>
-  </div>
+                <div class="field">
+                  <%= form.label :service_id %>
+                  <%= form.text_field :service_id, id: :service_type_service_id, input_html: { value: @service.id } %>
+                </div>
 
-  <div class="field">
-    <%= form.label :created_by %>
-    <%= form.text_field :created_by, id: :service_type_created_by %>
-  </div>
+                <div class="field">
+                  <%= form.label :created_by %>
+                  <%= form.text_field :created_by, id: :service_type_created_by %>
+                </div>
 
-  <div class="field">
-    <%= form.label :updated_by %>
-    <%= form.text_field :updated_by, id: :service_type_updated_by %>
-  </div>
+                <div class="field">
+                  <%= form.label :updated_by %>
+                  <%= form.text_field :updated_by, id: :service_type_updated_by %>
+                </div>
 
-  <div class="actions">
-    <%= form.submit %>
+                <div class="actions">
+                  <%= form.submit %>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>

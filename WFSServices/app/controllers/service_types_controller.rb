@@ -10,6 +10,7 @@ class ServiceTypesController < ApplicationController
   # GET /service_types/1
   # GET /service_types/1.json
   def show
+    #@service = Service.find(params[:service_id])
   end
 
   # GET /service_types/new

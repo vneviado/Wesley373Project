@@ -17,6 +17,7 @@
                     <table>
                         <div class="card-content">
                           <p class="title is-4 no-padding"><%= link_to $value1.name, $value1 %></p>
+
                           <span class="title is-6"> Role: </span><br/>
                             <%= $value1.role %><br/><br/>
                           <span class="title is-6">Work number: </span><br/>
@@ -36,6 +37,7 @@
                     <table>
                         <div class="card-content">
                           <p class="title is-4 no-padding"><%= link_to $value2.name, $value2 %></p>
+
                           <span class="title is-6"> Role: </span><br/>
                             <%= $value2.role %><br/><br/>
                           <span class="title is-6">Work number: </span><br/>
@@ -55,8 +57,10 @@
                     <table>
                         <div class="card-content">
                           <p class="title is-4 no-padding"><%= link_to $value3.name, $value3 %></p>
+
                           <span class="title is-6"> Role: </span><br/>
                             <%= $value3.role %><br/><br/>
+
                           <span class="title is-6">Work number: </span><br/>
                             <%= number_to_phone $value3.work_number %><br/><br/>
                           <span class="title is-6">Phone number: </span><br/>

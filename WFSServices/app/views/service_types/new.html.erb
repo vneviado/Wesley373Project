@@ -1,3 +1,18 @@
+<div class="container">
+  <div class="row columns">
+    <div class="column">
+      <br/>
+      <p class="title is-4 no-padding">New Service Type</p>
+    </div>
+  </div>
+</div>
+
 <%= render 'form', service_type: @service_type %>
 
-<%= link_to 'Back', @service %>
+<div class="container">
+  <div class="row columns">
+    <div class="column">
+      <%= link_to 'Back', @service, class: "button is-info is-rounded" %>
+    </div>
+  </div>
+</div>

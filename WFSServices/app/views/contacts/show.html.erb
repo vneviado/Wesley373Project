@@ -12,7 +12,8 @@
             </div>
           </div>
 
-          <div class="content"><span class="title is-6">Contact: </span>
+          <div class="content"><span class="title is-6">Contact Information: </span>
+            <br/>Role: <%= @contact.role %>
             <br/>Work number: <%= number_to_phone @contact.work_number %>
             <br/>Phone number: <%= number_to_phone @contact.phone_number %>
           </div>
