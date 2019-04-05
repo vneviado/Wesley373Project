@@ -33,6 +33,11 @@
             </div>
 
             <div class="field">
+              <strong><%= form.label :role %></strong>:
+              <%= form.text_field :role, id: :contact_role %>
+            </div>
+
+            <div class="field">
               <strong><%= form.label :work_number %></strong>:
               <%= form.text_field :work_number, id: :contact_work_number %>
             </div>

@@ -1,0 +1,37 @@
+<div class="container">
+    <% unless @services.empty? %>
+    <p class="padding-top"><em><strong>Services matching term '<%= @query %>'</strong></em></p>
+    <ul>
+        <% for service in @services do %>
+        <li><%= link_to service.name, service_path(service) %></li>
+        <% end %>
+    </ul>
+    <p class="smtext">&nbsp;</p>
+    <% end %>
+
+    <% unless @contacts.empty? %>
+    <p class="padding-top"><em><strong>Contacts matching term '<%= @query %>'</strong></em></p>
+    <ul>
+        <% for contact in @contacts do %>
+        <li><%= link_to contact.name, contact_path(contact) %></li>
+        <% end %>
+    </ul>
+    <p class="smtext">&nbsp;</p>
+    <% end %>
+
+    <% unless @locations.empty? %>
+    <p class="padding-top"><em><strong>Locations matching term '<%= @query %>'</strong></em></p>
+    <ul>
+        <% for location in @locations do %>
+        <li><%= link_to location.name, location_path(location) %></li>
+        <% end %>
+    </ul>
+    <p class="smtext">&nbsp;</p>
+    <% end %>
+
+    <% if @locations.empty? && @services.empty? && @contacts.empty?%>
+        <div class="padding-top">
+            <p><em><strong> There are no results matching '<%= @query %>'.</strong></em></p>
+        </div>
+    <% end %>
+</div>

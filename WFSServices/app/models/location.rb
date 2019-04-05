@@ -12,7 +12,7 @@ class Location < ApplicationRecord
   validates_format_of :zipcode, with: /\A\d{5}\z/, message: "should be five digits long", allow_blank: true
 
   #Scopes
-
+  scope :search, ->(term) { where('name LIKE ? OR city LIKE ?', "%#{term}%", "%#{term}%") }
 
   #Methods
   def self.for_service(service)
