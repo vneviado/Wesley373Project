@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20190322032920) do
     t.string "street_2"
     t.string "city_2"
     t.string "zipcode_2"
+    t.string "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -99,6 +100,7 @@ ActiveRecord::Schema.define(version: 20190322032920) do
     t.string "average_length_of_stay"
     t.string "referral_process"
     t.string "matching_elements"
+    t.string "web_address"
     t.string "created_by"
     t.string "updated_by"
     t.bigint "category_id"
