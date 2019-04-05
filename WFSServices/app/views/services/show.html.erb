@@ -40,7 +40,7 @@
                         <tbody>
                             <tr>
                             <% @service.service_types.each do |t| %>
-                                <th><%= link_to t.name, t %></th>
+                                <th><%= t.name %></th>
                                 <td><%= t.cost.unit_cost%></td>
                                 <td><%= t.cost.unit_rate%></td>
                                 <td><%= t.cost.avg_los%></td>
