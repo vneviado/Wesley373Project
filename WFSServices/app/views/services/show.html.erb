@@ -1,54 +1,62 @@
 <div class="container">
 
-    <div class="rows padding-top">
-        <div class="row">
+    <div class="columns padding-top ">
+        <div class="column ">
             <div class="card large">
-                
-            
                 <div class="card-content">
                     <div class="media">
                         <div class="media-content">
-                            <p class="title is-4 no-padding"><%=@service.name%></p>
+                            <p class="title is-4 no-padding has-text-purple"><%=@service.name%></p>
+                            <p><span class="title is-6">Website</span></p>
+                            <p class="subtitle is-6"><%= link_to @service.web_address, @service.web_address%></p>
                             <p><span class="title is-6">Philosophy</span></p>
                             <p class="subtitle is-6"><%= @service.philosophy%></p>
                             <p><span class="title is-6">Description</span></p>
                             <p class="subtitle is-6"><%= @service.description%></p>
+                            <p><span class="title is-6">Level of Care</span></p>
+                            <p class="subtitle is-6"><%= @service.level_of_care%></p>
+                            
+                            
+                           
                         </div>
-                     </div>
+                    </div>
                 </div>
-
             </div>
         </div>
+    </div>
+
+     <div class="columns padding-top ">
+
+        <div class="column padding-bottom one-half">
+            <div class="card large">
+                <div class="card-content">
+                    <p><span class="title is-6">Entrance Criteria </span></p>
+                    <p class="subtitle is-6"><%= @service.entrance_criteria%></p>
+                    <p><span class="title is-6">Exclusion Criteria</span></p>
+                    <p class="subtitle is-6"><%= @service.exclusion_criteria%></p>
+                    <p><span class="title is-6">Exit Criteria</span></p>
+                    <p class="subtitle is-6"><%= @service.exit_criteria%></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column one-half">
+            <div class="card large">
+                <div class="card-content">
+                    <p><span class="title is-6">Average Length of Stay</span></p>
+                    <p class="subtitle is-6"><%= @service.average_length_of_stay%></p>
+                    <p><span class="title is-6">Referral Process</span></p>
+                    <p class="subtitle is-6"><%= @service.referral_process%></p>
+                    <p><span class="title is-6">Matching Elements</span></p>
+                    <p class="subtitle is-6"><%= @service.matching_elements%></p>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </div>
-
-    <div class="container">
-        <div class="rows">
-            <div class="card large">
-                <div class="card-content"><span class="title is-6">Locations </span>
-                        <% @s_locations.each do |i| %>
-                            <p><%= link_to i.name, i %></p>
-                        <% end %>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="rows">
-            <div class="card large">
-                <div class="card-content"><span class="title is-6 p">Contacts </span>
-    
-                        <% @s_contacts.each do |c| %>
-                            <p><%= link_to c.name, c %></p>
-                            <%= number_to_phone c.phone_number%>
-                        <% end %>
-                </div>
-            </div>
-        </div>
-    </div>
-
+ 
     <div class="container">
         <div class="rows">
             <div class="card large">
@@ -61,5 +69,33 @@
         </div>
     </div>
 
+    <div class="container padding-bottom">
+        <div class="rows">
+            <div class="card large">
+                <div class="card-content"><span class="title is-6 p">Contacts </span>
+    
+                    <% @s_contacts.each do |c| %>
+                        <p><%= link_to c.name, c %></p>
+                        <%= number_to_phone c.phone_number%>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="container padding-bottom">
+        <div class="rows">
+            <div class="card large">
+                <div class="card-content"><span class="title is-6 p">Service Types </span>
+    
+                    <% @s_types.each do |t| %>
+                        <p><%= link_to t.name, t %></p>
+                    
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
 
