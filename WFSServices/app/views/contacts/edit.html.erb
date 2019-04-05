@@ -1,6 +1,18 @@
-<h1>Editing Contact</h1>
+<div class="container">
+  <div class="row columns">
+    <div class="column">
+      <br/>
+      <p class="title is-4 no-padding">Editing Contact</p>
+    </div>
+  </div>
+</div>
 
 <%= render 'form', contact: @contact %>
 
-<%= link_to 'Show', @contact %> |
-<%= link_to 'Back', contacts_path %>
+<div class="container">
+  <div class="row columns">
+    <div class="column">
+      <%= link_to 'Back', @contact, class: "button is-info is-rounded" %>
+    </div>
+  </div>
+</div>

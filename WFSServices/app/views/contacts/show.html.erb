@@ -1,54 +1,50 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row columns">
+    <div class="column">
+      <br/>
+      <div class="card large">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4 no-padding"><%= @contact.name %></p>
+            </div>
+          </div>
 
-<p>
-  <strong>First name:</strong>
-  <%= @contact.first_name %>
-</p>
+          <div class="content"><span class="title is-6">Contact: </span>
+            <br/>Work number: <%= number_to_phone @contact.work_number %>
+            <br/>Phone number: <%= number_to_phone @contact.phone_number %>
+          </div>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @contact.last_name %>
-</p>
+          <div class="content"><strong>Address: </strong><br/>
+            Street: <%= @contact.street_1 %>
+            <br/>
+            City: <%= @contact.city_1 %>
+            <br/>
+            Zipcode: <%= @contact.zipcode_1 %>
+          </div>
 
-<p>
-  <strong>Work number:</strong>
-  <%= @contact.work_number %>
-</p>
+          <% if @contact.street_2 != nil && @contact.city_2 != nil && @contact.zipcode_2 != nil %>
+            <div class="content"><strong>Secondary Address: </strong><br/>
+              Street: <%= @contact.street_2 %>
+              <br/>
+              City: <%= @contact.city_2 %>
+              <br/>
+              Zipcode: <%= @contact.zipcode_2 %>
+            </div>
+          <% end %>
 
-<p>
-  <strong>Phone number:</strong>
-  <%= @contact.work_number %>
-</p>
-
-<p>
-  <strong>Street 1:</strong>
-  <%= @contact.street_1 %>
-</p>
-
-<p>
-  <strong>City 1:</strong>
-  <%= @contact.city_1 %>
-</p>
-
-<p>
-  <strong>Zipcode 1:</strong>
-  <%= @contact.zipcode_1 %>
-</p>
-
-<p>
-  <strong>Street 2:</strong>
-  <%= @contact.street_2 %>
-</p>
-
-<p>
-  <strong>City 2:</strong>
-  <%= @contact.city_2 %>
-</p>
-
-<p>
-  <strong>Zipcode 2:</strong>
-  <%= @contact.zipcode_2 %>
-</p>
-
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+          <div class="content"><span class="title is-6">Services: </span><br/>
+            <% @contact.services.each do |s| %>
+              <%= link_to s.name, s %><br/>
+            <% end %>
+          </div>
+        </div>
+        <div class="column">
+          <%= link_to 'Back', contacts_path, class: "button is-info is-rounded" %>
+          <%= link_to 'Edit', edit_contact_path(@contact), class: "button is-info is-rounded" %>
+          <%= link_to 'Destroy', @contact, method: :delete, data: { confirm: 'Are you sure?' } , class: "button is-danger is-rounded"%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

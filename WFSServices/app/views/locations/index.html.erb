@@ -1,32 +1,28 @@
-<div class="container">
-  <div class="row columns">
-    <div class="column">
-      <div class="card large">
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-4 no-padding">Locations</p>
-            </div>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">Locations</h1>
+      <div class="container">
+        <div class="row columns">
+          <div class="column">
+            <% @locations.each do |location| %>
+              <div class="card large">
+                <div class="card-content">
+                  <p class="title is-4 no-padding"><%= link_to location.name, location %></p>
+                  <span class="title is-6">Address: </span><br/>
+                  <%= location.street %>, <%= location.city %> PA, <%= location.zipcode %><br/><br/>
+
+                  <span class="title is-6">Services: </span><br/>
+                  <% location.services.each do |s| %>
+                    - <%= link_to s.name, s %><br/>
+                  <% end %>
+                </div>
+              </div><br/>
+            <% end %>
+            <%= link_to 'New Location', new_location_path, class: "button is-info is-rounded" %>
           </div>
         </div>
-      </div><br/>
-
-      <% @locations.each do |location| %>
-        <div class="card large">
-          <div class="card-content">
-            <p class="title is-4 no-padding"><%= link_to location.name, location %></p>
-            <span class="title is-6">Address: </span><br/>
-            <%= location.street %>, <%= location.city %> PA, <%= location.zipcode %><br/><br/>
-          <span class="title is-6">Services: </span><br/>
-            <% location.services.each do |s| %>
-              - <%= link_to s.name, s %><br/>
-            <% end %>
-          </div>
-        </div><br/>
-      <% end %>
-
-          <%= link_to 'New Location', new_location_path, class: "button is-info is-rounded" %>
-
+      </div>
     </div>
   </div>
-</div>
+</section>
