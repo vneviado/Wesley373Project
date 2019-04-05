@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <h4>New Service Type for <%= @service.name %>:</h4>
+
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name, id: :service_type_name %>
@@ -18,12 +20,17 @@
 
   <div class="field">
     <%= form.label :cost %>
-    <%= form.text_field :cost, id: :service_type_cost %>
+    <%= form.select :cost_id, options_for_select(Cost.all.map{|s|[s.id]}) %>
   </div>
 
   <div class="field">
     <%= form.label :staff %>
     <%= form.text_field :staff, id: :service_type_staff %>
+  </div>
+
+  <div class="field">
+    <%= form.label :service_id %>
+    <%= form.text_field :service_id, id: :service_type_service_id, as: :hidden, input_html: { value: @service.id } %>
   </div>
 
   <div class="field">
@@ -34,11 +41,6 @@
   <div class="field">
     <%= form.label :updated_by %>
     <%= form.text_field :updated_by, id: :service_type_updated_by %>
-  </div>
-
-  <div class="field">
-    <%= form.label :service %>
-    <%= form.text_field :service, id: :service_type_service %>
   </div>
 
   <div class="actions">
