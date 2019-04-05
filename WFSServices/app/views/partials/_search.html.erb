@@ -11,14 +11,14 @@
 
 <%# <div class="field is-grouped">
   <p class="control is-expanded"> %>
-<%# <div class="padding-left">  
-    <%= form_tag(services_path, :method => "get") do %>
-        <%# <%= text_field_tag :search, params[:search], placeholder: "Search..."%>
-        <%# <%= submit_tag "Search", class: 'button is-info is-small'%>
-    <%# <% end %>
-<%# </div> %>
-  <%# </p>
-</div> %>
+
+<div class="padding-left">  
+  <%= form_tag(search_path, method: :get, class: "form-inline", id: "search") do %>
+      <%= text_field_tag 'query','', placeholder: "Search..."%>
+      <%= submit_tag "Search", class: 'button is-info is-small' %>
+  <% end %>
+</div>
+
 
 
 
