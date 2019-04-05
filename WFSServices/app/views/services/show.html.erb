@@ -51,7 +51,7 @@
                         </tbody>
                     </table>
                     <div class="padding-top">
-                        <%= link_to 'New Service Type', new_service_type_path(service_id: @service.id), class: "button is-success is-rounded" %>
+                        <%= link_to 'New Service Type', new_service_type_path(service_id: @service.id), class: "button is-success is-outlined is-rounded" %>
                     </div>
                 </div>
             </div>
@@ -124,8 +124,8 @@
 
     <div class="container">
         <div class="column">
-            <%= link_to 'Edit', edit_service_path(@service), class: "button is-info is-rounded" %>  
-            <%= link_to 'Back', services_path, class: "button is-info is-rounded" %>
+            <%= link_to 'Edit', edit_service_path(@service), class: "button is-info is-outlined is-rounded" %>  
+            <%= link_to 'Back', services_path, class: "button is-info is-outlined is-rounded" %>
         </div>
         
     </div>
