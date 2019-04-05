@@ -1,8 +1,18 @@
-<%= render 'form', location: @location %>
 <div class="container">
-	<div class="row columns">
-		<div class="column">
-			<%= link_to 'Back', locations_path, class: "button is-info is-rounded" %>
-		</div>
-	</div>
+  <div class="row columns">
+    <div class="column">
+      <br/>
+      <p class="title is-4 no-padding">New Location</p>
+    </div>
+  </div>
+</div>
+
+<%= render 'form', location: @location %>
+
+<div class="container">
+  <div class="row columns">
+    <div class="column">
+      <%= link_to 'Back', locations_path, class: "button is-info is-rounded" %>
+    </div>
+  </div>
 </div>

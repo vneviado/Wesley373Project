@@ -7,6 +7,7 @@ FactoryBot.define do
       street_1 "104 Beta Dr"
       city_1 "Pittsburgh"
       zipcode_1 "15238"
+      role "Doctor"
       #created_by "Test Admin"
       #updated_by "Test Admin"
     end
