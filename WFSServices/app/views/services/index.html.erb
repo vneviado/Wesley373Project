@@ -1,18 +1,11 @@
-<p id="notice"><%= notice %></p>
-
+<div class="container">
 <section class="hero">
   <div class="hero-body">
     <div class="container">
 
-    <table>
-      <tr>
-        <td>
-          <h1 class="title">Services</h1>
-        </td>
-      </tr>
-    </table>
+    <h1 class="title">Services</h1>
 
-<p id="notice"><%= notice %></p>
+
 
 <div class="columns is-multiline is-mobile">
 
@@ -36,9 +29,9 @@
                   <p><span class="title is-6"><%=link_to service.name, service %></span></p>
                   <p class="subtitle is-6"><%= service.description %></p>
                   </td>
-                  <td style="vertical-align: middle;">
-                    <%= link_to 'Edit ', edit_service_path(service) %>
-                    <%= link_to ' Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <td style="vertical-align: right;">
+                    <%= link_to 'Edit', edit_service_path(service) %>
+                    <%#= link_to ' Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
                   </td>
                 <% end %>
                 </tr>
@@ -62,9 +55,9 @@
                   <p><span class="title is-6"><%=link_to service.name, service %></span></p>
                   <p class="subtitle is-6"><%= service.description %></p>
                   </td>
-                  <td style="vertical-align: middle;">
+                  <td style="vertical-align: right;">
                     <%= link_to 'Edit ', edit_service_path(service) %>
-                    <%= link_to ' Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <%#= link_to ' Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
                   </td>
                 <% end %>
                 </tr>
@@ -88,9 +81,9 @@
                   <p><span class="title is-6"><%=link_to service.name, service %></span></p>
                   <p class="subtitle is-6"><%= service.description %></p>
                   </td>
-                  <td style="vertical-align: middle;">
+                  <td style="vertical-align: right;">
                     <%= link_to 'Edit ', edit_service_path(service) %>
-                    <%= link_to ' Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <%#= link_to ' Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
                   </td>
                 <% end %>
                 </tr>
