@@ -18,7 +18,6 @@ class ServicesController < ApplicationController
   def show
     @s_locations = @service.locations
     @s_contacts = @service.contacts
-    @s_types = @service = Service.find(params[:service_id])
   end
 
   # GET /services/new
