@@ -25,7 +25,12 @@
                     <%= link_to "Contacts", contacts_path, style: 'color:#FFFFFF; font-size: 20px;', class: 'css_class' %>
                 </span>
             </div>
-        </div>
+            
+            <div class="navbar-end">
+                <span class="navbar-item">
+                    <%= render :partial => "partials/search" %>
+                </span>
+            </div>
 
     </div>
 </nav>
