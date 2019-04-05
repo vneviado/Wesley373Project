@@ -3,7 +3,7 @@
 <section class="hero">
   <div class="hero-body">
     <div class="container">
-  
+
     <table>
       <tr>
         <td>
@@ -20,7 +20,7 @@
         <% $value2 = @contacts.to_a[i+1].nil? ? 0 : @contacts.to_a[i+1] %>
         <% $value3 = @contacts.to_a[i+2].nil? ? 0 : @contacts.to_a[i+2] %>
 
-        
+
         <% if $value1 != 0 %>
         <div class="column is-one-third">
           <div class="card large">
@@ -78,7 +78,4 @@
     <%= link_to 'New Contact', new_contact_path, class: "button is-info is-rounded" %>
     </div>
   </div>
-</div> 
-
-
-
+</div>
