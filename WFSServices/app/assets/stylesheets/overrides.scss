@@ -3,14 +3,38 @@ td, th {
   color: #591F6A;
 }
 
-nav{
-  background-color: #591F6A;
-}
-
 .field {
   margin: 8px 0;
 }
 
 a {
-	color: #591b6b;
+  color: #591b6b;
+}
+
+.is-black{
+  background-color: #000000;
+}
+
+.is-purple{
+  background-color: #591b6b;
+}
+
+.is-white {
+  background-color: #FFFFFF
+}
+
+.padding-top {
+  padding-top: 70px;
+}
+
+.padding-right {
+  padding-right: 30px;
+}
+
+.padding-left{
+  padding-left: 30px;
+}
+
+.topbar{
+  background-color: #591b6b;
 }
