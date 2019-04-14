@@ -125,7 +125,7 @@
     <div class="container padding-top">
         <div class="card large">
             <div class="card-content"><span class="title is-6 p"> Comments </span>
-                 <%= @service.comments.each do |c|%>
+                 <%= @s_comments.each do |c|%>
                     <p><%= c.date_created %> <%= c.content %></p>
                 <% end %>
                 <div class="padding-top">
