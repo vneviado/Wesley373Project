@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190322032920) do
+ActiveRecord::Schema.define(version: 20190414173919) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 20190322032920) do
     t.string "updated_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "content"
+    t.date "date_created"
+    t.bigint "service_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["service_id"], name: "index_comments_on_service_id"
   end
 
   create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -101,6 +110,7 @@ ActiveRecord::Schema.define(version: 20190322032920) do
     t.string "referral_process"
     t.string "matching_elements"
     t.string "web_address"
+    t.string "array_of_services"
     t.string "created_by"
     t.string "updated_by"
     t.bigint "category_id"
@@ -109,6 +119,7 @@ ActiveRecord::Schema.define(version: 20190322032920) do
     t.index ["category_id"], name: "index_services_on_category_id"
   end
 
+  add_foreign_key "comments", "services"
   add_foreign_key "service_contacts", "contacts"
   add_foreign_key "service_contacts", "services"
   add_foreign_key "service_locations", "locations"

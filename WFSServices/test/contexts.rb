@@ -4,6 +4,7 @@ require './test/sets/contacts'
 require './test/sets/locations'
 require './test/sets/service_types'
 require './test/sets/services'
+require './test/sets/comments'
 require './test/sets/costs'
 require './test/sets/service_locations'
 require './test/sets/service_contacts'
@@ -15,6 +16,7 @@ module Contexts
   include Contexts::Locations
   include Contexts::ServiceTypes
   include Contexts::Services
+  include Contexts::Comments
   include Contexts::Costs
   include Contexts::ServiceLocations
   include Contexts::ServiceContacts
@@ -31,6 +33,8 @@ module Contexts
     puts "Built services"
     create_service_types
     puts "Built service types"
+    create_comments
+    puts "Built comments"
     create_costs
     puts "Built costs"
     create_service_locations
@@ -41,6 +45,14 @@ module Contexts
 
   # a destroy_all method to quickly destroy the testing context
   def destroy_all
+    destroy_comments
+    puts "Destroyed comments"
+    destroy_costs
+    puts "Destroyed costs"
+    destroy_service_locations
+    puts "Destroyed service locations"
+    destroy_service_contacts
+    puts "Destroyed service contacts"
     destroy_services
     puts "Destroyed services"
     destroy_service_types
@@ -51,11 +63,5 @@ module Contexts
     puts "Destroyed contacts"
     destroy_categories
     puts "Destroyed categories"
-    destroy_costs
-    puts "Destroyed costs"
-    destroy_service_locations
-    puts "Destroyed service locations"
-    destroy_service_contacts
-    puts "Destroyed service contacts"
   end
 end
