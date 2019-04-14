@@ -18,6 +18,7 @@ class ServicesController < ApplicationController
   def show
     @s_locations = @service.locations
     @s_contacts = @service.contacts
+    @s_comments = @service.comments
   end
 
   # GET /services/new
@@ -77,6 +78,6 @@ class ServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:name, :description, :philosophy, :entrance_criteria, :exclusion_criteria, :exit_criteria, :level_of_care, :average_length_of_stay, :referral_process, :matching_elements, :created_by, :updated_by, :category, :contact, :location)
+      params.require(:service).permit(:name, :description, :philosophy, :entrance_criteria, :exclusion_criteria, :exit_criteria, :level_of_care, :average_length_of_stay, :referral_process, :matching_elements, :created_by, :updated_by, :category, :contact, :location, :comment)
     end
 end

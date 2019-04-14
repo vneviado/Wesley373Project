@@ -39,7 +39,7 @@
                         <tbody>
                             <tr>
                             <% @service.service_types.each do |t| %>
-                                <th><%= link_to t.name, t %></th>
+                                <th><%= t.name %></th>
                                 <td><%= t.cost.unit_cost%></td>
                                 <td><%= t.cost.unit_rate%></td>
                                 <td><%= t.cost.avg_los%></td>
@@ -94,7 +94,12 @@
                 <div class="card-content"><span class="title is-6">Locations </span>
                     <% @s_locations.each do |i| %>
                         <p><%= link_to i.name, i %></p>
+                        <p><%= i.street %></p>
+                        <p><%= i.city %>, PA <%= i.zipcode %></p>
                     <% end %>
+                    <div class="padding-top">
+                        <%= link_to 'New Location', new_service_location_path(), class: "button is-info is-rounded" %>
+                    </div>
                 </div>
             </div>
         </div>
@@ -104,11 +109,27 @@
         <div class="rows">
             <div class="card large">
                 <div class="card-content"><span class="title is-6 p">Contacts </span>
-    
                     <% @s_contacts.each do |c| %>
                         <p><%= link_to c.name, c %></p>
-                        <%= number_to_phone c.phone_number%>
+                        <p><%= c.role %></p>
+                        <p><%= number_to_phone c.phone_number%></p>
                     <% end %>
+                    <div class="padding-top">
+                        <%= link_to 'New Contact', new_service_contact_path(), class: "button is-info is-rounded" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container padding-top">
+        <div class="card large">
+            <div class="card-content"><span class="title is-6 p"> Comments </span>
+                 <%= @s_comments.each do |c|%>
+                    <p><%= c.date_created %> <%= c.content %></p>
+                <% end %>
+                <div class="padding-top">
+                        <%= link_to 'New Comment', new_comment_path(), class: "button is-info is-rounded" %>
                 </div>
             </div>
         </div>
@@ -122,4 +143,6 @@
         </div>
         
     </div>
+
+
 
