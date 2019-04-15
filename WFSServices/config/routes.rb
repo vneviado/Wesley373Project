@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :locations
   resources :contacts
+  resources :comments
 
 
   root 'services#index'

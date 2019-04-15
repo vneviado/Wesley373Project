@@ -4,6 +4,7 @@ class ServiceTest < ActiveSupport::TestCase
   # Relationship matchers
   should have_many(:service_contacts)
   should have_many(:service_locations)
+  should have_many(:comments)
   should have_many(:locations).through(:service_locations)
   should have_many(:contacts).through(:service_contacts)
   should belong_to(:category)
