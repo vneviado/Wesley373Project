@@ -18,7 +18,7 @@ class ServicesController < ApplicationController
   def show
     @s_locations = @service.locations
     @s_contacts = @service.contacts
-    @s_comments = @service.comments
+    # @s_comments = @service.comments
   end
 
   # GET /services/new
