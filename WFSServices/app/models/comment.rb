@@ -8,4 +8,12 @@ class Comment < ApplicationRecord
     # Scope
     scope :chronological, -> { order( 'date_created' ) }
 
+    # Callback
+    before_create :set_date_to_current_date
+
+    private
+    def set_date_to_current_date
+        self.date = Date.current
+    end
+
 end
