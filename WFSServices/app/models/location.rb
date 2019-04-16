@@ -13,6 +13,7 @@ class Location < ApplicationRecord
 
   #Scopes
   scope :search, ->(term) { where('name LIKE ? OR city LIKE ?', "%#{term}%", "%#{term}%") }
+  scope :alphabetical, -> { order( 'name' ) }
 
   #Methods
   def self.for_service(service)

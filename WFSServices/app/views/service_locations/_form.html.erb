@@ -1,27 +1,17 @@
-<%= form_with(model: service_location, local: true) do |form| %>
-  <% if service_location.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(service_location.errors.count, "error") %> prohibited this service_location from being saved:</h2>
-
-      <ul>
-      <% service_location.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="container">
+    <div class="card">
+        <div class="card-content">
+                <%= simple_form_for(@service_location) do |f| %>
+                    <%= f.error_notification %>
+                        <div class="field">
+                            <div class="control">
+                                <%= f.input :location_id, collection: (Location.alphabetical.to_a - @service_locations), include_blank: true, wrapper: false %>
+                            </div>
+                        </div>
+                        <%= f.input :service_id, as: :hidden, input_html: { value: @service_id }, wrapper:false %>
+                    <%= f.button :submit, :name => "Add location" %>
+                <% end %>
+            </div>
+        </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :service_id %>
-    <%= form.text_field :service_id, id: :service_location_service_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :location_id %>
-    <%= form.text_field :location_id, id: :service_location_location_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
