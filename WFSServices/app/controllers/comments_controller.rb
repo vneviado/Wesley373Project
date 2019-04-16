@@ -12,10 +12,10 @@ class CommentsController < ApplicationController
   
     # GET /comments/new
     def new
-        @comment = Comment
-        unless params[:service_id].nil?
-            @service = Service.find([:service_id])
-        end
+        @comment = Comment.new
+        # unless params[:service_id].nil?
+        #     @service = Service.find([:service_id])
+        # end
     end 
   
     def edit
@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
     def create
         @comment = Comment.new(comment_params)
         if @comment.save
-            # flash[:notice] = "Successfully added comment."
+            flash[:notice] = "Successfully added comment."
             redirect_to service_path(@comment.service)
         else
             @service = Service.find([:service_id])
