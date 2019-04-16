@@ -15,7 +15,7 @@
             <a>Levels of Care</a>
           </li>
           <li class="tab" onclick="openTab(event,'ME')">
-            <a>Microenterprises</a>
+            <a>Micro-Enterprises</a>
           </li>
         </ul>
       </nav>
@@ -120,7 +120,122 @@
         </div>
 
         <div id="ME" class="content-tab" style="display:none">
-          <h1>Hi Hello Test 3</h1>
+
+          <div class="columns is-multiline is-mobile">
+
+          <% me = Array["Older Adult Services", "Family Support Services", "Child/Family 
+            Behavioral Health", "Educational/School Services", "Behavioral Health & Recovery",
+             "Intellectual & Developmental Disabilities", "Central Access/Community Programs", 
+             "Psychiatric Services", "Outpatient Services"] %>
+          <% len = me.length - 1 %>
+          <% (0..len).step(3).each do |i| %>
+          <% $value1 = me[i].nil? ? 0 : me[i] %>
+          <% $value2 = me[i+1].nil? ? 0 : me[i+1] %>
+          <% $value3 = me[i+2].nil? ? 0 : me[i+2] %>
+
+          <% $value1p = false %>
+          <% $value2p = false %>
+          <% $value3p = false %>
+
+            <div class="column is-one-third">
+              <% if $value1 != 0 %>
+                <div class="card large">
+                  <div class="card-content">
+                    <p class="title is-4 no-padding"><%=$value1%></p>
+
+                      <% @services.each do |service| %>
+                        <% if service.microenterprise == $value1 %>
+                        <% $value1p = true %>
+                        <table>
+                          <tr>
+                            <td>
+                            <p><span class="title is-6"><%=link_to service.name, service %></span></p>
+                            <p class="subtitle is-6"><%= service.description %></p>
+                            </td>
+                            <td style="vertical-align: right;">
+                              <%= link_to 'Edit', edit_service_path(service) %>
+                              <%#= link_to ' Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+                            </td>
+                          </tr>
+                        </table>
+                        <% end %>
+                      <% end %>
+
+                      <% if $value1p == false %>
+                        <p>No services under this micro-enterprise currently exist.</p>
+                      <% end %>
+
+                  </div>
+                </div>
+              <% end %>
+            </div>
+
+            <div class="column is-one-third">
+              <% if $value2 != 0 %>
+                <div class="card large">
+                  <div class="card-content">
+                    <p class="title is-4 no-padding"><%=$value2%></p>
+
+                      <% @services.each do |service| %>
+                        <% if service.microenterprise == $value2 %>
+                        <% $value2p = true %>
+                          <table>
+                            <tr>
+                            <td>
+                              <p><span class="title is-6"><%=link_to service.name, service %></span></p>
+                              <p class="subtitle is-6"><%= service.description %></p>
+                              </td>
+                              <td style="vertical-align: right;">
+                                <%= link_to 'Edit ', edit_service_path(service) %>
+                                <%#= link_to ' Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+                              </td>
+                            </tr>
+                          </table>
+                        <% end %>
+                      <% end %>
+
+                      <% if $value2p == false %>
+                        <p>No services under this micro-enterprise currently exist.</p>
+                      <% end %>
+
+                  </div>
+                </div>
+              <% end %>
+            </div>
+
+            <div class="column is-one-third">
+              <% if $value3 != 0 %>
+                <div class="card large">
+                  <div class="card-content">
+                    <p class="title is-4 no-padding"><%=$value3%></p>
+
+                      <% @services.each do |service| %>
+                        <% if service.microenterprise == $value3 %>
+                        <% $value3p = true %>
+                          <table>
+                            <tr>
+                              <td>
+                                <p><span class="title is-6"><%=link_to service.name, service %></span></p>
+                                <p class="subtitle is-6"><%= service.description %></p>
+                              </td>
+                              <td style="vertical-align: right;">
+                                <%= link_to 'Edit ', edit_service_path(service) %>
+                              </td>
+                            </tr>
+                          </table>
+                      <% end %>
+                    <% end %>
+
+                    <% if $value3p == false %>
+                      <p>No services under this micro-enterprise currently exist.</p>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+
+          </div>
         </div>
 
       </div>
