@@ -22,6 +22,7 @@ class Contact < ApplicationRecord
   
   #Scopes
   scope :search, ->(term) { where('first_name LIKE ? OR last_name LIKE ?', "#{term}%", "#{term}%") }
+  scope :alphabetical, -> { order('first_name', 'last_name') }
   
   #Methods
   def name

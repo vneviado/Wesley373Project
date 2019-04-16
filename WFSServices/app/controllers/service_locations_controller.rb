@@ -15,6 +15,9 @@ class ServiceLocationsController < ApplicationController
   # GET /service_locations/new
   def new
     @service_location = ServiceLocation.new
+    unless params[:service_id].nil?
+      @service = Service.find(params[:service_id])
+    end
   end
 
   # GET /service_locations/1/edit
@@ -25,15 +28,11 @@ class ServiceLocationsController < ApplicationController
   # POST /service_locations.json
   def create
     @service_location = ServiceLocation.new(service_location_params)
-
-    respond_to do |format|
-      if @service_location.save
-        format.html { redirect_to @service_location, notice: 'Service location was successfully created.' }
-        format.json { render :show, status: :created, location: @service_location }
-      else
-        format.html { render :new }
-        format.json { render json: @service_location.errors, status: :unprocessable_entity }
-      end
+    if @service_location.save
+      redirect_to service_path(@service_location.service)
+    else
+      @service = Service.find(params[:service_location][:service_id])
+        render action: 'new', locals: { service: @service }
     end
   end
 

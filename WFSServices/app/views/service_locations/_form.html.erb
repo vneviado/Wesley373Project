@@ -5,10 +5,10 @@
                     <%= f.error_notification %>
                         <div class="field">
                             <div class="control">
-                                <%= f.input :location_id, collection: (Location.alphabetical.to_a - @service_locations), include_blank: true, wrapper: false %>
+                                <%= f.input :location_id, collection: (Location.alphabetical.to_a - @service_locations.to_a), include_blank: true, wrapper: false %>
                             </div>
                         </div>
-                        <%= f.input :service_id, as: :hidden, input_html: { value: @service_id }, wrapper:false %>
+                        <%= f.input :service_id, as: :hidden, input_html: { value: @service.id }, wrapper:false %>
                     <%= f.button :submit, :name => "Add location" %>
                 <% end %>
             </div>

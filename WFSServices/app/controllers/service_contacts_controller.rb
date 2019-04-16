@@ -7,14 +7,13 @@ class ServiceContactsController < ApplicationController
     @service_contacts = ServiceContact.all
   end
 
-  # GET /service_contacts/1
-  # GET /service_contacts/1.json
-  def show
-  end
-
   # GET /service_contacts/new
   def new
     @service_contact = ServiceContact.new
+    unless params[:service_id].nil?
+      @service = Service.find(params[:service_id])
+      @current_contacts = @service.service_contacts.map{ |c| c.service }
+    end
   end
 
   # GET /service_contacts/1/edit
@@ -25,29 +24,11 @@ class ServiceContactsController < ApplicationController
   # POST /service_contacts.json
   def create
     @service_contact = ServiceContact.new(service_contact_params)
-
-    respond_to do |format|
-      if @service_contact.save
-        format.html { redirect_to @service_contact, notice: 'Service contact was successfully created.' }
-        format.json { render :show, status: :created, location: @service_contact }
-      else
-        format.html { render :new }
-        format.json { render json: @service_contact.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /service_contacts/1
-  # PATCH/PUT /service_contacts/1.json
-  def update
-    respond_to do |format|
-      if @service_contact.update(service_contact_params)
-        format.html { redirect_to @service_contact, notice: 'Service contact was successfully updated.' }
-        format.json { render :show, status: :ok, location: @service_contact }
-      else
-        format.html { render :edit }
-        format.json { render json: @service_contact.errors, status: :unprocessable_entity }
-      end
+    if @service_contact.save
+      redirect_to service_path(@service_contact.service)
+    else
+      @service = Service.find(params[:service_contact][:service_id])
+        render action: 'new', locals: { service: @service }
     end
   end
 

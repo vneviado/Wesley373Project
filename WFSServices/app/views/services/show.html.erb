@@ -100,7 +100,7 @@
                         <p><%= i.city %>, PA <%= i.zipcode %></p>
                     <% end %>
                     <div class="padding-top">
-                        <%= link_to 'New Location', new_service_location_path(service_id: @service_id), class: "button is-info is-rounded" %>
+                        <%= link_to 'New Location', new_service_location_path(service_id: @service.id), class: "button is-info is-rounded" %>
                     </div>
                 </div>
             </div>
@@ -117,7 +117,7 @@
                         <p><%= number_to_phone c.phone_number %></p>
                     <% end %>
                     <div class="padding-top">
-                        <%= link_to 'New Contact', new_service_contact_path(service_id: @service_id), class: "button is-info is-rounded" %>
+                        <%= link_to 'New Contact', new_service_contact_path(service_id: @service.id), class: "button is-info is-rounded" %>
                     </div>
                 </div>
             </div>
