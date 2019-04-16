@@ -10,6 +10,7 @@ FactoryBot.define do
       average_length_of_stay "4 weeks"
       referral_process "We contact educational settings to schedule the program."
       matching_elements "Trained volunteers can be used."
+      microenterprise "Family Support Services"
       web_address "https://wfspa.org/service/healthy-relationships-outpatient-groups/"
       array_of_services "Children" 
       created_by "Test Admin"

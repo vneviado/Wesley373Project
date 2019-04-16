@@ -4,8 +4,8 @@ class ServiceType < ApplicationRecord
 
 	validates_presence_of :name
 	validates_presence_of :staff
-	validates_presence_of :created_by
-	validates_presence_of :updated_by
+	#validates_presence_of :created_by
+	#validates_presence_of :updated_by
 	validates_presence_of :service
 
 	scope :alphabetical, -> { order('name') }

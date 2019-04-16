@@ -1,7 +1,7 @@
 module Contexts
     module Services
       def create_services
-        @grouptherapy = FactoryBot.create(:service, name:"Group Therapy", category: @autism)
+        @grouptherapy = FactoryBot.create(:service, name:"Group Therapy", category: @autism, microenterprise: "Older Adult Services")
         @beekind = FactoryBot.create(:service, category: @justice)  
       end
 

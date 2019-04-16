@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 20190414173919) do
     t.string "matching_elements"
     t.string "web_address"
     t.string "array_of_services"
+    t.string "microenterprise"
     t.string "created_by"
     t.string "updated_by"
     t.bigint "category_id"
