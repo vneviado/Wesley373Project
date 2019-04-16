@@ -1,3 +1,4 @@
+<h4>New Comment for <%= @service.name %></h4>
 <div class="container">
     <div class="card">
         <div class="card-content">
@@ -13,9 +14,10 @@
                                 <%= f.input :date_created, input_html: { value: Date.current }, wrapper:false %>
                             </div>
                         </div>
+
                         <div class="field">
                             <div class="control">
-                                <%= f.input :service_id, as: :hidden, input_html: { value: @comment.service }, wrapper:false %>
+                                <%= f.input :service_id, as: :hidden, input_html: { value: @service.id }, wrapper:false %>
                             </div>
                         </div>
                     <%= f.button :submit %>
