@@ -13,7 +13,7 @@ class Comment < ApplicationRecord
 
     private
     def set_date_to_current_date
-        self.date = Date.current
+        self.date_created = Date.current
     end
 
 end
