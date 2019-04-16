@@ -14,9 +14,12 @@
                                 <%= f.input :date_created, input_html: { value: Date.current }, wrapper:false %>
                             </div>
                         </div>
-                        <%# <%= f.hidden_field :form_id, value: form.id %> %>
 
-                        <%= f.input :service_id, as: :hidden, input_html: { value: @service.id }, wrapper:false %>
+                        <div class="field">
+                            <div class="control">
+                                <%= f.input :service_id, as: :hidden, input_html: { value: @service.id }, wrapper:false %>
+                            </div>
+                        </div>
                     <%= f.button :submit %>
                 <% end %>
             </div>

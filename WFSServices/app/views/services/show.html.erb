@@ -131,6 +131,7 @@
                     <p><%= c.date_created.strftime("%m/%d/%y") %> <%= c.content %></p>
                 <% end %>
                 <div class="padding-top">
+                        <%= @service.id %>
                         <%= link_to 'New Comment', new_comment_path(service_id: @service.id), class: "button is-info is-rounded" %>
                 </div>
             </div>
