@@ -13,6 +13,7 @@ class CreateServices < ActiveRecord::Migration[5.1]
       t.string :matching_elements
       t.string :web_address
       t.string :array_of_services
+      t.string :microenterprise
       t.string :created_by
       t.string :updated_by
       t.references :category

@@ -14,6 +14,8 @@
                             <p class="subtitle is-6"><%= @service.description%></p>
                             <p><span class="title is-6">Level of Care</span></p>
                             <p class="subtitle is-6"><%= @service.level_of_care%></p> 
+                            <p><span class="title is-6">Microenterprise</span></p>
+                            <p class="subtitle is-6"><%= @service.microenterprise%></p> 
                         </div>
                     </div>
                 </div>
@@ -50,7 +52,7 @@
                         </tbody>
                     </table>
                     <div class="padding-top">
-                        <%= link_to 'New Service Type', new_service_type_path(service_id: @service.id), class: "button is-info is-rounded" %>
+                        <%= link_to 'New Service Type', new_service_type_path, class: "button is-info is-rounded" %>
                     </div>
                 </div>
             </div>

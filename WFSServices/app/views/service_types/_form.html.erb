@@ -31,7 +31,7 @@
 
                 <div class="field">
                   <%= form.label :cost %>
-                  <%= form.select :cost_id, options_for_select(Cost.all.map{|s|[s.id]}) %>
+                  <%= form.select :cost, options_for_select(Cost.all.map{|s|[s.id]}) %>
                 </div>
 
                 <div class="field">
@@ -41,7 +41,8 @@
 
                 <div class="field">
                   <%= form.label :service_id %>
-                  <%= form.text_field :service_id, id: :service_type_service_id, input_html: { value: @service.id } %>
+                  <%= form.select :service_id, options_for_select(Service.all.map{|s|[s.id]}) %>
+                  <%#= form.text_field :service_id, id: :service_type_service_id, input_html: { value: @service.id } %>
                 </div>
 
                 <div class="field">
