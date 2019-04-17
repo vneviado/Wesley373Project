@@ -1,82 +1,67 @@
-<%= form_with(model: service, local: true) do |form| %>
-  <% if service.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
-      <ul>
-      <% service.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="container">
+    <div class="card">
+        <div class="card-content is-light-grey">
+                <%= simple_form_for(@service) do |f| %>
+                    <%= f.error_notification %>
+                        <div class="field">
+                            <div class="control">
+                                <%= f.input :name, label_html: { class: 'active' }, wrapper: false,  wrapper_html: { class: 'input' } %>
+                            </div>
+                        </div>
+                         <div class="field">
+                            <div class="control">
+                                <%= f.input :category_id, collection: Category.alphabetical.to_a, include_blank: true, wrapper: false %>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <%= f.input :web_address, :as => :url, label_html: { class: 'active' }, wrapper: false %>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <%= f.input :description, input_html: { class: 'textarea' }, label_html: { class: 'active' }, wrapper: false %>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <%= f.input :philosophy, input_html: { class: 'textarea' }, label_html: { class: 'active' }, wrapper: false %>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <%= f.input :entrance_criteria, label_html: { class: 'active' }, wrapper: false %>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <%= f.input :exclusion_criteria, label_html: { class: 'active' }, wrapper: false %>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <%= f.input :exit_criteria, label_html: { class: 'active' }, wrapper: false %>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <%= f.input :average_length_of_stay, label_html: { class: 'active' }, wrapper: false %>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <%= f.input :referral_process, input_html: { class: 'textarea' }, label_html: { class: 'active' }, wrapper: false %>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <%= f.input :matching_elements, input_html: { class: 'textarea' }, label_html: { class: 'active' }, wrapper: false %>
+                            </div>
+                        </div>
+                        <%= f.input :created_at, as: :hidden, input_html: { value: Date.current }, wrapper:false %>
+                    <%= f.button :submit %>
+                <% end %>
+            </div>
+        </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :service_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :service_description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :philosophy %>
-    <%= form.text_field :philosophy, id: :service_philosophy %>
-  </div>
-
-  <div class="field">
-    <%= form.label :entrance_criteria %>
-    <%= form.text_field :entrance_criteria, id: :service_entrance_criteria %>
-  </div>
-
-  <div class="field">
-    <%= form.label :exclusion_criteria %>
-    <%= form.text_field :exclusion_criteria, id: :service_exclusion_criteria %>
-  </div>
-
-  <div class="field">
-    <%= form.label :exit_criteria %>
-    <%= form.text_field :exit_criteria, id: :service_exit_criteria %>
-  </div>
-
-  <div class="field">
-    <%= form.label :level_of_care %>
-    <%= form.text_field :level_of_care, id: :service_level_of_care %>
-  </div>
-
-  <div class="field">
-    <%= form.label :average_length_of_stay %>
-    <%= form.text_field :average_length_of_stay, id: :service_average_length_of_stay %>
-  </div>
-
-  <div class="field">
-    <%= form.label :referral_process %>
-    <%= form.text_field :referral_process, id: :service_referral_process %>
-  </div>
-
-  <div class="field">
-    <%= form.label :matching_elements %>
-    <%= form.text_field :matching_elements, id: :service_matching_elements %>
-  </div>
-
-  <div class="field">
-    <%= form.label :created_by %>
-    <%= form.text_field :created_by, id: :service_created_by %>
-  </div>
-
-  <div class="field">
-    <%= form.label :updated_by %>
-    <%= form.text_field :updated_by, id: :service_updated_by %>
-  </div>
-
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.select :category_id, options_for_select(Category.all.map{|s|[s.name, s.id]}) %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-  <%= link_to 'Back', @service %>
-<% end %>
+</div>
