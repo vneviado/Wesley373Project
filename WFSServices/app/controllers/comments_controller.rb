@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
     def create
         @comment = Comment.new(comment_params)
         if @comment.save
-            # flash[:notice] = "Successfully added comment."
+            flash[:notice] = "Successfully added comment."
             redirect_to service_path(@comment.service)
         else
             @service = Service.find(params[:comment][:service_id])
