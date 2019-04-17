@@ -1,11 +1,16 @@
 <div class="container">
     <div class="card">
-        <div class="card-content">
+        <div class="card-content is-light-grey">
                 <%= simple_form_for(@service) do |f| %>
                     <%= f.error_notification %>
                         <div class="field">
                             <div class="control">
                                 <%= f.input :name, label_html: { class: 'active' }, wrapper: false,  wrapper_html: { class: 'input' } %>
+                            </div>
+                        </div>
+                         <div class="field">
+                            <div class="control">
+                                <%= f.input :category_id, collection: Category.alphabetical.to_a, include_blank: true, wrapper: false %>
                             </div>
                         </div>
                         <div class="field">
@@ -53,11 +58,6 @@
                                 <%= f.input :matching_elements, input_html: { class: 'textarea' }, label_html: { class: 'active' }, wrapper: false %>
                             </div>
                         </div>
-                     
-                      
-
-
-
                         <%= f.input :created_at, as: :hidden, input_html: { value: Date.current }, wrapper:false %>
                     <%= f.button :submit %>
                 <% end %>
