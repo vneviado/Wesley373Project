@@ -5,7 +5,7 @@
                     <%= f.error_notification %>
                         <div class="field">
                             <div class="control">
-                                <%= f.input :contact_id, collection: (Contact.alphabetical.to_a - @current_contacts.to_a), include_blank: true, wrapper: false %>
+                                <%= f.input :contact_id, collection: (@current_contacts.to_a), include_blank: true, wrapper: false %>
                             </div>
                         </div>
                         <%= f.input :service_id, as: :hidden, input_html: { value: @service.id }, wrapper:false %>

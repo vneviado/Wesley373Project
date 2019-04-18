@@ -12,7 +12,7 @@ class ServiceContactsController < ApplicationController
     @service_contact = ServiceContact.new
     unless params[:service_id].nil?
       @service = Service.find(params[:service_id])
-      @current_contacts = @service.service_contacts.map{ |c| c.service }
+      @current_contacts = @service.service_contacts.map{ |c| c.id }
     end
   end
 

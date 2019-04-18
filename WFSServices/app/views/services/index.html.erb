@@ -42,13 +42,14 @@
                       <table>
                       <% $value1.services.each do |service| %>
                           <tr>
-                          <td>
-                            <p><span class="title is-6"><%=link_to service.name, service %></span></p>
+                          <td style="table-layout: fixed; width: 350px;">
+                            <p><span class="title is-5"><%=link_to service.name, service %></span></p>
                             <p class="subtitle is-6"><%= service.description %></p>
                             </td>
                             <td style="vertical-align: right;">
                               <%= link_to 'Edit', edit_service_path(service) %>
                               <%#= link_to ' Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+                              <br><br><br>
                             </td>
                           <% end %>
                           </tr>
@@ -68,13 +69,14 @@
                       <table>
                       <% $value2.services.each do |service| %>
                           <tr>
-                          <td>
-                            <p><span class="title is-6"><%=link_to service.name, service %></span></p>
+                          <td style="table-layout: fixed; width: 350px;">
+                            <p><span class="title is-5"><%=link_to service.name, service %></span></p>
                             <p class="subtitle is-6"><%= service.description %></p>
                             </td>
                             <td style="vertical-align: right;">
                               <%= link_to 'Edit ', edit_service_path(service) %>
                               <%#= link_to ' Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+                              <br><br><br>
                             </td>
                           <% end %>
                           </tr>
@@ -94,13 +96,14 @@
                       <table>
                       <% $value3.services.each do |service| %>
                           <tr>
-                          <td>
-                            <p><span class="title is-6"><%=link_to service.name, service %></span></p>
+                          <td style="table-layout: fixed; width: 350px;">
+                            <p><span class="title is-5"><%=link_to service.name, service %></span></p>
                             <p class="subtitle is-6"><%= service.description %></p>
                             </td>
                             <td style="vertical-align: right;">
                               <%= link_to 'Edit ', edit_service_path(service) %>
                               <%#= link_to ' Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+                              <br><br><br>
                             </td>
                           <% end %>
                           </tr>
@@ -120,7 +123,7 @@
 
         <div id="Levels of Care" class="content-tab" style="display:none">
 
-          
+
 
         </div>
 
@@ -157,13 +160,14 @@
                         <% $value1p = true %>
                         <table>
                           <tr>
-                            <td>
-                            <p><span class="title is-6"><%=link_to service.name, service %></span></p>
+                            <td style="table-layout: fixed; width: 350px;">
+                            <p><span class="title is-5"><%=link_to service.name, service %></span></p>
                             <p class="subtitle is-6"><%= service.description %></p>
                             </td>
                             <td style="vertical-align: right;">
                               <%= link_to 'Edit', edit_service_path(service) %>
                               <%#= link_to ' Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+                              <br><br><br>
                             </td>
                           </tr>
                         </table>
@@ -190,13 +194,14 @@
                         <% $value2p = true %>
                           <table>
                             <tr>
-                            <td>
-                              <p><span class="title is-6"><%=link_to service.name, service %></span></p>
+                            <td style="table-layout: fixed; width: 350px;">
+                              <p><span class="title is-5"><%=link_to service.name, service %></span></p>
                               <p class="subtitle is-6"><%= service.description %></p>
                               </td>
                               <td style="vertical-align: right;">
                                 <%= link_to 'Edit ', edit_service_path(service) %>
                                 <%#= link_to ' Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                <br><br><br>
                               </td>
                             </tr>
                           </table>
@@ -223,12 +228,13 @@
                         <% $value3p = true %>
                           <table>
                             <tr>
-                              <td>
-                                <p><span class="title is-6"><%=link_to service.name, service %></span></p>
+                              <td style="table-layout: fixed; width: 350px;">
+                                <p><span class="title is-5"><%=link_to service.name, service %></span></p>
                                 <p class="subtitle is-6"><%= service.description %></p>
                               </td>
                               <td style="vertical-align: right;">
                                 <%= link_to 'Edit ', edit_service_path(service) %>
+                                <br><br><br>
                               </td>
                             </tr>
                           </table>
