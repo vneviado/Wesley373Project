@@ -15,3 +15,13 @@
  */
 
 @import "bulma";
+
+.tab {
+	background-color: #eee;
+}
+
+.tabs.is-toggle li.is-active a {
+	background-color: #c6417c;
+	border-color: #c6417c;
+}
+
