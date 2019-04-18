@@ -90,6 +90,11 @@ ActiveRecord::Schema.define(version: 20190414173919) do
   create_table "service_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "staff"
+    t.float "unit_cost", limit: 24
+    t.float "unit_rate", limit: 24
+    t.float "avg_los", limit: 24
+    t.float "rev_los", limit: 24
+    t.string "frequency"
     t.string "created_by"
     t.string "updated_by"
     t.bigint "service_id"

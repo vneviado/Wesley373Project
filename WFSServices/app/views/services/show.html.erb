@@ -27,32 +27,36 @@
         <div class="rows">
             <div class="card large">
                 <div class="card-content">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                            <th>Service Type</th>
-                            <th>Unit Cost</th>
-                            <th>Unit Rate</th>
-                            <th>Avg los</th>
-                            <th>Rev los</th>
-                            <th>Frequency</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <% @service.service_types.each do |t| %>
-                                <th><%= t.name %></th>
-                                <td><%= t.cost.unit_cost%></td>
-                                <td><%= t.cost.unit_rate%></td>
-                                <td><%= t.cost.avg_los%></td>
-                                <td><%= t.cost.rev_los%></td>
-                                <td><%= t.cost.frequency%></td>
-                            <% end %>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="row">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                <th>Service Type</th>
+                                <th>Staff</th>
+                                <th>Unit Cost</th>
+                                <th>Unit Rate</th>
+                                <th>Avg los</th>
+                                <th>Rev los</th>
+                                <th>Frequency</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% @service.service_types.each do |t| %>
+                                    <tr>
+                                        <th><%= t.name %></th>
+                                        <td><%= t.staff%></td>
+                                        <td><%= t.unit_cost%></td>
+                                        <td><%= t.unit_rate%></td>
+                                        <td><%= t.avg_los%></td>
+                                        <td><%= t.rev_los%></td>
+                                        <td><%= t.frequency%></td>
+                                    </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+                    </div>
                     <div class="padding-top">
-                        <%= link_to 'Add New Service Type', new_service_type_path, class: "button is-info is-rounded" %>
+                        <%= link_to 'Add New Service Type', new_service_type_path(service_id: @service.id), class: "button is-info is-rounded" %>
                     </div>
                 </div>
             </div>
