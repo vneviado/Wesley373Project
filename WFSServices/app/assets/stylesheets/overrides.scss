@@ -76,6 +76,16 @@ input[type="submit" i] {
 }
 
 .button {
-  padding: 15px 30px;
   margin-right: 20px;
+}
+
+.button.is-small {
+  border-radius: 25px;
+  font-size: 12pt;
+  width: 110px;
+}
+
+input {
+  height: 35px;
+  width: 180px;
 }
