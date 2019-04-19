@@ -12,42 +12,37 @@ class ServiceTypesController < ApplicationController
   # GET /service_types/new
   def new
     @service_type = ServiceType.new
-    #@service = Service.find(params[:service_id])
+    unless params[:service_id].nil?
+      @service = Service.find(params[:service_id])
+      # @current_contacts = @service.service_types.map{ |c| c.id }
+    end
   end
 
   # GET /service_types/1/edit
   def edit
   end
-  # POST /service_types
-  # POST /service_types.json
+
   def create
     @service_type = ServiceType.new(service_type_params)
-
-    respond_to do |format|
-      if @service_type.save
-        format.html { redirect_to @service_type, notice: 'Service type was successfully created.' }
-        format.json { render :show, status: :created, location: @service_type }
-      else
-        format.html { render :new }
-        format.json { render json: @service_type.errors, status: :unprocessable_entity }
-        #render action: 'new', locals: { service: @service }
-      end
+    if @service_type.save
+      redirect_to service_path(@service_type.service)
+    else
+      @service = Service.find(params[:service_type][:service_id])
+        render action: 'new', locals: { service: @service }
     end
   end
 
-  # PATCH/PUT /service_types/1
-  # PATCH/PUT /service_types/1.json
-  def update
-    respond_to do |format|
-      if @service_type.update(service_type_params)
-        format.html { redirect_to @service_type, notice: 'Service type was successfully updated.' }
-        format.json { render :show, status: :ok, location: @service_type }
-      else
-        format.html { render :edit }
-        format.json { render json: @service_type.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   respond_to do |format|
+  #     if @service_type.update(service_type_params)
+  #       format.html { redirect_to @service_type, notice: 'Service type was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @service_type }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @service_type.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
   # DELETE /service_types/1
   # DELETE /service_types/1.json
   def destroy
@@ -65,7 +60,6 @@ class ServiceTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_type_params
-      params.require(:service_type).permit(:name, :cost, :staff, :created_by, :updated_by, :service)
-      params.require(:service_type).permit(:name, :cost, :staff, :created_by, :updated_by, :service_id)
+      params.require(:service_type).permit(:name, :staff,:unit_cost, :unit_rate, :avg_los, :rev_los, :frequency, :created_by, :updated_by, :service_id)
     end
 end

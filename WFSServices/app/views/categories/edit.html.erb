@@ -1,6 +1,19 @@
-<h1>Editing Category</h1>
+<div class="container">
+  <div class="row columns">
+    <div class="column">
+      <br/>
+      <p class="title is-4 no-padding">Editing Category</p>
+    </div>
+  </div>
+</div>
 
 <%= render 'form', category: @category %>
 
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', services_path %>
+<div class="container">
+  <div class="row columns">
+    <div class="column">
+      <%= link_to 'Back', services_path, class: "button is-info is-rounded" %>
+    </div>
+  </div>
+</div>
+
