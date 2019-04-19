@@ -9,7 +9,7 @@ class Contact < ApplicationRecord
   #validates :work_number, :phone_number, with: /^\(?(\d{3})\)?[ -.]?(\d{3})[-.]?(\d{4})$/, message: "Valid phone numbers only"
 
   validates_format_of :work_number, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed) and delimited with dashes only"
-  validates_format_of :phone_number, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed) and delimited with dashes only"
+  validates_format_of :phone_number, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed) and delimited with dashes only", allow_blank: true
 
   #validates :work_number, with: {}
   #validates :phone_number, with: {}
