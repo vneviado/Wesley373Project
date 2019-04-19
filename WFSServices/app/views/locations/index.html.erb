@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row columns">
           <div class="column">
-            <% @locations.each do |location| %>
+            <% @locations.alphabetical.each do |location| %>
               <div class="card large">
                 <div class="card-content">
                   <p class="title is-4 no-padding"><%= link_to location.name, location %></p>
