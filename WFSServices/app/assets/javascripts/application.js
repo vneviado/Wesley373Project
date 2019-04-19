@@ -10,9 +10,10 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
+//= require jquery-ui
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
 
 // Search submit on enter
 $(document).ready(function() {
@@ -40,3 +41,6 @@ function openTab(evt, tabName) {
   evt.currentTarget.className += " is-active";
 }
 
+  // $(document).ready(function(){
+  //   $('.tabs').tabs();
+  // });
