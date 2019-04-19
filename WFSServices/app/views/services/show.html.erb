@@ -58,6 +58,7 @@
                                         <td><%= t.avg_los%></td>
                                         <td><%= t.rev_los%></td>
                                         <td><%= t.frequency%></td>
+                                        <td><%= link_to 'Remove', t, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                                     </tr>
                                 <% end %>
                             </tbody>
@@ -151,6 +152,7 @@
     <div class="container padding-top">
         <div class="card large">
             <div class="card-content"><span class="title is-6 p"> Comments </span>
+                <br>
                  <%= @service.comments.chronological.each do |c| %>
                     <p><%= c.date_created.strftime("%m/%d/%y") %> <%= c.content %></p>
                 <% end %>

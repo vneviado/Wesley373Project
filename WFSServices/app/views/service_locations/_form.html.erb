@@ -1,6 +1,6 @@
 <div class="container">
     <div class="card">
-        <div class="card-content">
+        <div class="card-content is-light-grey">
                 <%= simple_form_for(@service_location) do |f| %>
                     <%= f.error_notification %>
                         <div class="field">
@@ -9,7 +9,7 @@
                             </div>
                         </div>
                         <%= f.input :service_id, as: :hidden, input_html: { value: @service.id }, wrapper:false %>
-                    <%= f.button :submit%>
+                    <%= f.button :submit, "Add Location" %>
                 <% end %>
             </div>
         </div>

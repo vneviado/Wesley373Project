@@ -1,7 +1,17 @@
-<h4>New Comment for <%= @service.name %></h4>
+<div class="container">
+  <div class="row columns">
+    <div class="column">
+      <br><br>
+      <p class="title is-4 no-padding">New Comment for <%= @service.name %> </p>
+      <br>
+    </div>
+  </div>
+</div>
+
 <div class="container">
     <div class="card">
-        <div class="card-content">
+        <div class="card-content is-light-grey">
+
                 <%= simple_form_for(@comment) do |f| %>
                     <%= f.error_notification %>
                         <div class="field">
@@ -22,6 +32,7 @@
                         </div>
                     <%= f.button :submit %>
                 <% end %>
+
             </div>
         </div>
     </div>
