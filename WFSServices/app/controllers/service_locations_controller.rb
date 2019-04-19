@@ -29,6 +29,7 @@ class ServiceLocationsController < ApplicationController
   def create
     @service_location = ServiceLocation.new(service_location_params)
     if @service_location.save
+      flash[:notice] = "Successfully connected contact with the location."
       redirect_to service_path(@service_location.service)
     else
       @service = Service.find(params[:service_location][:service_id])

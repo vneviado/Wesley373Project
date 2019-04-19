@@ -1,6 +1,16 @@
+<div class="container">
+
 <section class="hero">
   <div class="hero-body">
     <div class="container">
+
+    <% if notice != nil %>
+      <article class="message is-primary">
+        <div class="message-body">
+          <p id="notice"><%= notice %></p>
+        </div>
+      </article>
+    <% end %>
 
       <h1 class="title">Services</h1>
 
@@ -41,13 +51,14 @@
                       <table>
                       <% $value1.services.alphabetical.each do |service| %>
                           <tr>
-                          <td>
-                            <p><span class="title is-6"><%=link_to service.name, service %></span></p>
+                          <td style="table-layout: fixed; width: 350px;">
+                            <p><span class="title is-5"><%=link_to service.name, service %></span></p>
                             <p class="subtitle is-6"><%= service.description %></p>
                             </td>
                             <td style="vertical-align: right;">
                               <%= link_to 'Edit', edit_service_path(service) %>
                               <%#= link_to ' Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+                              <br><br><br>
                             </td>
                           <% end %>
                           </tr>
@@ -67,13 +78,14 @@
                       <table>
                       <% $value2.services.alphabetical.each do |service| %>
                           <tr>
-                          <td>
-                            <p><span class="title is-6"><%=link_to service.name, service %></span></p>
+                          <td style="table-layout: fixed; width: 350px;">
+                            <p><span class="title is-5"><%=link_to service.name, service %></span></p>
                             <p class="subtitle is-6"><%= service.description %></p>
                             </td>
                             <td style="vertical-align: right;">
                               <%= link_to 'Edit ', edit_service_path(service) %>
                               <%#= link_to ' Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+                              <br><br><br>
                             </td>
                           <% end %>
                           </tr>
@@ -93,13 +105,14 @@
                       <table>
                       <% $value3.services.alphabetical.each do |service| %>
                           <tr>
-                          <td>
-                            <p><span class="title is-6"><%=link_to service.name, service %></span></p>
+                          <td style="table-layout: fixed; width: 350px;">
+                            <p><span class="title is-5"><%=link_to service.name, service %></span></p>
                             <p class="subtitle is-6"><%= service.description %></p>
                             </td>
                             <td style="vertical-align: right;">
                               <%= link_to 'Edit ', edit_service_path(service) %>
                               <%#= link_to ' Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+                              <br><br><br>
                             </td>
                           <% end %>
                           </tr>
@@ -114,9 +127,329 @@
           </div>
         </div>
 
+
+
+
+
         <div id="Levels of Care" class="content-tab" style="display:none">
-          <h1>Hi Hello Test 2</h1>
+
+
+              <div class="container"> 
+        
+                <div class="tabi-wrap">
+                
+                  <input type="radio" id="tab1" name="tabGroup1" class="tabi" checked>
+                  <label for="tab1">Adult</label>
+
+                  <input type="radio" id="tab2" name="tabGroup1" class="tabi">
+                  <label for="tab2">Child</label>
+
+                  <input type="radio" id="tab3" name="tabGroup1" class="tabi">
+                  <label for="tab3">Intellectual and Developmental Disabilities</label>
+
+                  <input type="radio" id="tab4" name="tabGroup1" class="tabi">
+                  <label for="tab4">Older Adults</label>
+
+                  <div class="tabi__content">
+
+                    <div class="columns is-multiline is-mobile">
+                      <div class="column is-one-fifth">
+                        <div class="card large">
+                          <div class="card-content">
+                            <p class="title is-5 no-padding">Level 1: Risk Reduction Services</p>
+
+                              <% rez = @services.for_lvl_arr("1", "Adult") %>
+                              <% rez.each do |service| %>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p class="subtitle is-6"><%= service.description %></p>
+                                  <br>
+                              <% end %>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="column is-one-fifth">
+                        <div class="card large">
+                          <div class="card-content">
+                            <p class="title is-5 no-padding">Level 2: Early Intervention</p>
+
+                              <% rez = @services.for_lvl_arr("2", "Adult") %>
+                              <% rez.each do |service| %>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p class="subtitle is-6"><%= service.description %></p>
+                                  <br>
+                              <% end %>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="column is-one-fifth">
+                        <div class="card large">
+                          <div class="card-content">
+                            <p class="title is-5 no-padding">Level 3: Intermediate Care</p>
+
+                              <% rez = @services.for_lvl_arr("3", "Adult") %>
+                              <% rez.each do |service| %>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p class="subtitle is-6"><%= service.description %></p>
+                                  <br>
+                              <% end %>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="column is-one-fifth">
+                        <div class="card large">
+                          <div class="card-content">
+                            <p class="title is-5 no-padding">Level 4: Extended Care</p>
+                              
+                              <% rez = @services.for_lvl_arr("4", "Adult") %>
+                              <% rez.each do |service| %>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p class="subtitle is-6"><%= service.description %></p>
+                                  <br>
+                              <% end %>
+                          
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="column is-one-fifth">
+                        <div class="card large">
+                          <div class="card-content">
+                            <p class="title is-5 no-padding">Level 5: Crisis Emergency Care</p>
+
+                              <% rez = @services.for_lvl_arr("5", "Adult") %>
+                              <% rez.each do |service| %>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p class="subtitle is-6"><%= service.description %></p>
+                                  <br>
+                              <% end %>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="tabi__content">
+                    
+                    <div class="columns is-multiline is-mobile">
+                      <div class="column is-one-fifth">
+                        <div class="card large">
+                          <div class="card-content">
+                            <p class="title is-5 no-padding">Level 1: Risk Reduction Services</p>
+
+                              <% rez = @services.for_lvl_arr("1", "Child") %>
+                              <% rez.each do |service| %>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p class="subtitle is-6"><%= service.description %></p>
+                                  <br>
+                              <% end %>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="column is-one-fifth">
+                        <div class="card large">
+                          <div class="card-content">
+                            <p class="title is-5 no-padding">Level 2: Early Intervention</p>
+
+                              <% rez = @services.for_lvl_arr("2", "Child") %>
+                              <% rez.each do |service| %>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p class="subtitle is-6"><%= service.description %></p>
+                                  <br>
+                              <% end %>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="column is-one-fifth">
+                        <div class="card large">
+                          <div class="card-content">
+                            <p class="title is-5 no-padding">Level 3: Intermediate Care</p>
+
+                              <% rez = @services.for_lvl_arr("3", "Child") %>
+                              <% rez.each do |service| %>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p class="subtitle is-6"><%= service.description %></p>
+                                  <br>
+                              <% end %>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="column is-one-fifth">
+                        <div class="card large">
+                          <div class="card-content">
+                            <p class="title is-5 no-padding">Level 4: Extended Care</p>
+
+                              <% rez = @services.for_lvl_arr("4", "Child") %>
+                              <% rez.each do |service| %>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p class="subtitle is-6"><%= service.description %></p>
+                                  <br>
+                              <% end %>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="column is-one-fifth">
+                        <div class="card large">
+                          <div class="card-content">
+                            <p class="title is-5 no-padding">Level 5: Crisis Emergency Care</p>
+
+                              <% rez = @services.for_lvl_arr("5", "Child") %>
+                              <% rez.each do |service| %>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p class="subtitle is-6"><%= service.description %></p>
+                                  <br>
+                              <% end %>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="tabi__content">
+                    
+                    <div class="columns is-multiline is-mobile">
+                      <div class="column is-one-fourth">
+                        <div class="card large">
+                          <div class="card-content">
+                            <p class="title is-5 no-padding">Level 1: Evaluation Transition</p>
+
+                              <% rez = @services.for_lvl_arr("1", "Intellectual and Developmental Disabilities") %>
+                              <% rez.each do |service| %>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p class="subtitle is-6"><%= service.description %></p>
+                                  <br>
+                              <% end %>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="column is-one-fourth">
+                        <div class="card large">
+                          <div class="card-content">
+                            <p class="title is-5 no-padding">Level 2: Intermittent Care</p>
+
+                              <% rez = @services.for_lvl_arr("2", "Intellectual and Developmental Disabilities") %>
+                              <% rez.each do |service| %>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p class="subtitle is-6"><%= service.description %></p>
+                                  <br>
+                              <% end %>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="column is-one-fourth">
+                        <div class="card large">
+                          <div class="card-content">
+                            <p class="title is-5 no-padding">Level 3: Community Integration</p>
+
+                              <% rez = @services.for_lvl_arr("3", "Intellectual and Developmental Disabilities") %>
+                              <% rez.each do |service| %>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p class="subtitle is-6"><%= service.description %></p>
+                                  <br>
+                              <% end %>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="column is-one-fourth">
+                        <div class="card large">
+                          <div class="card-content">
+                            <p class="title is-5 no-padding">Level 4: Facility Based Services </p>
+
+                              <% rez = @services.for_lvl_arr("4", "Intellectual and Developmental Disabilities") %>
+                              <% rez.each do |service| %>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p class="subtitle is-6"><%= service.description %></p>
+                                  <br>
+                              <% end %>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  <div class="tabi__content">
+                    
+                    <div class="columns is-multiline is-mobile">
+                      <div class="column is-one-third">
+                        <div class="card large">
+                          <div class="card-content">
+                            <p class="title is-5 no-padding">Level 1: Resource Linkage</p>
+
+                              <% rez = @services.for_lvl_arr("1", "Older Adult") %>
+                              <% rez.each do |service| %>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p class="subtitle is-6"><%= service.description %></p>
+                                  <br>
+                              <% end %>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="column is-one-third">
+                        <div class="card large">
+                          <div class="card-content">
+                            <p class="title is-5 no-padding">Level 2: Assessment</p>
+
+                              <% rez = @services.for_lvl_arr("2", "Older Adult") %>
+                              <% rez.each do |service| %>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p class="subtitle is-6"><%= service.description %></p>
+                                  <br>
+                              <% end %>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="column is-one-third">
+                        <div class="card large">
+                          <div class="card-content">
+                            <p class="title is-5 no-padding">Level 3: Ongoing Support</p>
+
+                              <% rez = @services.for_lvl_arr("1", "Older Adult") %>
+                              <% rez.each do |service| %>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p class="subtitle is-6"><%= service.description %></p>
+                                  <br>
+                              <% end %>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+            </div>
         </div>
+
 
         <div id="ME" class="content-tab" style="display:none">
 
@@ -126,6 +459,7 @@
             Behavioral Health", "Educational/School Services", "Behavioral Health & Recovery",
              "Intellectual & Developmental Disabilities", "Central Access/Community Programs",
              "Psychiatric Services", "Outpatient Services"] %>
+
           <% len = me.length - 1 %>
           <% (0..len).step(3).each do |i| %>
           <% $value1 = me[i].nil? ? 0 : me[i] %>
@@ -147,13 +481,14 @@
                         <% $value1p = true %>
                         <table>
                           <tr>
-                            <td>
-                            <p><span class="title is-6"><%=link_to service.name, service %></span></p>
+                            <td style="table-layout: fixed; width: 350px;">
+                            <p><span class="title is-5"><%=link_to service.name, service %></span></p>
                             <p class="subtitle is-6"><%= service.description %></p>
                             </td>
                             <td style="vertical-align: right;">
                               <%= link_to 'Edit', edit_service_path(service) %>
                               <%#= link_to ' Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+                              <br><br><br>
                             </td>
                           </tr>
                         </table>
@@ -180,13 +515,14 @@
                         <% $value2p = true %>
                           <table>
                             <tr>
-                            <td>
-                              <p><span class="title is-6"><%=link_to service.name, service %></span></p>
+                            <td style="table-layout: fixed; width: 350px;">
+                              <p><span class="title is-5"><%=link_to service.name, service %></span></p>
                               <p class="subtitle is-6"><%= service.description %></p>
                               </td>
                               <td style="vertical-align: right;">
                                 <%= link_to 'Edit ', edit_service_path(service) %>
                                 <%#= link_to ' Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                <br><br><br>
                               </td>
                             </tr>
                           </table>
@@ -213,12 +549,13 @@
                         <% $value3p = true %>
                           <table>
                             <tr>
-                              <td>
-                                <p><span class="title is-6"><%=link_to service.name, service %></span></p>
+                              <td style="table-layout: fixed; width: 350px;">
+                                <p><span class="title is-5"><%=link_to service.name, service %></span></p>
                                 <p class="subtitle is-6"><%= service.description %></p>
                               </td>
                               <td style="vertical-align: right;">
                                 <%= link_to 'Edit ', edit_service_path(service) %>
+                                <br><br><br>
                               </td>
                             </tr>
                           </table>
@@ -246,3 +583,4 @@
     </div>
   </div>
 </section>
+

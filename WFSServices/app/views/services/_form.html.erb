@@ -10,7 +10,7 @@
                         </div>
                          <div class="field">
                             <div class="control">
-                                <%= f.input :category_id, collection: Category.alphabetical.to_a, include_blank: true, wrapper: false %>
+                                <%= f.input :category_id, collection: Category.alphabetical.to_a, wrapper: false %>
                             </div>
                         </div>
                         <div class="field">
@@ -18,6 +18,31 @@
                                 <%= f.input :web_address, :as => :url, label_html: { class: 'active' }, wrapper: false %>
                             </div>
                         </div>
+                        
+                         <div class="field">
+                            <div class="control">
+                                <% loc = Array["1", "2", "3", "4", "5"] %>
+                                <%= f.input :level_of_care, collection: loc, include_blank: true, wrapper: false %>
+                            </div>
+                        </div>
+
+                         <div class="field">
+                            <div class="control">
+                                <% aos = Array["Adult", "Child", "Intellectual and Developmental Disabilities", "Older Adult"] %>
+                                <%= f.input :array_of_services, collection: aos, include_blank: true, wrapper: false %>
+                            </div>
+                        </div>
+
+                         <div class="field">
+                            <div class="control">
+                                <% me = Array["Older Adult Services", "Family Support Services", "Child/Family 
+                                    Behavioral Health", "Educational/School Services", "Behavioral Health & Recovery",
+                                    "Intellectual & Developmental Disabilities", "Central Access/Community Programs", 
+                                    "Psychiatric Services", "Outpatient Services"] %>
+                                <%= f.input :microenterprise, collection: me, include_blank: true, wrapper: false %>
+                            </div>
+                        </div>
+
                         <div class="field">
                             <div class="control">
                                 <%= f.input :description, input_html: { class: 'textarea' }, label_html: { class: 'active' }, wrapper: false %>
@@ -58,6 +83,7 @@
                                 <%= f.input :matching_elements, input_html: { class: 'textarea' }, label_html: { class: 'active' }, wrapper: false %>
                             </div>
                         </div>
+
                         <%= f.input :created_at, as: :hidden, input_html: { value: Date.current }, wrapper:false %>
                     <%= f.button :submit %>
                 <% end %>

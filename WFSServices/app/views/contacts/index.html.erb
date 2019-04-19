@@ -1,8 +1,18 @@
-<section class="hero">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">Contacts</h1>
-        <div class="columns is-multiline is-mobile">
+<div class="container">
+  <section class="hero">
+    <div class="hero-body">
+
+      <% if notice != nil %>
+        <article class="message is-primary">
+          <div class="message-body">
+            <p id="notice"><%= notice %></p>
+          </div>
+        </article>
+      <% end %>
+
+      <div class="container">
+        <h1 class="title">Contacts</h1>
+          <div class="columns is-multiline is-mobile">
 
           <% len = @contacts.to_a.length - 1 %>
           <% (0..len).step(3).each do |i| %>
@@ -21,11 +31,12 @@
                           <%= $value1.role %><br/><br/>
                         <span class="title is-6">Work number: </span><br/>
                           <%= number_to_phone $value1.work_number %><br/><br/>
-                        <span class="title is-6">Phone number: </span><br/>
+                        <span class="title is-6">Cell phone number: </span><br/>
                           <%= number_to_phone $value1.phone_number %><br/><br/>
                       </div>
                     <br/>
                   </table>
+
               </div>
             </div>
             <% end %>
@@ -41,11 +52,12 @@
                           <%= $value2.role %><br/><br/>
                         <span class="title is-6">Work number: </span><br/>
                           <%= number_to_phone $value2.work_number %><br/><br/>
-                        <span class="title is-6">Phone number: </span><br/>
+                        <span class="title is-6">Cell phone number: </span><br/>
                           <%= number_to_phone $value2.phone_number %><br/><br/>
                       </div>
                     <br/>
                   </table>
+
               </div>
             </div>
             <% end %>
@@ -62,11 +74,12 @@
 
                         <span class="title is-6">Work number: </span><br/>
                           <%= number_to_phone $value3.work_number %><br/><br/>
-                        <span class="title is-6">Phone number: </span><br/>
+                        <span class="title is-6">Cell phone number: </span><br/>
                           <%= number_to_phone $value3.phone_number %><br/><br/>
                       </div>
                     <br/>
                   </table>
+
               </div>
             </div>
             <% end %>

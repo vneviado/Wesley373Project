@@ -3,6 +3,15 @@
     <div class="container">
       <h1 class="title">Locations</h1>
       <div class="container">
+
+        <% if notice != nil %>
+          <article class="message is-primary">
+            <div class="message-body">
+              <p id="notice"><%= notice %></p>
+            </div>
+          </article>
+        <% end %>
+
         <div class="row columns">
           <div class="column">
             <% @locations.alphabetical.each do |location| %>

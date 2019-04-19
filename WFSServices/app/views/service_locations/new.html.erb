@@ -1,5 +1,19 @@
-<h1>New Service Location</h1>
+<div class="container">
+  <div class="row columns">
+    <div class="column">
+      <br/>
+      <p class="title is-4 no-padding">Add Location to Service</p>
+    </div>
+  </div>
+</div>
 
 <%= render 'form', service_location: @service_location %>
 
-<%= link_to 'Back', service_locations_path %>
+<div class="container">
+  <div class="row columns">
+    <div class="column">
+    <br>
+      <%= link_to 'Back', @service, class: "button is-info is-rounded" %>
+    </div>
+  </div>
+</div>

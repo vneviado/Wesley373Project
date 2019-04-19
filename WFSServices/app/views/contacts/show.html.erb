@@ -1,6 +1,15 @@
 <div class="container">
   <div class="row columns">
     <div class="column">
+
+      <% if notice != nil %>
+        <article class="message is-primary">
+          <div class="message-body">
+            <p id="notice"><%= notice %></p>
+          </div>
+        </article>
+      <% end %>
+      
       <br/>
       <div class="card large">
         <div class="card-content">
@@ -15,7 +24,7 @@
           <div class="content"><span class="title is-6">Contact Information: </span>
             <br/>Role: <%= @contact.role %>
             <br/>Work number: <%= number_to_phone @contact.work_number %>
-            <br/>Phone number: <%= number_to_phone @contact.phone_number %>
+            <br/>Cell phone number: <%= number_to_phone @contact.phone_number %>
           </div>
 
           <div class="content"><strong>Address: </strong><br/>

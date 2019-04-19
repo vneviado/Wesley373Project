@@ -46,8 +46,14 @@ a {
   padding-top: 40px;
 }
 
+
 .simple_form input {
-  width: 50%;
+  height: 35px;
+  width: 250px;
+  margin-left: 10px;
+}
+
+.select {
   margin-left: 10px;
 }
 
@@ -55,6 +61,21 @@ a {
   text-align: center;
 }
 
+input[type="submit" i] {
+  height: 35px;
+  width: 180px;
+  margin-left: 10px;
+  font-size: 12pt;
+  border-radius: 25px;
+  background-color: #c6417c;
+  color: #fff;
+}
+
 .is-light-grey {
   background-color: #F8F8F8
+}
+
+.button {
+  padding: 15px 30px;
+  margin-right: 20px;
 }
