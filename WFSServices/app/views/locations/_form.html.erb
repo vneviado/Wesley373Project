@@ -16,7 +16,7 @@
       </div>
     </div>
   <% end %>
-  
+
   <div class="container">
     <div class="row columns">
       <div class="column">
@@ -45,6 +45,11 @@
             <div class="field">
               <strong><%= form.label :zipcode %></strong>:
               <%= form.text_field :zipcode, id: :location_zipcode %>
+            </div>
+
+            <div class="field">
+              <strong><%= form.label :map_link %></strong>:
+              <%= form.text_field :map_link, id: :location_map_link %>
             </div>
 
             <div class="actions">

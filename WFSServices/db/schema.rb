@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(version: 20190414173919) do
     t.string "street"
     t.string "city"
     t.string "zipcode"
+    t.string "picture"
+    t.string "map_link"
     t.string "created_by"
     t.string "updated_by"
     t.datetime "created_at", null: false
