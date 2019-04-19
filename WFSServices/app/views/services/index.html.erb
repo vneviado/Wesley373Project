@@ -1,4 +1,3 @@
-<div class="container">
 <section class="hero">
   <div class="hero-body">
     <div class="container">
@@ -40,7 +39,7 @@
                     <p class="title is-4 no-padding"><%=$value1.name%></p>
 
                       <table>
-                      <% $value1.services.each do |service| %>
+                      <% $value1.services.alphabetical.each do |service| %>
                           <tr>
                           <td>
                             <p><span class="title is-6"><%=link_to service.name, service %></span></p>
@@ -66,7 +65,7 @@
                     <p class="title is-4 no-padding"><%=$value2.name%></p>
 
                       <table>
-                      <% $value2.services.each do |service| %>
+                      <% $value2.services.alphabetical.each do |service| %>
                           <tr>
                           <td>
                             <p><span class="title is-6"><%=link_to service.name, service %></span></p>
@@ -92,7 +91,7 @@
                     <p class="title is-4 no-padding"><%=$value3.name%></p>
 
                       <table>
-                      <% $value3.services.each do |service| %>
+                      <% $value3.services.alphabetical.each do |service| %>
                           <tr>
                           <td>
                             <p><span class="title is-6"><%=link_to service.name, service %></span></p>
@@ -123,9 +122,9 @@
 
           <div class="columns is-multiline is-mobile">
 
-          <% me = Array["Older Adult Services", "Family Support Services", "Child/Family 
+          <% me = Array["Older Adult Services", "Family Support Services", "Child/Family
             Behavioral Health", "Educational/School Services", "Behavioral Health & Recovery",
-             "Intellectual & Developmental Disabilities", "Central Access/Community Programs", 
+             "Intellectual & Developmental Disabilities", "Central Access/Community Programs",
              "Psychiatric Services", "Outpatient Services"] %>
           <% len = me.length - 1 %>
           <% (0..len).step(3).each do |i| %>
@@ -143,7 +142,7 @@
                   <div class="card-content">
                     <p class="title is-4 no-padding"><%=$value1%></p>
 
-                      <% @services.each do |service| %>
+                      <% @services.alphabetical.each do |service| %>
                         <% if service.microenterprise == $value1 %>
                         <% $value1p = true %>
                         <table>
@@ -176,7 +175,7 @@
                   <div class="card-content">
                     <p class="title is-4 no-padding"><%=$value2%></p>
 
-                      <% @services.each do |service| %>
+                      <% @services.alphabetical.each do |service| %>
                         <% if service.microenterprise == $value2 %>
                         <% $value2p = true %>
                           <table>
@@ -246,8 +245,4 @@
       </div>
     </div>
   </div>
-</div>
 </section>
-</div>
-
-

@@ -18,12 +18,18 @@
             Zipcode: <%= @location.zipcode %>
           </div>
 
+          <% if @location.map_link != nil %>
+            <div class="content">
+              <%= Hello %>
+            </div>
+          <% end %>
+
           <div class="content"><span class="title is-6">Contact: </span>
             <br/>Phone number: <%= number_to_phone @location.phone_number %>
           </div>
 
           <div class="content"><span class="title is-6">Services: </span><br/>
-            <% @location.services.each do |s| %>
+            <% @location.services.alphabetical.each do |s| %>
               <%= link_to s.name, s %><br/>
             <% end %>
           </div>

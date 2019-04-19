@@ -26,7 +26,7 @@
             Zipcode: <%= @contact.zipcode_1 %>
           </div>
 
-          <% if @contact.street_2 != nil && @contact.city_2 != nil && @contact.zipcode_2 != nil %>
+          <% if (@contact.street_2 != nil && @contact.street_2 != "") && (@contact.city_2 != nil && @contact.city_2 != "") && (@contact.zipcode_2 != nil && @contact.zipcode_2 != "") %>
             <div class="content"><strong>Secondary Address: </strong><br/>
               Street: <%= @contact.street_2 %>
               <br/>
@@ -37,7 +37,7 @@
           <% end %>
 
           <div class="content"><span class="title is-6">Services: </span><br/>
-            <% @contact.services.each do |s| %>
+            <% @contact.services.alphabetical.each do |s| %>
               <%= link_to s.name, s %><br/>
             <% end %>
           </div>
