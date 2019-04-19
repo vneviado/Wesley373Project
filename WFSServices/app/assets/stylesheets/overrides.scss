@@ -80,9 +80,10 @@ input[type="submit" i] {
 }
 
 .button.is-small {
-  border-radius: 25px;
-  font-size: 12pt;
-  width: 110px;
+  border-radius: 0px;
+  font-size: 10pt;
+  width: 100px;
+  margin-left: -20px;
 }
 
 input {
