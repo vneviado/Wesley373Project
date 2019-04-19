@@ -1,6 +1,15 @@
 <div class="container">
   <section class="hero">
     <div class="hero-body">
+
+      <% if notice != nil %>
+        <article class="message is-primary">
+          <div class="message-body">
+            <p id="notice"><%= notice %></p>
+          </div>
+        </article>
+      <% end %>
+
       <div class="container">
         <h1 class="title">Contacts</h1>
           <div class="columns is-multiline is-mobile">

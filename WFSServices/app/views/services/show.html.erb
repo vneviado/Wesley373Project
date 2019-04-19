@@ -1,6 +1,14 @@
 <div class="container">
     <div class="columns padding-top ">
         <div class="column ">
+            <% if notice != nil %>
+                <article class="message is-primary">
+                    <div class="message-body">
+                        <p id="notice"><%= notice %></p>
+                    </div>
+                </article>
+            <% end %>
+
             <div class="card large">
                 <div class="card-content">
                     <div class="media">

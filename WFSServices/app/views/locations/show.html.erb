@@ -2,6 +2,15 @@
   <div class="row columns">
     <div class="column">
       <br/>
+      
+      <% if notice != nil %>
+        <article class="message is-primary">
+          <div class="message-body">
+            <p id="notice"><%= notice %></p>
+          </div>
+        </article>
+      <% end %>
+
       <div class="card large">
         <div class="card-content">
           <div class="media">

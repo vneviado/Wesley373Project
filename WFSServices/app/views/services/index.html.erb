@@ -9,6 +9,14 @@
   <div class="hero-body">
     <div class="container">
 
+    <% if notice != nil %>
+      <article class="message is-primary">
+        <div class="message-body">
+          <p id="notice"><%= notice %></p>
+        </div>
+      </article>
+    <% end %>
+
       <h1 class="title">Services</h1>
 
       <div class="hero-foot">

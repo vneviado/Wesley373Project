@@ -25,10 +25,11 @@ class ServiceContactsController < ApplicationController
   def create
     @service_contact = ServiceContact.new(service_contact_params)
     if @service_contact.save
+      flash[:notice] = "Successfully connected contact with the service."
       redirect_to service_path(@service_contact.service)
     else
       @service = Service.find(params[:service_contact][:service_id])
-        render action: 'new', locals: { service: @service }
+      render action: 'new', locals: { service: @service }
     end
   end
 
