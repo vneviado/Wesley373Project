@@ -39,7 +39,7 @@
                     <p class="title is-4 no-padding"><%=$value1.name%></p>
 
                       <table>
-                      <% $value1.services.each do |service| %>
+                      <% $value1.services.alphabetical.each do |service| %>
                           <tr>
                           <td>
                             <p><span class="title is-6"><%=link_to service.name, service %></span></p>
@@ -65,7 +65,7 @@
                     <p class="title is-4 no-padding"><%=$value2.name%></p>
 
                       <table>
-                      <% $value2.services.each do |service| %>
+                      <% $value2.services.alphabetical.each do |service| %>
                           <tr>
                           <td>
                             <p><span class="title is-6"><%=link_to service.name, service %></span></p>
@@ -91,7 +91,7 @@
                     <p class="title is-4 no-padding"><%=$value3.name%></p>
 
                       <table>
-                      <% $value3.services.each do |service| %>
+                      <% $value3.services.alphabetical.each do |service| %>
                           <tr>
                           <td>
                             <p><span class="title is-6"><%=link_to service.name, service %></span></p>
@@ -142,7 +142,7 @@
                   <div class="card-content">
                     <p class="title is-4 no-padding"><%=$value1%></p>
 
-                      <% @services.each do |service| %>
+                      <% @services.alphabetical.each do |service| %>
                         <% if service.microenterprise == $value1 %>
                         <% $value1p = true %>
                         <table>
@@ -175,7 +175,7 @@
                   <div class="card-content">
                     <p class="title is-4 no-padding"><%=$value2%></p>
 
-                      <% @services.each do |service| %>
+                      <% @services.alphabetical.each do |service| %>
                         <% if service.microenterprise == $value2 %>
                         <% $value2p = true %>
                           <table>
