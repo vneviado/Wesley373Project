@@ -2,7 +2,7 @@
   <div class="row columns">
     <div class="column">
       <br/>
-      
+
       <% if notice != nil %>
         <article class="message is-primary">
           <div class="message-body">
@@ -27,9 +27,9 @@
             Zipcode: <%= @location.zipcode %>
           </div>
 
-          <% if @location.map_link != nil %>
-            <div class="content">
-              <%= Hello %>
+          <% if @location.map_link != nil && @location.map_link != "" %>
+            <div class="content"><strong>Directions: </strong><br/>
+              <iframe src=<%=@location.map_link%> width="600" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
           <% end %>
 
