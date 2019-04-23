@@ -1,51 +1,39 @@
-<%= form_with(model: category, local: true) do |form| %>
-  <% if category.errors.any? %>
-    <div id="error_explanation">
-      <div id="column">
-      <article class="message is-danger">
-        <div class="message-body">
-          <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
-
-          <ul>
-          <% category.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      </article>
-      </div>
-    </div>
-  <% end %>
-
-  <div class="container">
+<div class="container">
     <div class="row columns">
       <div class="column">
         <div class="card large">
           <div class="card-content is-light-grey">
-            
-            <div class="field">
-              <%= form.label :name %>
-              <%= form.text_field :name, id: :category_name %>
-            </div>
+          
+            <%= simple_form_for(@category) do |f| %>
+              <%= f.error_notification %>
 
-            <div class="field">
-              <%= form.label :created_by %>
-              <%= form.text_field :created_by, id: :category_created_by %>
-            </div>
+                <div class="field">
+                  <div class="control">
+                      <%= f.input :name, label_html: { class: 'active' }, wrapper: false %>
+                  </div>
+                </div>
 
-            <div class="field">
-              <%= form.label :updated_by %>
-              <%= form.text_field :updated_by, id: :category_updated_by %>
-            </div>
+                <div class="field">
+                  <div class="control">
+                      <%= f.input :created_by, label_html: { class: 'active' }, wrapper: false %>
+                  </div>
+                </div>
 
-            <div class="actions">
-              <%= form.submit %>
-            </div>
+                <div class="field">
+                  <div class="control">
+                      <%= f.input :updated_by, label_html: { class: 'active' }, wrapper: false %>
+                  </div>
+                </div>
 
+                <%= f.input :created_at, as: :hidden, input_html: { value: Date.current }, wrapper:false %>
+                
+                <%= f.button :submit %>
+
+            <% end %>
           </div>
         </div>
       </div>
     </div>
-  </div>
+</div>
   
-<% end %>
+
