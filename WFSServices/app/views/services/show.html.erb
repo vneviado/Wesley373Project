@@ -22,7 +22,7 @@
                             <p class="subtitle is-6"><%= @service.description%></p>
                             <p><span class="title is-6">Level of Care</span></p>
                             <p class="subtitle is-6"><%= @service.level_of_care%></p> 
-                            <p><span class="title is-6">Microenterprise</span></p>
+                            <p><span class="title is-6">Micro-Enterprise</span></p>
                             <p class="subtitle is-6"><%= @service.microenterprise%></p> 
                         </div>
                     </div>
@@ -153,7 +153,7 @@
         <div class="card large">
             <div class="card-content"><span class="title is-6 p"> Comments </span>
                 <br>
-                 <%= @service.comments.chronological.each do |c| %>
+                <% @service.comments.chronological.each do |c| %>
                     <p><%= c.date_created.strftime("%m/%d/%y") %> <%= c.content %></p>
                 <% end %>
                 <div class="padding-top">

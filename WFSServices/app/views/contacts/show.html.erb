@@ -24,7 +24,9 @@
           <div class="content"><span class="title is-6">Contact Information: </span>
             <br/>Role: <%= @contact.role %>
             <br/>Work number: <%= number_to_phone @contact.work_number %>
-            <br/>Cell phone number: <%= number_to_phone @contact.phone_number %>
+            <% if (@contact.phone_number != "")%>
+              <br/>Cell phone number: <%= number_to_phone @contact.phone_number %>
+            <% end %>
           </div>
 
           <div class="content"><strong>Address: </strong><br/>
@@ -54,7 +56,7 @@
         <div class="column">
           <%= link_to 'Back', contacts_path, class: "button is-info is-rounded" %>
           <%= link_to 'Edit', edit_contact_path(@contact), class: "button is-info is-rounded" %>
-          <%= link_to 'Destroy', @contact, method: :delete, data: { confirm: 'Are you sure?' } , class: "button is-danger is-rounded"%>
+          <%= link_to 'Remove', @contact, method: :delete, data: { confirm: 'Are you sure?' } , class: "button is-danger is-rounded"%>
         </div>
       </div>
     </div>

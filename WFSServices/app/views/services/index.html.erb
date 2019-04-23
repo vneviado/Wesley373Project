@@ -46,7 +46,11 @@
               <% if $value1 != 0 %>
                 <div class="card large">
                   <div class="card-content">
-                    <p class="title is-4 no-padding"><%=$value1.name%></p>
+                    <p class="title is-4 no-padding"><%= $value1.name %> <%= link_to "edit", edit_category_path($value1) %>
+                      <% if $value1.services.to_a.length == 0 %>
+                        <%= link_to "delete", $value1, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <% end %>
+                    </p>
 
                       <table>
                       <% $value1.services.alphabetical.each do |service| %>
@@ -73,8 +77,11 @@
               <% if $value2 != 0 %>
                 <div class="card large">
                   <div class="card-content">
-                    <p class="title is-4 no-padding"><%=$value2.name%></p>
-
+                    <p class="title is-4 no-padding"><%=$value2.name%> <%= link_to "edit", edit_category_path($value2) %>
+                      <% if $value2.services.to_a.length == 0 %>
+                        <%= link_to "delete", $value2, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <% end %>
+                    </p>
                       <table>
                       <% $value2.services.alphabetical.each do |service| %>
                           <tr>
@@ -100,8 +107,11 @@
               <% if $value3 != 0 %>
                 <div class="card large">
                   <div class="card-content">
-                    <p class="title is-4 no-padding"><%=$value3.name%></p>
-
+                    <p class="title is-4 no-padding"><%=$value3.name%> <%= link_to "edit", edit_category_path($value3) %>
+                      <% if $value3.services.to_a.length == 0 %>
+                        <%= link_to "delete", $value3, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <% end %>
+                    </p>
                       <table>
                       <% $value3.services.alphabetical.each do |service| %>
                           <tr>
@@ -134,10 +144,10 @@
         <div id="Levels of Care" class="content-tab" style="display:none">
 
 
-              <div class="container"> 
-        
+              <div class="container">
+
                 <div class="tabi-wrap">
-                
+
                   <input type="radio" id="tab1" name="tabGroup1" class="tabi" checked>
                   <label for="tab1">Adult</label>
 
@@ -205,14 +215,14 @@
                         <div class="card large">
                           <div class="card-content">
                             <p class="title is-5 no-padding">Level 4: Extended Care</p>
-                              
+
                               <% rez = @services.for_lvl_arr("4", "Adult") %>
                               <% rez.each do |service| %>
                                   <p><span class="title is-5"><%=link_to service.name, service %></span></p>
                                   <p class="subtitle is-6"><%= service.description %></p>
                                   <br>
                               <% end %>
-                          
+
                           </div>
                         </div>
                       </div>
@@ -237,7 +247,7 @@
                   </div>
 
                   <div class="tabi__content">
-                    
+
                     <div class="columns is-multiline is-mobile">
                       <div class="column is-one-fifth">
                         <div class="card large">
@@ -323,7 +333,7 @@
                   </div>
 
                   <div class="tabi__content">
-                    
+
                     <div class="columns is-multiline is-mobile">
                       <div class="column is-one-fourth">
                         <div class="card large">
@@ -394,7 +404,7 @@
                   </div>
 
                   <div class="tabi__content">
-                    
+
                     <div class="columns is-multiline is-mobile">
                       <div class="column is-one-third">
                         <div class="card large">
@@ -578,9 +588,8 @@
 
       <div class="column">
         <%= link_to 'New Service', new_service_path, class: "button is-info is-rounded" %>
-        <%= link_to 'New Category', new_category_path, class: "button is-info is-rounded" %></a>
+        <%= link_to 'New Category', new_category_path, class: "button is-info is-rounded" %>
       </div>
     </div>
   </div>
 </section>
-
