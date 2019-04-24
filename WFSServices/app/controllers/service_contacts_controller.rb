@@ -26,7 +26,7 @@ class ServiceContactsController < ApplicationController
   def create
     @service_contact = ServiceContact.new(service_contact_params)
     if @service_contact.save
-      flash[:notice] = "Successfully connected contact with the service."
+      flash[:notice] = "Successfully added '#{@service_contact.contact.name}' as a contact for '#{@service_contact.service.name}'."
       redirect_to service_path(@service_contact.service)
     else
       @service = Service.find(params[:service_contact][:service_id])
@@ -39,8 +39,9 @@ class ServiceContactsController < ApplicationController
   def destroy
     @service_contact.destroy
     respond_to do |format|
-      format.html { redirect_to service_contacts_url, notice: 'Service contact was successfully destroyed.' }
+      format.html { redirect_to @service_contact.service, notice: "'#{@service_contact.contact.name}' was successfully removed as a contact." }
       format.json { head :no_content }
+      
     end
   end
 

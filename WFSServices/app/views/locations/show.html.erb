@@ -41,6 +41,7 @@
             <% @location.services.alphabetical.each do |s| %>
               <%= link_to s.name, s %><br/>
             <% end %>
+            <%= link_to 'Add Location', new_service_location_path(location_id: @location.id), class: "button is-info is-rounded" %>
           </div>
         </div>
       </div>

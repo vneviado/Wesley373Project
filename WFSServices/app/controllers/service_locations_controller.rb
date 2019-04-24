@@ -29,7 +29,7 @@ class ServiceLocationsController < ApplicationController
   def create
     @service_location = ServiceLocation.new(service_location_params)
     if @service_location.save
-      flash[:notice] = "Successfully connected contact with the location."
+      flash[:notice] = "Successfully added '#{@service_location.location.name}' as a contact for '#{@service_location.service.name}'."
       redirect_to service_path(@service_location.service)
     else
       @service = Service.find(params[:service_location][:service_id])
@@ -42,7 +42,7 @@ class ServiceLocationsController < ApplicationController
   def update
     respond_to do |format|
       if @service_location.update(service_location_params)
-        format.html { redirect_to @service_location, notice: 'Service location was successfully updated.' }
+        format.html { redirect_to @service_location, notice: "Updated Information for location: '#{@service_location.location.name}'" }
         format.json { render :show, status: :ok, location: @service_location }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ServiceLocationsController < ApplicationController
   def destroy
     @service_location.destroy
     respond_to do |format|
-      format.html { redirect_to service_locations_url, notice: 'Service location was successfully destroyed.' }
+      format.html { redirect_to @service_location.service, notice: "'#{@service_location.location.name}' was successfully removed." }
       format.json { head :no_content }
     end
   end

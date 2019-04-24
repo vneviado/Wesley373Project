@@ -3,7 +3,7 @@ class ServiceTypesController < ApplicationController
   # GET /service_types
   # GET /service_types.json
   def index
-    @service_types = ServiceType.all
+    @service_types = ServiceType.alphabetical
   end
   # GET /service_types/1
   # GET /service_types/1.json
@@ -20,11 +20,13 @@ class ServiceTypesController < ApplicationController
 
   # GET /service_types/1/edit
   def edit
+    @service_type = ServiceType.find(params[:id])
   end
 
   def create
     @service_type = ServiceType.new(service_type_params)
     if @service_type.save
+      flash[:notice] = "Successfully added '#{service_type.name}' as a service type to '#{@service_type.service.name}'."
       redirect_to service_path(@service_type.service)
     else
       @service = Service.find(params[:service_type][:service_id])
@@ -32,26 +34,25 @@ class ServiceTypesController < ApplicationController
     end
   end
 
-  # def update
-  #   respond_to do |format|
-  #     if @service_type.update(service_type_params)
-  #       format.html { redirect_to @service_type, notice: 'Service type was successfully updated.' }
-  #       format.json { render :show, status: :ok, location: @service_type }
-  #     else
-  #       format.html { render :edit }
-  #       format.json { render json: @service_type.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-  # DELETE /service_types/1
-  # DELETE /service_types/1.json
-  def destroy
-    @service_type.destroy
+  def update
+    @service_type = ServiceType.find(params[:id])
     respond_to do |format|
-      format.html { redirect_to service_types_url, notice: 'Service type was successfully destroyed.' }
-      format.json { head :no_content }
+      if @service_type.update_attributes(service_type_params)
+        format.html { redirect_to @service_type.service, notice: "Updated information for Service Type: '#{@service_type.name}'." }
+      else
+        format.html { render :action => "edit" }
+      end
     end
   end
+
+  def destroy
+    @service_type = ServiceType.find(params[:id])
+    if @service_type.destroy
+      flash[:notice] = "Successfully removed '#{@service_type.name}' as a service type for '#{@service_type.service.name}'."
+      redirect_to @service_type.service
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_service_type
@@ -62,5 +63,6 @@ class ServiceTypesController < ApplicationController
     def service_type_params
       params.require(:service_type).permit(:name, :staff, :unit_cost, :unit_rate, :avg_los, 
         :rev_los, :frequency, :created_by, :updated_by, :service_id, :created_at, :updated_at)
+
     end
 end

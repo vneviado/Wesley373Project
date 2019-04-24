@@ -58,6 +58,7 @@
                                         <td><%= t.avg_los%></td>
                                         <td><%= t.rev_los%></td>
                                         <td><%= t.frequency%></td>
+                                        <td><%= link_to 'Edit', edit_service_type_path(t) %></td>
                                         <td><%= link_to 'Remove', t, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                                     </tr>
                                 <% end %>
@@ -115,12 +116,12 @@
                                 <table>
                                     <tr>
                                         <td><%= link_to i.location.name, i.location %></td>
-                                        <td><%= link_to 'Disconnect', i, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                        <td><%= link_to '  | Remove', i, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                                     </tr>
                                     <tr>
                                         <td><%= i.location.street %></td>
 
-<!--                                             <span class="icon is-medium">
+                                            <!-- <span class="icon is-medium">
                                                 <ion-icon name="close">
                                                 </ion-icon>
                                             </span> -->
@@ -153,13 +154,13 @@
                                 <table>
                                     <tr>
                                         <td><%= link_to c.contact.name, c.contact %></td>
-                                        <td><%= link_to 'Disconnect', c, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                        <td><%= link_to ' | Remove', c, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                                     </tr>
                                     <tr>
                                         <td><%= c.contact.role %></td>
                                     </tr>
                                     <tr>
-                                        <td><%= number_to_phone c.contact.phone_number %></td>
+                                        <td><%= number_to_phone c.contact.work_number %></td>
                                     </tr>
 
                                 </table>

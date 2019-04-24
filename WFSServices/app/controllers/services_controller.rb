@@ -5,12 +5,8 @@ class ServicesController < ApplicationController
   # GET /services.json
   # allows search on index page
   def index
-    @services = if params[:term]
-      Service.search(params[:term]).paginate(page: params[:page]).per_page(13)
-    else
-      Service.all.paginate(page: params[:page]).per_page(13)
-    end
-    @categories = Category.all
+    @services = Service.alphabetical.paginate(page: params[:page]).per_page(5)
+    @categories = Category.alphabetical
   end
 
   # GET /services/1
