@@ -1,19 +1,36 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Role:</strong>
-  <%= @user.role %>
+  <strong>Username:</strong>
+  <%= @user.username %>
 </p>
 
 <p>
-  <strong>Username:</strong>
-  <%= @user.username %>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @user.role %>
 </p>
 
 <p>
   <strong>Group string:</strong>
   <%= @user.group_string %>
 </p>
+
+<p>
+  <strong>Last logged in:</strong>
+  <%= @user.last_sign_in_at %>
+</p>
+
+<p>
+  <strong>Number of times logged in:</strong>
+  <%= @user.sign_in_count %>
+</p>
+
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
