@@ -26,6 +26,7 @@ class ServiceTypesController < ApplicationController
   def create
     @service_type = ServiceType.new(service_type_params)
     if @service_type.save
+      flash[:notice] = "Successfully added '#{service_type.name}' as a service type to '#{@service_type.service.name}'."
       redirect_to service_path(@service_type.service)
     else
       @service = Service.find(params[:service_type][:service_id])
@@ -47,7 +48,7 @@ class ServiceTypesController < ApplicationController
   def destroy
     @service_type = ServiceType.find(params[:id])
     if @service_type.destroy
-      flash[:notice] = "Successfully removed '#{@service_type.name}'."
+      flash[:notice] = "Successfully removed '#{@service_type.name}' as a service type for '#{@service_type.service.name}'."
       redirect_to @service_type.service
     end
   end
