@@ -106,15 +106,29 @@
     <div class="container">
         <div class="rows">
             <div class="card large">
-                <div class="card-content"><span class="title is-6">Locations </span>
+                <div class="card-content"><span class="title is-6">Locations</span>
                     <br>
                     <br>
                     <div class="columns">
                         <% @s_locations.each do |i| %>
                             <div class="column">
-                                <p><%= link_to i.name, i %></p>
-                                <p><%= i.street %></p>
-                                <p><%= i.city %>, PA <%= i.zipcode %></p>
+                                <table>
+                                    <tr>
+                                        <td><%= link_to i.location.name, i.location %></td>
+                                        <td><%= link_to 'Disconnect', i, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                    </tr>
+                                    <tr>
+                                        <td><%= i.location.street %></td>
+
+<!--                                             <span class="icon is-medium">
+                                                <ion-icon name="close">
+                                                </ion-icon>
+                                            </span> -->
+                                    </tr>
+                                    <tr>
+                                        <td><%= i.location.city %>, PA <%= i.location.zipcode %></td>
+                                    </tr>
+                                </table>
                             </div>
                         <% end %>
                     </div>
@@ -135,9 +149,21 @@
                     <div class="columns">
                         <% @s_contacts.each do |c| %>
                             <div class="column">
-                                <p><%= link_to c.name, c %></p>
-                                <p><%= c.role %></p>
-                                <p><%= number_to_phone c.phone_number %></p>
+
+                                <table>
+                                    <tr>
+                                        <td><%= link_to c.contact.name, c.contact %></td>
+                                        <td><%= link_to 'Disconnect', c, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                    </tr>
+                                    <tr>
+                                        <td><%= c.contact.role %></td>
+                                    </tr>
+                                    <tr>
+                                        <td><%= number_to_phone c.contact.phone_number %></td>
+                                    </tr>
+
+                                </table>
+
                             </div>
                         <% end %>
                     </div>
