@@ -20,6 +20,7 @@ class ServiceTypesController < ApplicationController
 
   # GET /service_types/1/edit
   def edit
+    @service_type = ServiceType.find(params[:id])
   end
 
   def create
@@ -32,26 +33,14 @@ class ServiceTypesController < ApplicationController
     end
   end
 
-  # def update
-  #   respond_to do |format|
-  #     if @service_type.update(service_type_params)
-  #       format.html { redirect_to @service_type, notice: 'Service type was successfully updated.' }
-  #       format.json { render :show, status: :ok, location: @service_type }
-  #     else
-  #       format.html { render :edit }
-  #       format.json { render json: @service_type.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-  # DELETE /service_types/1
-  # DELETE /service_types/1.json
   def destroy
-    @service_type.destroy
-    respond_to do |format|
-      format.html { redirect_to service_types_url, notice: 'Service type was successfully destroyed.' }
-      format.json { head :no_content }
+    @service_type = ServiceType.find(params[:id])
+    if @service_type.destroy
+      flash[:notice] = "Successfully removed '#{@service_type.name}'."
+      redirect_to @service_type.service
     end
   end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_service_type
