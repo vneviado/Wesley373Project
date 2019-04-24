@@ -92,3 +92,7 @@ input {
   width: 180px;
   padding-bottom: -2px;
 }
+
+.select:not(.is-multiple):not(.is-loading)::after {
+  display: none;
+}
