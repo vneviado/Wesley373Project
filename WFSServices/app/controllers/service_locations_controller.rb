@@ -69,6 +69,6 @@ class ServiceLocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_location_params
-      params.require(:service_location).permit(:service_id, :location_id)
+      params.require(:service_location).permit(:service_id, :location_id, :created_at, :updated_at)
     end
 end

@@ -85,7 +85,13 @@
                             </div>
                         </div>
 
-                        <%= f.input :created_at, as: :hidden, input_html: { value: Date.current }, wrapper:false %>
+                        <div class="field">
+                            <div class="control">
+                              <%= f.input :updated_by, label_html: { class: 'active' }, wrapper: false,  wrapper_html: { class: 'input' } %>
+                            </div>
+                        </div> 
+
+                        <%= f.input :updated_at, as: :hidden, input_html: { value: Date.current }, wrapper:false %>
                     <%= f.button :submit %>
                 <% end %>
             </div>
