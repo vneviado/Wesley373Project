@@ -1,0 +1,15 @@
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+  	<% roles = Array["service_owner", "company_staff", "admin"]%>
+  	
+  	<%= f.input :role, collection: roles, include_blank: true, wrapper: false %>
+    <%= f.input :username %>
+    <%= f.input :group_string %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

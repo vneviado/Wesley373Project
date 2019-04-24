@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :locations
   resources :contacts
   resources :comments
+  resources :users
 
-
-  root 'services#index'
+  root to:'services#index'
 end

@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :user do
-    login ""
-    group_string "MyString"
+    role "admin"
+    username "Peppa the Pig"
+    group_string "IT"
   end
 end
