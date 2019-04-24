@@ -1,6 +1,6 @@
 class ServiceContactsController < ApplicationController
   before_action :set_service_contact, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
 
   # GET /service_contacts

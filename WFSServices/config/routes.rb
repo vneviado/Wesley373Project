@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   
-  devise_for :users
   get 'home', to: 'home#index', as: :home
   get 'home/search', to: 'home#search', as: :search
 
@@ -14,7 +13,11 @@ Rails.application.routes.draw do
   resources :locations
   resources :contacts
   resources :comments
-  resources :users
+
+  devise_for :users
+  scope "/admin" do
+    resources :users
+  end
 
   root to:'services#index'
 end
