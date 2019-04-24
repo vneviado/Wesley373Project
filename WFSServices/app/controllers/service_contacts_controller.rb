@@ -9,6 +9,7 @@ class ServiceContactsController < ApplicationController
 
   # GET /service_contacts/new
   def new
+    @service_contacts = ServiceContact.all
     @service_contact = ServiceContact.new
     unless params[:service_id].nil?
       @service = Service.find(params[:service_id])
@@ -38,8 +39,9 @@ class ServiceContactsController < ApplicationController
   def destroy
     @service_contact.destroy
     respond_to do |format|
-      format.html { redirect_to service_contacts_url, notice: "'#{@service_contact.contact.name}' was successfully removed as a contact." }
+      format.html { redirect_to @service_contact.service, notice: "'#{@service_contact.contact.name}' was successfully removed as a contact." }
       format.json { head :no_content }
+      
     end
   end
 
@@ -51,6 +53,6 @@ class ServiceContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_contact_params
-      params.require(:service_contact).permit(:service_id, :contact_id)
+      params.require(:service_contact).permit(:service_id, :contact_id, :created_at, :updated_at)
     end
 end

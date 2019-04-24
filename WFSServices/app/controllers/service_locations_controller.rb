@@ -56,7 +56,7 @@ class ServiceLocationsController < ApplicationController
   def destroy
     @service_location.destroy
     respond_to do |format|
-      format.html { redirect_to service_locations_url, notice: "'#{@service_location.location.name}' was successfully removed." }
+      format.html { redirect_to @service_location.service, notice: "'#{@service_location.location.name}' was successfully removed." }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class ServiceLocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_location_params
-      params.require(:service_location).permit(:service_id, :location_id)
+      params.require(:service_location).permit(:service_id, :location_id, :created_at, :updated_at)
     end
 end

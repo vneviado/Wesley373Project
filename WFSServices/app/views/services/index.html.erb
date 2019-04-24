@@ -46,9 +46,9 @@
               <% if $value1 != 0 %>
                 <div class="card large">
                   <div class="card-content">
-                    <p class="title is-4 no-padding"><%= $value1.name %> <%= link_to "edit", edit_category_path($value1) %>
+                    <p class="title is-4 no-padding"><%= $value1.name %> <%= link_to "  | Edit", edit_category_path($value1) %>
                       <% if $value1.services.to_a.length == 0 %>
-                        <%= link_to "delete", $value1, method: :delete, data: { confirm: 'Are you sure?' } %>
+                        <%= link_to "Delete", $value1, method: :delete, data: { confirm: 'Are you sure?' } %>
                       <% end %>
                     </p>
 
@@ -77,9 +77,9 @@
               <% if $value2 != 0 %>
                 <div class="card large">
                   <div class="card-content">
-                    <p class="title is-4 no-padding"><%=$value2.name%> <%= link_to "edit", edit_category_path($value2) %>
+                    <p class="title is-4 no-padding"><%=$value2.name%> <%= link_to "  | Edit", edit_category_path($value2) %>
                       <% if $value2.services.to_a.length == 0 %>
-                        <%= link_to "delete", $value2, method: :delete, data: { confirm: 'Are you sure?' } %>
+                        <%= link_to "| Delete", $value2, method: :delete, data: { confirm: 'Are you sure?' } %>
                       <% end %>
                     </p>
                       <table>
@@ -107,9 +107,9 @@
               <% if $value3 != 0 %>
                 <div class="card large">
                   <div class="card-content">
-                    <p class="title is-4 no-padding"><%=$value3.name%> <%= link_to "edit", edit_category_path($value3) %>
+                    <p class="title is-4 no-padding"><%=$value3.name%> <%= link_to "  | Edit", edit_category_path($value3) %>
                       <% if $value3.services.to_a.length == 0 %>
-                        <%= link_to "delete", $value3, method: :delete, data: { confirm: 'Are you sure?' } %>
+                        <%= link_to "| Delete", $value3, method: :delete, data: { confirm: 'Are you sure?' } %>
                       <% end %>
                     </p>
                       <table>
@@ -138,11 +138,7 @@
         </div>
 
 
-
-
-
         <div id="Levels of Care" class="content-tab" style="display:none">
-
 
               <div class="container">
 

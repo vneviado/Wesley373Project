@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20190417220653) do
     t.text "content"
     t.date "date_created"
     t.bigint "service_id"
+    t.string "created_by"
+    t.string "updated_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["service_id"], name: "index_comments_on_service_id"
@@ -41,6 +43,8 @@ ActiveRecord::Schema.define(version: 20190417220653) do
     t.string "city_2"
     t.string "zipcode_2"
     t.string "role"
+    t.string "created_by"
+    t.string "updated_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -115,6 +119,7 @@ ActiveRecord::Schema.define(version: 20190417220653) do
     t.string "level_of_care"
     t.string "average_length_of_stay"
     t.string "referral_process"
+    t.string "payment_insurance"
     t.string "matching_elements"
     t.string "web_address"
     t.string "array_of_services"

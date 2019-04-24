@@ -38,23 +38,19 @@
                                 <%= f.input :frequency, label_html: { class: 'active' }, wrapper: false %>
                             </div>
                         </div>
-                        <%= f.input :updated_at, as: :hidden, input_html: { value: Date.current }, wrapper:false %>
+
+                        <div class="field">
+                            <div class="control">
+                              <%= f.input :created_by, label_html: { class: 'active' }, wrapper: false,  wrapper_html: { class: 'input' } %>
+                            </div>
+                        </div> 
+
+                        <%= f.input :service_id, as: :hidden, input_html: { value: @service.id }, wrapper:false %>
+                        <%= f.input :created_at, as: :hidden, input_html: { value: Date.current }, wrapper:false %>
+
                   <%= f.button :submit %>
                 <% end %>
             </div>
         </div>
     </div>
-
-  </div>
-</div>
-
-<%= render 'form_edit', service_type: @service_type %>
-
-<div class="container">
-  <div class="row columns">
-    <div class="column">
-    <br>
-      <%= link_to 'Back', services_path, class: "button is-info is-rounded" %>
-    </div>
-  </div>
 </div>

@@ -15,6 +15,7 @@ FactoryBot.define do
       array_of_services "Child" 
       created_by "Test Admin"
       updated_by "Test Admin"
+      payment_insurance "Auto payment"
       association :category
     end
 end
