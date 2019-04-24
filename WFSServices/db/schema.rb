@@ -119,6 +119,7 @@ ActiveRecord::Schema.define(version: 20190417220653) do
     t.string "level_of_care"
     t.string "average_length_of_stay"
     t.string "referral_process"
+    t.string "payment_insurance"
     t.string "matching_elements"
     t.string "web_address"
     t.string "array_of_services"
