@@ -33,6 +33,17 @@ class ServiceTypesController < ApplicationController
     end
   end
 
+  def update
+    @service_type = ServiceType.find(params[:id])
+    respond_to do |format|
+      if @service_type.update_attributes(service_type_params)
+        format.html { redirect_to @service_type.service, notice: "Updated information for Service Type: '#{@service_type.name}'." }
+      else
+        format.html { render :action => "edit" }
+      end
+    end
+  end
+
   def destroy
     @service_type = ServiceType.find(params[:id])
     if @service_type.destroy
@@ -49,6 +60,6 @@ class ServiceTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_type_params
-      params.require(:service_type).permit(:name, :staff,:unit_cost, :unit_rate, :avg_los, :rev_los, :frequency, :created_by, :updated_by, :service_id)
+      params.require(:service_type).permit(:name, :staff,:unit_cost, :unit_rate, :avg_los, :rev_los, :frequency, :created_by, :updated_by, :updated_at, :created_at, :service_id)
     end
 end

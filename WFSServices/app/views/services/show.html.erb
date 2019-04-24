@@ -58,6 +58,7 @@
                                         <td><%= t.avg_los%></td>
                                         <td><%= t.rev_los%></td>
                                         <td><%= t.frequency%></td>
+                                        <td><%= link_to 'Edit', edit_service_type_path(t) %></td>
                                         <td><%= link_to 'Remove', t, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                                     </tr>
                                 <% end %>

@@ -38,7 +38,6 @@
                                 <%= f.input :frequency, label_html: { class: 'active' }, wrapper: false %>
                             </div>
                         </div>
-                        <%= f.input :service_id, as: :hidden, input_html: { value: @service.id }, wrapper:false %>
                         <%= f.input :updated_at, as: :hidden, input_html: { value: Date.current }, wrapper:false %>
                   <%= f.button :submit %>
                 <% end %>
