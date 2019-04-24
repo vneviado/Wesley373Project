@@ -56,7 +56,7 @@ class ServiceLocationsController < ApplicationController
   def destroy
     @service_location.destroy
     respond_to do |format|
-      format.html { redirect_to service_locations_url, notice: "'#{@service_location.location.name' was successfully removed." }
+      format.html { redirect_to service_locations_url, notice: "'#{@service_location.location.name}' was successfully removed." }
       format.json { head :no_content }
     end
   end
