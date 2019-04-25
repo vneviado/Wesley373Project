@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  authorize_resource
 
 
   # GET /users
@@ -12,6 +13,12 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @joined_on = @user.created_at.to_formatted_s(:short)
+    if @user.current_sign_in_at
+      @last_login = @user.current_sign_in_at.to_formatted_s(:short)
+    else
+      @last_login = "never"
+    end
   end
 
   # GET /users/new
