@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
+<% if logged_in? && current_user.admin? %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Created by:</strong>
-  <%= @category.created_by %>
-</p>
+	<p>
+	  <strong>Name:</strong>
+	  <%= @category.name %>
+	</p>
 
-<p>
-  <strong>Updated by:</strong>
-  <%= @category.updated_by %>
-</p>
+	<p>
+	  <strong>Created by:</strong>
+	  <%= @category.created_by %>
+	</p>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', services_path %>
+	<p>
+	  <strong>Updated by:</strong>
+	  <%= @category.updated_by %>
+	</p>
+
+	<%= link_to 'Edit', edit_category_path(@category) %> |
+	<%= link_to 'Back', services_path %>
+
+<% end %>
