@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190417220653) do
+ActiveRecord::Schema.define(version: 20190424230254) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -133,10 +133,25 @@ ActiveRecord::Schema.define(version: 20190417220653) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "login"
+    t.string "username"
+    t.string "role"
     t.string "group_string"
+    t.bigint "service_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["service_id"], name: "index_users_on_service_id"
   end
 
   add_foreign_key "comments", "services"
@@ -144,4 +159,5 @@ ActiveRecord::Schema.define(version: 20190417220653) do
   add_foreign_key "service_contacts", "services"
   add_foreign_key "service_locations", "locations"
   add_foreign_key "service_locations", "services"
+  add_foreign_key "users", "services"
 end

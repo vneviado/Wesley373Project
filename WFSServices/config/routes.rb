@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   resources :contacts
   resources :comments
 
+  devise_for :users
+  scope "/admin" do
+    resources :users
+  end
 
-  root 'services#index'
+  root to:'services#index'
 end

@@ -8,6 +8,7 @@ class Service < ApplicationRecord
     has_many :contacts, through: :service_contacts
     has_many :service_types
     has_many :comments
+    has_many :users
 
     # Validations
     validates_presence_of :name

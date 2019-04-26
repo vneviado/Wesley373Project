@@ -1,0 +1,35 @@
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">Users</h1>
+      <div class="container">
+
+        <% if notice != nil %>
+          <article class="message is-primary">
+            <div class="message-body">
+              <p id="notice"><%= notice %></p>
+            </div>
+          </article>
+        <% end %>
+
+        <div class="row columns">
+          <div class="column">
+            <% @users.each do |u| %>
+              <div class="card large">
+                <div class="card-content">
+                  <p class="title is-4 no-padding"><%= u.username %></p>
+                  <span class="title is-6">Email: </span>
+                  <%= u.email %><br/>
+                  <span class="title is-6">Role: </span>
+                  <%= u.role %><br/>
+                  <span class="title is-6">Group String: </span>
+                  <%= u.group_string %>
+                </div>
+              </div><br/>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

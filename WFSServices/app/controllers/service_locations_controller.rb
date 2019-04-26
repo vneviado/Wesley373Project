@@ -1,5 +1,7 @@
 class ServiceLocationsController < ApplicationController
   before_action :set_service_location, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  authorize_resource
 
   # GET /service_locations
   # GET /service_locations.json

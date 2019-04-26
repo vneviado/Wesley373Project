@@ -1,5 +1,8 @@
 class ServiceContactsController < ApplicationController
   before_action :set_service_contact, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  authorize_resource
+
 
   # GET /service_contacts
   # GET /service_contacts.json

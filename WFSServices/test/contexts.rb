@@ -8,6 +8,8 @@ require './test/sets/comments'
 require './test/sets/costs'
 require './test/sets/service_locations'
 require './test/sets/service_contacts'
+require './test/sets/users'
+
 
 module Contexts
   # explicitly include all sets of contexts used for testing 
@@ -20,6 +22,7 @@ module Contexts
   include Contexts::Costs
   include Contexts::ServiceLocations
   include Contexts::ServiceContacts
+  include Contexts::Users
 
   # a build_all method to quickly create a full testing context
   def build_all
@@ -40,11 +43,15 @@ module Contexts
     create_service_locations
     puts "Built service locations"
     create_service_contacts
-    puts "Built service locations"   
+    puts "Built service locations" 
+    create_users
+    puts "Built users"  
   end
 
   # a destroy_all method to quickly destroy the testing context
   def destroy_all
+    destroy_users
+    puts "Destroyed users"
     destroy_comments
     puts "Destroyed comments"
     destroy_costs

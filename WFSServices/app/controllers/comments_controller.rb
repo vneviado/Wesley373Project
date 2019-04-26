@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController 
+   before_action :authenticate_user!
+   authorize_resource
+
     # GET /comments/new
     def new
         @comment = Comment.new
