@@ -12,18 +12,29 @@
 
         <div id="navbarMenu" class="navbar-menu">
             <div class="navbar-start">
+                <% if can? :read, Service %>
+                    <span class="navbar-item">
+                        <%= link_to "Services", services_path, style: 'color:#FFFFFF; font-size: 20px;', class: 'css_class' %>
+                    </span>
+                <% end %>
 
-                <span class="navbar-item">
-                    <%= link_to "Services", services_path, style: 'color:#FFFFFF; font-size: 20px;', class: 'css_class' %>
-                </span>
+                <% if can? :read, Location %>
+                    <span class="navbar-item">
+                        <%= link_to "Locations", locations_path, style: 'color:#FFFFFF; font-size: 20px;', class: 'css_class' %>
+                    </span>
+                <% end %>
 
-                <span class="navbar-item">
-                    <%= link_to "Locations", locations_path, style: 'color:#FFFFFF; font-size: 20px;', class: 'css_class' %>
-                </span>
+                <% if can? :read, Contact %>
+                    <span class="navbar-item">
+                        <%= link_to "Contacts", contacts_path, style: 'color:#FFFFFF; font-size: 20px;', class: 'css_class' %>
+                    </span>
+                <% end %>
 
-                <span class="navbar-item">
-                    <%= link_to "Contacts", contacts_path, style: 'color:#FFFFFF; font-size: 20px;', class: 'css_class' %>
-                </span>
+                <% if can? :read, User %>
+                    <span class="navbar-item">
+                        <%= link_to "Users", users_path, style: 'color:#FFFFFF; font-size: 20px;', class: 'css_class' %>
+                    </span>
+                <% end %>
             </div>
 
             <div class="navbar-end">

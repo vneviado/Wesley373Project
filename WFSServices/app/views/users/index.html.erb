@@ -14,6 +14,7 @@
 
         <div class="row columns">
           <div class="column">
+          <% if can? :read User %>
             <% @users.each do |u| %>
               <div class="card large">
                 <div class="card-content">
@@ -27,6 +28,7 @@
                 </div>
               </div><br/>
             <% end %>
+          <% end %>
           </div>
         </div>
       </div>
