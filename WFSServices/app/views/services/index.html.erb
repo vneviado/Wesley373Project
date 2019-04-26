@@ -47,12 +47,16 @@
                 <div class="card large">
                   <div class="card-content">
                     <p class="title is-4 no-padding"><%= $value1.name %>
+                    <% if can? :edit, Category %>
                       <%= link_to edit_category_path($value1) do %>
                           <i class="material-icons">edit</i>
                         <% end %>
+                    <% end %>
                       <% if $value1.services.to_a.length == 0 %>
-                        <%= link_to($value1, method: :delete, data: { confirm: 'Are you sure?' }) do %>
-                          <i class="material-icons">delete</i>
+                        <% if can? :delete, Category %>
+                          <%= link_to($value1, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+                            <i class="material-icons">delete</i>
+                          <% end %>
                         <% end %>
                       <% end %>
                     </p>
@@ -62,9 +66,11 @@
                           <tr>
                           <td style="table-layout: fixed; width: 350px;">
                             <p><span class="title is-5"><%=link_to service.name, service %>
+                            <% if can? :edit, service %>
                               <%= link_to edit_service_path(service) do %>
                                 <i class="material-icons">edit</i>
                               <% end %>
+                            <% end %>
                             </span></p>
 
                             <p class="subtitle is-6"><%= service.description %></p>
@@ -83,13 +89,17 @@
                 <div class="card large">
                   <div class="card-content">
                     <p class="title is-4 no-padding"><%=$value2.name%>
+                    <% if can? :edit, Category %>
                       <%= link_to edit_category_path($value2) do %>
                           <i class="material-icons">edit</i>
                         <% end %>
+                    <% end %>
                       <% if $value2.services.to_a.length == 0 %>
+                      <% if can? :delete, Category %>
                         <%= link_to($value2, method: :delete, data: { confirm: 'Are you sure?' }) do %>
                           <i class="material-icons">delete</i>
                         <% end %>
+                      <% end %>
                       <% end %>
                     </p>
                       <table>
@@ -97,9 +107,11 @@
                           <tr>
                           <td style="table-layout: fixed; width: 350px;">
                             <p><span class="title is-5"><%=link_to service.name, service %>
+                            <% if can? :edit, service %>
                               <%= link_to edit_service_path(service) do %>
                                 <i class="material-icons">edit</i>
                               <% end %>
+                            <% end %>
                             </span></p>
                             <p class="subtitle is-6"><%= service.description %></p>
                             </td>
@@ -117,12 +129,16 @@
                 <div class="card large">
                   <div class="card-content">
                     <p class="title is-4 no-padding"><%=$value3.name%>
+                    <% if can? :edit, Category %>
                       <%= link_to edit_category_path($value3) do %>
                           <i class="material-icons">edit</i>
                         <% end %>
+                    <% end %>
                       <% if $value3.services.to_a.length == 0 %>
-                        <%= link_to($value3, method: :delete, data: { confirm: 'Are you sure?' }) do %>
-                          <i class="material-icons">delete</i>
+                        <% if can? :delete, Category %>
+                          <%= link_to($value3, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+                            <i class="material-icons">delete</i>
+                          <% end %>
                         <% end %>
                       <% end %>
                     </p>
@@ -131,9 +147,11 @@
                           <tr>
                           <td style="table-layout: fixed; width: 350px;">
                             <p><span class="title is-5"><%=link_to service.name, service %>
+                            <% if can? :edit, service %>
                               <%= link_to edit_service_path(service) do %>
                                 <i class="material-icons">edit</i>
                               <% end %>
+                            <% end %>
                             </span></p>
                             <p class="subtitle is-6"><%= service.description %></p>
                             </td>
@@ -502,9 +520,11 @@
                           <tr>
                             <td style="table-layout: fixed; width: 350px;">
                             <p><span class="title is-5"><%=link_to service.name, service %>
+                            <% if can? :edit, service %>
                               <%= link_to edit_service_path(service) do %>
                                 <i class="material-icons">edit</i>
                               <% end %>
+                            <% end %>
                             </span></p>
                             <p class="subtitle is-6"><%= service.description %></p>
                           </tr>
@@ -534,9 +554,11 @@
                             <tr>
                             <td style="table-layout: fixed; width: 350px;">
                               <p><span class="title is-5"><%=link_to service.name, service %>
+                              <% if can? :edit, service %>
                                 <%= link_to edit_service_path(service) do %>
                                   <i class="material-icons">edit</i>
                                 <% end %>
+                              <% end %>
                               </span></p>
                               <p class="subtitle is-6"><%= service.description %></p>
                             </tr>
@@ -566,9 +588,11 @@
                             <tr>
                             <td style="table-layout: fixed; width: 350px;">
                               <p><span class="title is-5"><%=link_to service.name, service %>
+                              <% if can? :edit, service%>
                                 <%= link_to edit_service_path(service) do %>
                                   <i class="material-icons">edit</i>
                                 <% end %>
+                              <% end %>
                               </span></p>
                               <p class="subtitle is-6"><%= service.description %></p>
                             </tr>
@@ -591,8 +615,10 @@
       </div>
 
       <div class="column">
+      <% if  current_user.admin? %>
         <%= link_to 'New Service', new_service_path, class: "button is-info is-rounded" %>
         <%= link_to 'New Category', new_category_path, class: "button is-info is-rounded" %>
+      <% end %>
       </div>
     </div>
   </div>

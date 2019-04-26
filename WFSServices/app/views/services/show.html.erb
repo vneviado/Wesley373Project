@@ -21,11 +21,11 @@
                             <p><span class="title is-6">Description</span></p>
                             <p class="subtitle is-6"><%= @service.description%></p>
                             <p><span class="title is-6">Level of Care</span></p>
-                            <p class="subtitle is-6"><%= @service.level_of_care%></p> 
+                            <p class="subtitle is-6"><%= @service.level_of_care%></p>
                             <p><span class="title is-6">Micro-Enterprise</span></p>
-                            <p class="subtitle is-6"><%= @service.microenterprise%></p> 
+                            <p class="subtitle is-6"><%= @service.microenterprise%></p>
                             <p><span class="title is-6">Payment Information</span></p>
-                            <p class="subtitle is-6"><%= @service.payment_insurance%></p> 
+                            <p class="subtitle is-6"><%= @service.payment_insurance%></p>
                         </div>
                     </div>
                 </div>
@@ -73,10 +73,18 @@
                                             <td><%= t.updated_at%></td>
                                         <% end %>
                                         <% if can? :edit, t %>
-                                            <td><%= link_to 'Edit', edit_service_type_path(t) %></td>
+                                            <td>
+                                              <%= link_to edit_service_type_path(t) do %>
+                                                <i class="materialize-icons">edit</i>
+                                              <% end %>
+                                            </td>
                                         <% end %>
                                         <% if can? :delete, t %>
-                                            <td><%= link_to 'Remove', t, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                            <td>
+                                              <%= link_to(t, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+                                                <i class="materialize-icons">delete</i>
+                                              <% end %>
+                                            </td>
                                         <% end %>
                                     </tr>
                                 <% end %>
@@ -84,7 +92,7 @@
                         </table>
                     </div>
                     <div class="padding-top">
-                       <% if current_user.service_owner? && current_user.service == @service %> 
+                       <% if current_user.service_owner? && current_user.service == @service %>
                             <%= link_to 'Add New Service Type', new_service_type_path(service_id: @service.id), class: "button is-info is-rounded" %>
                         <% end %>
                     </div>
@@ -123,7 +131,7 @@
     </div>
 
 </div>
- 
+
     <div class="container">
         <div class="rows">
             <div class="card large">
@@ -137,7 +145,11 @@
                                     <tr>
                                         <td><%= link_to i.location.name, i.location %></td>
                                         <% if can? :delete, i %>
-                                            <td><%= link_to '  | Remove', i, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                            <td>
+                                              <%= link_to(i, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+                                                <i class="materialize-icons">delete</i>
+                                              <% end %>
+                                            </td>
                                         <% end %>
                                     </tr>
                                     <tr>
@@ -174,7 +186,11 @@
                                     <tr>
                                         <td><%= link_to c.contact.name, c.contact %></td>
                                         <% if can? :delete, c %>
-                                            <td><%= link_to ' | Remove', c, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                            <td>
+                                              <%= link_to(c, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+                                                <i class="materialize-icons">delete</i>
+                                              <% end %>
+                                            </td>
                                         <% end %>
                                     </tr>
                                     <tr>
@@ -233,15 +249,12 @@
     <div class="container">
         <div class="column">
             <% if can? :edit, @service %>
-                <%= link_to 'Edit', edit_service_path(@service), class: "button is-info is-rounded" %>  
+                <%= link_to 'Edit', edit_service_path(@service), class: "button is-info is-rounded" %>
             <% end %>
             <%= link_to 'Back', services_path, class: "button is-info is-rounded" %>
             <% if can? :delete, @service %>
                 <%= link_to 'Remove', @contact, method: :delete, data: { confirm: 'Are you sure?' } , class: "button is-danger is-rounded"%>
             <% end %>
         </div>
-        
+
     </div>
-
-
-
