@@ -30,7 +30,7 @@
                     </span>
                 <% end %>
 
-                <% if current_user.admin? %>
+                <% if logged_in? && current_user.admin? %>
                     <span class="navbar-item">
                         <%= link_to "Users", users_path, style: 'color:#FFFFFF; font-size: 20px;', class: 'css_class' %>
                     </span>

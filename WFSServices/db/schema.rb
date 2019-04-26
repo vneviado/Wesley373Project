@@ -159,5 +159,4 @@ ActiveRecord::Schema.define(version: 20190424230254) do
   add_foreign_key "service_contacts", "services"
   add_foreign_key "service_locations", "locations"
   add_foreign_key "service_locations", "services"
-  add_foreign_key "users", "services"
 end
