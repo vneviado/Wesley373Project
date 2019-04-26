@@ -21,14 +21,22 @@
                   <span class="title is-6">Address: </span><br/>
                   <%= location.street %>, <%= location.city %> PA, <%= location.zipcode %><br/><br/>
 
-                  <span class="title is-6">Services: </span><br/>
-                  <% location.services.each do |s| %>
-                    - <%= link_to s.name, s %><br/>
-                  <% end %>
+                  <% if logged_in? %>
+                  
+                    <span class="title is-6">Services: </span><br/>
+                    <% location.services.each do |s| %>
+                      - <%= link_to s.name, s %><br/>
+                    <% end %>
+
+                  <% end %> 
                 </div>
               </div><br/>
             <% end %>
-            <%= link_to 'New Location', new_location_path, class: "button is-info is-rounded" %>
+            
+            <% if logged_in? && current_user.admin? %>
+            <!--  -->
+              <%= link_to 'New Location', new_location_path, class: "button is-info is-rounded" %>
+            <% end %>
           </div>
         </div>
       </div>

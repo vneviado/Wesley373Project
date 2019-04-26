@@ -91,7 +91,9 @@
             <% end %>
           <% end %>
         </div>
-      <%= link_to 'New Contact', new_contact_path, class: "button is-info is-rounded" %>
+      <% if logged_in? && current_user.admin? %>
+        <%= link_to 'New Contact', new_contact_path, class: "button is-info is-rounded" %>
+      <% end %>
     </div>
   </div>
 </section>
