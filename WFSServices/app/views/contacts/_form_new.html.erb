@@ -72,7 +72,7 @@
 
               <div class="field">
                 <div class="control">
-                  <%= f.input :created_by, label_html: { class: 'active' }, wrapper: false,  wrapper_html: { class: 'input' } %>
+                  <%= f.input :created_by, input_html: { value: current_user.username} , wrapper: false %>
                 </div>
               </div> 
 
