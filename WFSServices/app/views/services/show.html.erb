@@ -236,7 +236,9 @@
                 <div class="card-content"><span class="title is-6 p"> Comments </span>
                     <br>
                     <% @service.comments.chronological.each do |c| %>
+                        <p>Created by: <%= c.created_by %></p>
                         <p><%= c.date_created.strftime("%m/%d/%y") %> <%= c.content %></p>
+                        <br>
                     <% end %>
                     <div class="padding-top">
                         <%= link_to 'Add Comment', new_comment_path(service_id: @service.id), class: "button is-info is-rounded" %>
