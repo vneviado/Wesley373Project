@@ -48,6 +48,12 @@
                                 <th>Avg los</th>
                                 <th>Rev los</th>
                                 <th>Frequency</th>
+                                <% if logged_in? && current_user.admin? %>
+                                    <th>Created By</th>
+                                    <th>Created At</th>
+                                    <th>Updated By</th>
+                                    <th>Updated At</th>
+                                <% end %>
                                 </tr>
                             </thead>
                             <tbody>
@@ -60,6 +66,12 @@
                                         <td><%= t.avg_los%></td>
                                         <td><%= t.rev_los%></td>
                                         <td><%= t.frequency%></td>
+                                        <% if logged_in? && current_user.admin? %>
+                                            <td><%= t.created_by%></td>
+                                            <td><%= t.created_at%></td>
+                                            <td><%= t.updated_by%></td>
+                                            <td><%= t.updated_at%></td>
+                                        <% end %>
                                         <% if can? :edit, t %>
                                             <td><%= link_to 'Edit', edit_service_type_path(t) %></td>
                                         <% end %>
@@ -186,6 +198,20 @@
             </div>
         </div>
     </div>
+
+    <% if logged_in? && current_user.admin? %>
+
+    <div class="container padding-top">
+        <div class="card large">
+            <div class="card-content"><strong>Admin Info: </strong><br/>
+                Created By: <%= @service.created_by %>, Created At: <%= @service.created_at %>
+                <br/>
+                Updated by: <%= @service.updated_by %>, Updated at: <%= @service.updated_at %>
+            </div>
+        </div>
+    </div>
+
+    <% end %>
 
     <div class="container padding-top">
         <div class="card large">
