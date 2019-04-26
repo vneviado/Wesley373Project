@@ -180,15 +180,17 @@
 
     <div class="container padding-top">
         <div class="card large">
-            <div class="card-content"><span class="title is-6 p"> Comments </span>
-                <br>
-                <% @service.comments.chronological.each do |c| %>
-                    <p><%= c.date_created.strftime("%m/%d/%y") %> <%= c.content %></p>
-                <% end %>
-                <div class="padding-top">
-                    <%= link_to 'Add Comment', new_comment_path(service_id: @service.id), class: "button is-info is-rounded" %>
+            <% if logged_in? %>
+                <div class="card-content"><span class="title is-6 p"> Comments </span>
+                    <br>
+                    <% @service.comments.chronological.each do |c| %>
+                        <p><%= c.date_created.strftime("%m/%d/%y") %> <%= c.content %></p>
+                    <% end %>
+                    <div class="padding-top">
+                        <%= link_to 'Add Comment', new_comment_path(service_id: @service.id), class: "button is-info is-rounded" %>
+                    </div>
                 </div>
-            </div>
+            <% end %>
         </div>
     </div>
 

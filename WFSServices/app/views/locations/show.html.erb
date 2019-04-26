@@ -37,19 +37,26 @@
             <br/>Phone number: <%= number_to_phone @location.phone_number %>
           </div>
 
-          <div class="content"><span class="title is-6">Services: </span><br/>
-            <% @location.services.alphabetical.each do |s| %>
-              <%= link_to s.name, s %><br/>
-            <% end %>
-            <%= link_to 'Add Location', new_service_location_path(location_id: @location.id), class: "button is-info is-rounded" %>
-          </div>
+          <% if logged_in? %>
+
+            <div class="content"><span class="title is-6">Services: </span><br/>
+              <% @location.services.alphabetical.each do |s| %>
+                <%= link_to s.name, s %><br/>
+              <% end %>
+            </div>
+            
+          <% end %>
+
         </div>
       </div>
 
       <div class="column">
           <%= link_to 'Back', locations_path, class: "button is-info is-rounded" %>
-          <%= link_to 'Edit', edit_location_path(@location), class: "button is-info is-rounded" %>
-          <%= link_to 'Remove', @location, method: :delete, data: { confirm: 'Are you sure?' } , class: "button is-danger is-rounded"%>
+
+          <% if logged_in? && current_user.admin? %>
+              <%= link_to 'Edit', edit_location_path(@location), class: "button is-info is-rounded" %>
+              <%= link_to 'Remove', @location, method: :delete, data: { confirm: 'Are you sure?' } , class: "button is-danger is-rounded"%>  
+          <% end %>
       </div>
 
     </div>
