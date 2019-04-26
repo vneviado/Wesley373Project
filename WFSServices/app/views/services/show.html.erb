@@ -72,7 +72,7 @@
                         </table>
                     </div>
                     <div class="padding-top">
-                        <% if can? :new, ServiceType %>
+                        <% if current_user.role == 'service_owner' && current_user.service == @service.id %>
                             <%= link_to 'Add New Service Type', new_service_type_path(service_id: @service.id), class: "button is-info is-rounded" %>
                         <% end %>
                     </div>
@@ -139,7 +139,7 @@
                         <% end %>
                     </div>
                     <div class="padding-top">
-                     <% if can? :new,  ServiceLocation %>
+                     <% if current_user.role == 'service_owner' && current_user.service == @service.id %>
                         <%= link_to 'Add Location', new_service_location_path(service_id: @service.id), class: "button is-info is-rounded" %>
                     <% end %>
                     </div>
@@ -178,7 +178,7 @@
                         <% end %>
                     </div>
                     <div class="padding-top">
-                    <% if can? :new, ServiceContact %>
+                    <% if current_user.role == 'service_owner' && current_user.service == @service.id %>
                         <%= link_to 'Add Contact', new_service_contact_path(service_id: @service.id), class: "button is-info is-rounded" %>
                     <% end %>
                     </div>
