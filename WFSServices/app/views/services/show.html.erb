@@ -48,6 +48,12 @@
                                 <th>Avg los</th>
                                 <th>Rev los</th>
                                 <th>Frequency</th>
+                                <% if logged_in? && current_user.admin? %>
+                                    <th>Created By</th>
+                                    <th>Created At</th>
+                                    <th>Updated By</th>
+                                    <th>Updated At</th>
+                                <% end %>
                                 </tr>
                             </thead>
                             <tbody>
@@ -60,6 +66,12 @@
                                         <td><%= t.avg_los%></td>
                                         <td><%= t.rev_los%></td>
                                         <td><%= t.frequency%></td>
+                                        <% if logged_in? && current_user.admin? %>
+                                            <td><%= t.created_by%></td>
+                                            <td><%= t.created_at%></td>
+                                            <td><%= t.updated_by%></td>
+                                            <td><%= t.updated_at%></td>
+                                        <% end %>
                                         <% if can? :edit, t %>
                                             <td>
                                               <%= link_to edit_service_type_path(t) do %>
@@ -203,6 +215,20 @@
         </div>
     </div>
 
+    <% if logged_in? && current_user.admin? %>
+
+    <div class="container padding-top">
+        <div class="card large">
+            <div class="card-content"><strong>Admin Info: </strong><br/>
+                Created By: <%= @service.created_by %>, Created At: <%= @service.created_at %>
+                <br/>
+                Updated by: <%= @service.updated_by %>, Updated at: <%= @service.updated_at %>
+            </div>
+        </div>
+    </div>
+
+    <% end %>
+
     <div class="container padding-top">
         <div class="card large">
 
@@ -210,7 +236,9 @@
                 <div class="card-content"><span class="title is-6 p"> Comments </span>
                     <br>
                     <% @service.comments.chronological.each do |c| %>
+                        <p>Created by: <%= c.created_by %></p>
                         <p><%= c.date_created.strftime("%m/%d/%y") %> <%= c.content %></p>
+                        <br>
                     <% end %>
                     <div class="padding-top">
                         <%= link_to 'Add Comment', new_comment_path(service_id: @service.id), class: "button is-info is-rounded" %>
