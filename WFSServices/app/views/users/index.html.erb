@@ -14,7 +14,7 @@
 
         <div class="row columns">
           <div class="column">
-          <% if can? :read User %>
+          <% if current_user.admin? %>
             <% @users.each do |u| %>
               <div class="card large">
                 <div class="card-content">
