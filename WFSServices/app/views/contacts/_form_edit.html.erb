@@ -70,11 +70,7 @@
                 </div>
               </div> 
 
-              <div class="field">
-                <div class="control">
-                  <%= f.input :updated_by, label_html: { class: 'active' }, wrapper: false,  wrapper_html: { class: 'input' } %>
-                </div>
-              </div> 
+              <%= f.input :updated_by, as: :hidden, input_html: { value: current_user.username }, wrapper:false %>
 
               <%= f.input :updated_at, as: :hidden, input_html: { value: Date.current }, wrapper:false %>
               

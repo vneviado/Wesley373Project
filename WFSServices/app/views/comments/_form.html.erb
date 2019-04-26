@@ -14,22 +14,22 @@
 
                 <%= simple_form_for(@comment) do |f| %>
                     <%= f.error_notification %>
+
                         <div class="field">
                             <div class="control">
                                 <%= f.input :content, input_html: { class: 'textarea' }, label_html: { class: 'active' }, wrapper: false %>
                             </div>
                         </div>
+
                         <div class="field">
                             <div class="control">
                                 <%= f.input :date_created, input_html: { value: Date.current }, wrapper:false %>
                             </div>
                         </div>
 
-                        <div class="field">
-                            <div class="control">
-                                <%= f.input :service_id, as: :hidden, input_html: { value: @service.id }, wrapper:false %>
-                            </div>
-                        </div>
+                        <%= f.input :created_by, as: :hidden, input_html: { value: current_user.username }, wrapper:false %>
+                        <%= f.input :service_id, as: :hidden, input_html: { value: @service.id }, wrapper:false %>
+
                     <%= f.button :submit %>
                 <% end %>
 
