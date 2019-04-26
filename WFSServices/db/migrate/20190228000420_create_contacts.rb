@@ -12,6 +12,8 @@ class CreateContacts < ActiveRecord::Migration[5.1]
       t.string :city_2
       t.string :zipcode_2
       t.string :role
+      t.string :created_by
+      t.string :updated_by
 
       t.timestamps
     end

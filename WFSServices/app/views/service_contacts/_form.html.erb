@@ -3,13 +3,25 @@
         <div class="card-content is-light-grey">
                 <%= simple_form_for(@service_contact) do |f| %>
                     <%= f.error_notification %>
+
                         <div class="field">
                             <div class="control">
-                                <%= f.input :contact_id, collection: (Contact.alphabetical.to_a - @service_contacts.to_a), include_blank: true, wrapper: false %>
+
+                                <% exist_contacts = Array[] %>
+                                <% @service.contacts.each do |sc| %>
+                                    <% exist_contacts << sc %>
+                                <% end %>
+
+                                <%= f.input :contact_id, collection: (Contact.alphabetical.to_a - exist_contacts), include_blank: true, wrapper: false %>
                             </div>
                         </div>
+                        
                         <%= f.input :service_id, as: :hidden, input_html: { value: @service.id }, wrapper:false %>
-                    <%= f.button :submit %>
+
+                        <%= f.input :created_at, as: :hidden, input_html: { value: Date.current }, wrapper:false %>
+
+                    <%= f.button :submit, "Add Contact" %>
+
                 <% end %>
             </div>
         </div>

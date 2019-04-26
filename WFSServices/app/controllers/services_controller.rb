@@ -1,5 +1,8 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  authorize_resource
+
 
   # GET /services
   # GET /services.json
@@ -12,8 +15,8 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
-    @s_locations = @service.locations
-    @s_contacts = @service.contacts
+    @s_locations = @service.service_locations
+    @s_contacts = @service.service_contacts
     # @s_comments = @service.comments
   end
 
@@ -74,6 +77,9 @@ class ServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:name, :description, :philosophy, :entrance_criteria, :exclusion_criteria, :exit_criteria, :level_of_care, :average_length_of_stay, :referral_process, :matching_elements, :created_by, :updated_by, :category_id, :contact, :location, :comment_id, :microenterprise, :array_of_services)
+      params.require(:service).permit(:name, :description, :philosophy, :entrance_criteria, 
+        :exclusion_criteria, :exit_criteria, :level_of_care, :average_length_of_stay, :referral_process,
+        :matching_elements, :created_by, :updated_by, :category_id, :contact, :location, :comment_id, 
+        :microenterprise, :array_of_services, :created_at, :updated_at, :payment_insurance)
     end
 end

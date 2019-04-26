@@ -1,5 +1,8 @@
 class ServiceTypesController < ApplicationController
   before_action :set_service_type, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  authorize_resource
+
   # GET /service_types
   # GET /service_types.json
   def index
@@ -61,6 +64,8 @@ class ServiceTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_type_params
-      params.require(:service_type).permit(:name, :staff,:unit_cost, :unit_rate, :avg_los, :rev_los, :frequency, :created_by, :updated_by, :updated_at, :created_at, :service_id)
+      params.require(:service_type).permit(:name, :staff, :unit_cost, :unit_rate, :avg_los, 
+        :rev_los, :frequency, :created_by, :updated_by, :service_id, :created_at, :updated_at)
+
     end
 end
