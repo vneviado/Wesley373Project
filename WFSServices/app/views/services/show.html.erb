@@ -60,15 +60,21 @@
                                         <td><%= t.avg_los%></td>
                                         <td><%= t.rev_los%></td>
                                         <td><%= t.frequency%></td>
-                                        <td><%= link_to 'Edit', edit_service_type_path(t) %></td>
-                                        <td><%= link_to 'Remove', t, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                        <% if can? :edit, t %>
+                                            <td><%= link_to 'Edit', edit_service_type_path(t) %></td>
+                                        <% end %>
+                                        <% if can? :delete, t %>
+                                            <td><%= link_to 'Remove', t, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                        <% end %>
                                     </tr>
                                 <% end %>
                             </tbody>
                         </table>
                     </div>
                     <div class="padding-top">
-                        <%= link_to 'Add New Service Type', new_service_type_path(service_id: @service.id), class: "button is-info is-rounded" %>
+                        <% if can? :new, ServiceType %>
+                            <%= link_to 'Add New Service Type', new_service_type_path(service_id: @service.id), class: "button is-info is-rounded" %>
+                        <% end %>
                     </div>
                 </div>
             </div>
@@ -118,15 +124,12 @@
                                 <table>
                                     <tr>
                                         <td><%= link_to i.location.name, i.location %></td>
-                                        <td><%= link_to '  | Remove', i, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                        <% if can? :delete, i %>
+                                            <td><%= link_to '  | Remove', i, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                        <% end %>
                                     </tr>
                                     <tr>
                                         <td><%= i.location.street %></td>
-
-                                            <!-- <span class="icon is-medium">
-                                                <ion-icon name="close">
-                                                </ion-icon>
-                                            </span> -->
                                     </tr>
                                     <tr>
                                         <td><%= i.location.city %>, PA <%= i.location.zipcode %></td>
@@ -136,7 +139,9 @@
                         <% end %>
                     </div>
                     <div class="padding-top">
+                     <% if can? :new,  ServiceLocation %>
                         <%= link_to 'Add Location', new_service_location_path(service_id: @service.id), class: "button is-info is-rounded" %>
+                    <% end %>
                     </div>
                 </div>
             </div>
@@ -156,7 +161,9 @@
                                 <table>
                                     <tr>
                                         <td><%= link_to c.contact.name, c.contact %></td>
-                                        <td><%= link_to ' | Remove', c, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                        <% if can? :delete, c %>
+                                            <td><%= link_to ' | Remove', c, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                        <% end %>
                                     </tr>
                                     <tr>
                                         <td><%= c.contact.role %></td>
@@ -171,7 +178,9 @@
                         <% end %>
                     </div>
                     <div class="padding-top">
+                    <% if can? :new, ServiceContact %>
                         <%= link_to 'Add Contact', new_service_contact_path(service_id: @service.id), class: "button is-info is-rounded" %>
+                    <% end %>
                     </div>
                 </div>
             </div>
@@ -186,7 +195,9 @@
                     <p><%= c.date_created.strftime("%m/%d/%y") %> <%= c.content %></p>
                 <% end %>
                 <div class="padding-top">
-                    <%= link_to 'Add Comment', new_comment_path(service_id: @service.id), class: "button is-info is-rounded" %>
+                    <% if can? :new, Comment %>
+                        <%= link_to 'Add Comment', new_comment_path(service_id: @service.id), class: "button is-info is-rounded" %>
+                    <% end %>
                 </div>
             </div>
         </div>
@@ -194,9 +205,13 @@
 
     <div class="container">
         <div class="column">
-            <%= link_to 'Edit', edit_service_path(@service), class: "button is-info is-rounded" %>  
+            <% if can? :edit, @service %>
+                <%= link_to 'Edit', edit_service_path(@service), class: "button is-info is-rounded" %>  
+            <% end %>
             <%= link_to 'Back', services_path, class: "button is-info is-rounded" %>
-            <%= link_to 'Remove', @contact, method: :delete, data: { confirm: 'Are you sure?' } , class: "button is-danger is-rounded"%>
+            <% if can? :delete, @service %>
+                <%= link_to 'Remove', @contact, method: :delete, data: { confirm: 'Are you sure?' } , class: "button is-danger is-rounded"%>
+            <% end %>
         </div>
         
     </div>

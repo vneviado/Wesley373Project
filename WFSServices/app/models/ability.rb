@@ -25,25 +25,24 @@ class Ability
 
     elsif user.service_owner?
 
-        # read info related to curriculums + locations + camps
         can :manage, Service do |s|
             users_in_service = s.users.map{|u| u.id}
             users_in_service.include? user.id
         end
 
         can :manage, ServiceType do |st|
-            users_in_service = st.service.users.map{|u| u.id}
-            users_in_service.include? user.id
+            users_in_service_type = st.service.users.map{|u| u.id}
+            users_in_service_type.include? user.id
         end
 
         can :manage, ServiceLocation do |sl|
-            users_in_service = sl.service.users.map{|u| u.id}
-            users_in_service.include? user.id
+            users_in_service_location = sl.service.users.map{|u| u.id}
+            users_in_service_location.include? user.id
         end
 
         can :manage, ServiceContact do |sc|
-            users_in_service= sc.service.users.map{|u| u.id}
-            users_in_service.include? user.id
+            users_in_service_contact= sc.service.users.map{|u| u.id}
+            users_in_service_contact.include? user.id
         end
 
         can :manage, Comment
