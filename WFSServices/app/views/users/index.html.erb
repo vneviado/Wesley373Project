@@ -23,17 +23,20 @@
                   <th>Role</th>
                   <th>Services</th>
                 </tr>
-                <tr>
+              </thead>
                   <% @users.each do |u| %>
-                    <td>u.username</td>
-                    <td>u.role</td>
-                    <td><% @users.services.each do |s| %>
-                      <% @s = Service.find(params[s])%>
-                      <td><% @s.name %></td>
-                      <% end %>
+                    <tr>
+                    <td><%= u.username %></td>
+                    <td><%= u.role %></td>
+                    <td><% u.services.each do |s| %>
+                        <% @s = Service.find(params[s])%>
+                        <%= @s.name %>
+                        <% end %>
                     </td>
+                    </tr>
                   <% end %>
-                </tr>
+            </table>
+          <% end %>
           </div>
         </div>
       </div>
