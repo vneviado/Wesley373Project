@@ -28,9 +28,10 @@
                     <tr>
                     <td><%= u.username %></td>
                     <td><%= u.role %></td>
-                    <td><% u.services.each do |s| %>
-                        <% @s = Service.find(params[s])%>
-                        <%= @s.name %>
+                    <td>
+                        <% u.services.each do |s| %>
+                          <% @s = Service.find(s) %>
+                          <p><%= link_to @s.name, @s %></p>
                         <% end %>
                     </td>
                     </tr>

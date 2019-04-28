@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(version: 20190424230254) do
     t.string "username"
     t.string "role"
     t.string "group_string"
-    t.integer "services"
+    t.text "services"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false

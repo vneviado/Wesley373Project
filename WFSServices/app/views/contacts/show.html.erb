@@ -47,13 +47,11 @@
             </div>
           <% end %>
 
-          <% if logged_in? %>
             <div class="content"><span class="title is-6">Services: </span><br/>
               <% @contact.services.alphabetical.each do |s| %>
                 <%= link_to s.name, s %><br/>
               <% end %>
             </div>
-          <% end %>
 
           <% if logged_in? && current_user.admin? %>
               <div class="content"><strong>Admin Info: </strong><br/>
