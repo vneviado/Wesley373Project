@@ -20,15 +20,12 @@
                   <p class="title is-4 no-padding"><%= link_to location.name, location %></p>
                   <span class="title is-6">Address: </span><br/>
                   <%= location.street %>, <%= location.city %> PA, <%= location.zipcode %><br/><br/>
-
-                  <% if logged_in? %>
                   
                     <span class="title is-6">Services: </span><br/>
                     <% location.services.each do |s| %>
                       - <%= link_to s.name, s %><br/>
                     <% end %>
 
-                  <% end %> 
                 </div>
               </div><br/>
             <% end %>
