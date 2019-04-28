@@ -16,20 +16,26 @@
           <div class="column">
 
           <% if can? :read, User %>
-
-            <% @users.each do |u| %>
-              <div class="card large">
-                <div class="card-content">
-                  <p class="title is-4 no-padding"><%= u.username %></p>
-                  <span class="title is-6">Email: </span>
-                  <%= u.email %><br/>
-                  <span class="title is-6">Role: </span>
-                  <%= u.role %><br/>
-                  <span class="title is-6">Group String: </span>
-                  <%= u.group_string %>
-                </div>
-              </div><br/>
-            <% end %>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>Role</th>
+                  <th>Services</th>
+                </tr>
+              </thead>
+                  <% @users.each do |u| %>
+                    <tr>
+                    <td><%= u.username %></td>
+                    <td><%= u.role %></td>
+                    <td><% u.services.each do |s| %>
+                        <% @s = Service.find(params[s])%>
+                        <%= @s.name %>
+                        <% end %>
+                    </td>
+                    </tr>
+                  <% end %>
+            </table>
           <% end %>
           </div>
         </div>
