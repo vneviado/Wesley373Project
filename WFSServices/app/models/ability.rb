@@ -26,13 +26,13 @@ class Ability
     elsif user.service_owner?
 
         can :manage, Service do |s|
-            users_in_service = s.users.map{|u| u.id}
-            users_in_service.include? user.id
+            users_in_service = user.services
+            users_in_service.include? s.id
         end
 
         can :manage, ServiceType do |st|
-            users_in_service_type = st.service.users.map{|u| u.id}
-            users_in_service_type.include? user.id
+            users_in_service_type = st.service.users.services
+            users_in_service_type.include? st.service.id
         end
 
         can :manage, ServiceLocation do |sl|

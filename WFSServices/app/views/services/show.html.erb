@@ -92,7 +92,7 @@
                         </table>
                     </div>
                     <div class="padding-top">
-                        <% if (logged_in? && current_user.service_owner? && @current_user.services.include?(@service.id)) || (logged_in? && current_user.admin?) %>
+                        <% if (logged_in? && current_user.service_owner? && current_user.services.include?(@service.id)) || (logged_in? && current_user.admin?) %>
                             <%= link_to 'Add New Service Type', new_service_type_path(service_id: @service.id), class: "button is-info is-rounded" %>
                         <% end %>
                     </div>
@@ -163,7 +163,7 @@
                         <% end %>
                     </div>
                     <div class="padding-top">
-                     <% if (logged_in? && current_user.service_owner? && @current_user.services.include?(@service.id)) || (logged_in? && current_user.admin?) %>
+                     <% if (logged_in? && current_user.service_owner? && current_user.services.include?(@service.id)) || (logged_in? && current_user.admin?) %>
                         <%= link_to 'Add Location', new_service_location_path(service_id: @service.id), class: "button is-info is-rounded" %>
                     <% end %>
                     </div>
@@ -206,7 +206,7 @@
                         <% end %>
                     </div>
                     <div class="padding-top">
-                    <% if (logged_in? && current_user.service_owner? && @current_user.services.include?(@service.id)) || (logged_in? && current_user.admin?) %>
+                    <% if (logged_in? && current_user.service_owner? && current_user.services.include?(@service.id)) || (logged_in? && current_user.admin?) %>
                         <%= link_to 'Add Contact', new_service_contact_path(service_id: @service.id), class: "button is-info is-rounded" %>
                     <% end %>
                     </div>
