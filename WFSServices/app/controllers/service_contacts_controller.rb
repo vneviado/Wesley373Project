@@ -40,11 +40,10 @@ class ServiceContactsController < ApplicationController
   # DELETE /service_contacts/1
   # DELETE /service_contacts/1.json
   def destroy
-    @service_contact.destroy
-    respond_to do |format|
-      format.html { redirect_to @service_contact.service, notice: "'#{@service_contact.contact.name}' was successfully removed as a contact." }
-      format.json { head :no_content }
-      
+    @service_contact = ServiceContact.find(params[:id])
+    if @service_contact.destroy
+      flash[:notice] = "Successfully removed '#{@service_contact.contact.name}' as a contact for '#{@service_contact.service.name}'."
+      redirect_to @service_contact.service
     end
   end
 

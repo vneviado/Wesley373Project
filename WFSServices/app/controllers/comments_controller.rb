@@ -27,10 +27,10 @@ class CommentsController < ApplicationController
   
     # DELETE /comments/1
     def destroy
-      @comment.destroy
-      respond_to do |format|
-        format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
-        format.json { head :no_content }
+      @comment = Comment.find(params[:id])
+      if @comment.destroy
+        flash[:notice] = "Successfully removed comment."
+        redirect_to @comment.service
       end
     end
   
