@@ -10,8 +10,7 @@ class Service < ApplicationRecord
     has_many :comments
 
     # Validations
-    validates_presence_of :name
-    validates_presence_of :category
+    validates_presence_of :name, :category, :description, :level_of_care, :array_of_services, :microenterprise
 
     # Scopes
     scope :alphabetical, -> { order( 'name' ) }

@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :role
       t.string :group_string
 
-      t.integer :services, array: true, default: []
+      t.text :services
 
       t.timestamps
     end
