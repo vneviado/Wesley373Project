@@ -56,10 +56,10 @@ class ServiceLocationsController < ApplicationController
   # DELETE /service_locations/1
   # DELETE /service_locations/1.json
   def destroy
-    @service_location.destroy
-    respond_to do |format|
-      format.html { redirect_to @service_location.service, notice: "'#{@service_location.location.name}' was successfully removed." }
-      format.json { head :no_content }
+    @service_location = ServiceLocation.find(params[:id])
+    if @service_location.destroy
+      flash[:notice] = "Successfully removed '#{@service_location.location.name}' as a location for '#{@service_location.service.name}'."
+      redirect_to @service_location.service
     end
   end
 
