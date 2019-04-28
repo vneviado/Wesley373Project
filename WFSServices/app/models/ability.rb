@@ -27,7 +27,7 @@ class Ability
 
         can :manage, Service do |s|
             users_in_service = user.services
-            users_in_service.include? s.id
+            users_in_service.include? s
         end
 
         can :manage, ServiceType do |st|
