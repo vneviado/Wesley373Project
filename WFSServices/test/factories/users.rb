@@ -6,6 +6,6 @@ FactoryBot.define do
     password "hello123"
     password_confirmation "hello123"
     email "sad@peppa.com"
-    services [1,2]
+    services []
   end
 end

@@ -5,6 +5,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
 
+  serialize :services, Array
+
   def assign_role
   	self.role = "company_staff" if self.role.nil?
   end
