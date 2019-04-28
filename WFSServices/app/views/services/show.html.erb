@@ -92,7 +92,7 @@
                         </table>
                     </div>
                     <div class="padding-top">
-                       <% if current_user.service_owner? && current_user.service == @service %>
+                        <% if (logged_in? && current_user.service_owner? && @current_user.services.include?(@service.id)) || (logged_in? && current_user.admin?) %>
                             <%= link_to 'Add New Service Type', new_service_type_path(service_id: @service.id), class: "button is-info is-rounded" %>
                         <% end %>
                     </div>
@@ -144,11 +144,11 @@
                                 <table>
                                     <tr>
                                         <td><%= link_to i.location.name, i.location %></td>
-                                        <% if can? :delete, i %>
+                                         <% if can? :delete, i %>
                                             <td>
-                                              <%= link_to(i, method: :delete, data: { confirm: 'Are you sure?' }) do %>
-                                                <i class="materialize-icons">delete</i>
-                                              <% end %>
+                                                <%= link_to(i, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+                                                <i class="material-icons icon-grey">clear</i>
+                                                <% end %>
                                             </td>
                                         <% end %>
                                     </tr>
@@ -163,7 +163,7 @@
                         <% end %>
                     </div>
                     <div class="padding-top">
-                     <% if current_user.service_owner? && current_user.service == @service %>
+                     <% if (logged_in? && current_user.service_owner? && @current_user.services.include?(@service.id)) || (logged_in? && current_user.admin?) %>
                         <%= link_to 'Add Location', new_service_location_path(service_id: @service.id), class: "button is-info is-rounded" %>
                     <% end %>
                     </div>
@@ -185,11 +185,11 @@
                                 <table>
                                     <tr>
                                         <td><%= link_to c.contact.name, c.contact %></td>
-                                        <% if can? :delete, c %>
+                                        <% if can? :delete, c.contact %>
                                             <td>
-                                              <%= link_to(c, method: :delete, data: { confirm: 'Are you sure?' }) do %>
-                                                <i class="materialize-icons">delete</i>
-                                              <% end %>
+                                                <%= link_to(c, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+                                                <i class="material-icons icon-grey">clear</i>
+                                                <% end %>
                                             </td>
                                         <% end %>
                                     </tr>
@@ -206,7 +206,7 @@
                         <% end %>
                     </div>
                     <div class="padding-top">
-                    <% if current_user.service_owner? && current_user.service == @service %>
+                    <% if (logged_in? && current_user.service_owner? && @current_user.services.include?(@service.id)) || (logged_in? && current_user.admin?) %>
                         <%= link_to 'Add Contact', new_service_contact_path(service_id: @service.id), class: "button is-info is-rounded" %>
                     <% end %>
                     </div>
@@ -234,10 +234,21 @@
 
             <% if logged_in? %>
                 <div class="card-content"><span class="title is-6 p"> Comments </span>
-                    <br>
+                    <br><br>
+                    <p>
                     <% @service.comments.chronological.each do |c| %>
-                        <p>Created by: <%= c.created_by %></p>
-                        <p><%= c.date_created.strftime("%m/%d/%y") %> <%= c.content %></p>
+                        <% if can? :delete, c %>
+                            <td>
+                                <%= link_to(c, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+                                <i class="material-icons icon-grey">clear</i>
+                                <% end %>
+                            </td>
+                        <% end %>
+                            <%= c.date_created.strftime("%m/%d/%y") %> <%= c.content %>
+                            <div class="has-text-grey-light"> 
+                                Created by: <%= c.created_by %>
+                            </div>
+                        </p>
                         <br>
                     <% end %>
                     <div class="padding-top">

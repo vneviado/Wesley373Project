@@ -60,10 +60,12 @@ class Ability
 
     else 
         # if user is a guest
-        # can read info on camps and curriculums
         can :read, Location
         can :read, Contact
         can :read, Service
+        can :show, Service
+        can :show, Location
+        can :show, Contact
     end
   end
 end
