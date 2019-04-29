@@ -1,6 +1,20 @@
-<h1>Editing User</h1>
+<div class="container">
+  <div class="row columns">
+    <div class="column">
+      <br><br>
+      <p class="title is-4 no-padding">Editing <%= @user.username %></p>
+      <br>
+    </div>
+  </div>
+</div>
 
 <%= render 'form', user: @user %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<div class="container">
+  <div class="row columns">
+    <div class="column">
+      <br>
+      <%= link_to 'Back', users_path, class: "button is-info is-rounded" %>
+    </div>
+  </div>
+</div>

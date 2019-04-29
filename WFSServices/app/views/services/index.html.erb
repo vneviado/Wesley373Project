@@ -50,7 +50,7 @@
                     <% if can? :edit, Category %>
                       <%= link_to edit_category_path($value1) do %>
                           <i class="material-icons">edit</i>
-                        <% end %>
+                      <% end %>
                     <% end %>
                       <% if $value1.services.to_a.length == 0 %>
                         <% if can? :delete, Category %>

@@ -54,6 +54,8 @@
                                     <th>Updated By</th>
                                     <th>Updated At</th>
                                 <% end %>
+                                <th></th>
+                                <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -185,7 +187,7 @@
                                 <table>
                                     <tr>
                                         <td><%= link_to c.contact.name, c.contact %></td>
-                                        <% if can? :delete, c.contact %>
+                                        <% if can? :delete, c %>
                                             <td>
                                                 <%= link_to(c, method: :delete, data: { confirm: 'Are you sure?' }) do %>
                                                 <i class="material-icons icon-grey">clear</i>
