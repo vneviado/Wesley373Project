@@ -1,37 +1,37 @@
 <div class="container">
-    <div class="columns padding-top ">
-        <div class="column ">
-            <% if notice != nil %>
-                <article class="message is-primary">
-                    <div class="message-body">
-                        <p id="notice"><%= notice %></p>
-                    </div>
-                </article>
-            <% end %>
+  <div class="columns padding-top ">
+    <div class="column ">
+      <% if notice != nil %>
+        <article class="message is-primary">
+          <div class="message-body">
+            <p id="notice"><%= notice %></p>
+          </div>
+        </article>
+      <% end %>
 
-            <div class="card large">
-                <div class="card-content">
-                    <div class="media">
-                        <div class="media-content">
-                            <p class="title is-4 no-padding has-text-purple"><%=@service.name%></p>
-                            <p><span class="title is-6">Website</span></p>
-                            <p class="subtitle is-6"><%= link_to @service.web_address, @service.web_address%></p>
-                            <p><span class="title is-6">Philosophy</span></p>
-                            <p class="subtitle is-6"><%= @service.philosophy%></p>
-                            <p><span class="title is-6">Description</span></p>
-                            <p class="subtitle is-6"><%= @service.description%></p>
-                            <p><span class="title is-6">Level of Care</span></p>
-                            <p class="subtitle is-6"><%= @service.level_of_care%></p>
-                            <p><span class="title is-6">Micro-Enterprise</span></p>
-                            <p class="subtitle is-6"><%= @service.microenterprise%></p>
-                            <p><span class="title is-6">Payment Information</span></p>
-                            <p class="subtitle is-6"><%= @service.payment_insurance%></p>
-                        </div>
-                    </div>
-                </div>
+      <div class="card large">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4 no-padding has-text-purple"><%=@service.name%></p>
+              <p><span class="title is-6">Website:</span></p>
+              <p class="subtitle is-6"><%= link_to @service.web_address, @service.web_address%></p>
+              <p><span class="title is-6">Philosophy:</span></p>
+              <p class="subtitle is-6"><%= @service.philosophy%></p>
+              <p><span class="title is-6">Description:</span></p>
+              <p class="subtitle is-6"><%= @service.description%></p>
+              <p><span class="title is-6">Level of Care:</span></p>
+              <p class="subtitle is-6"><%= @service.level_of_care%></p>
+              <p><span class="title is-6">Micro-Enterprise:</span></p>
+              <p class="subtitle is-6"><%= @service.microenterprise%></p>
+              <p><span class="title is-6">Payment Information:</span></p>
+              <p class="subtitle is-6"><%= @service.payment_insurance%></p>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
     <div class="container padding-bottom">
         <div class="rows">
@@ -77,14 +77,14 @@
                                         <% if can? :edit, t %>
                                             <td>
                                               <%= link_to edit_service_type_path(t) do %>
-                                                <i class="materialize-icons">edit</i>
+                                                <i class="material-icons">edit</i>
                                               <% end %>
                                             </td>
                                         <% end %>
                                         <% if can? :delete, t %>
                                             <td>
                                               <%= link_to(t, method: :delete, data: { confirm: 'Are you sure?' }) do %>
-                                                <i class="materialize-icons">delete</i>
+                                                <i class="material-icons">delete</i>
                                               <% end %>
                                             </td>
                                         <% end %>
@@ -104,42 +104,39 @@
     </div>
 
      <div class="columns padding-top ">
-        <div class="column padding-bottom one-half">
-            <div class="card large">
-                <div class="card-content">
-                    <p><span class="title is-6">Entrance Criteria </span></p>
-                    <p class="subtitle is-6"><%= @service.entrance_criteria%></p>
-                    <p><span class="title is-6">Exclusion Criteria</span></p>
-                    <p class="subtitle is-6"><%= @service.exclusion_criteria%></p>
-                    <p><span class="title is-6">Exit Criteria</span></p>
-                    <p class="subtitle is-6"><%= @service.exit_criteria%></p>
-                </div>
-            </div>
-        </div>
+       <div class="column padding-bottom one-half">
+         <div class="card large">
+           <div class="card-content">
+             <p><span class="title is-6">Entrance Criteria:</span></p>
+             <p class="subtitle is-6"><%= @service.entrance_criteria%></p>
+             <p><span class="title is-6">Exclusion Criteria:</span></p>
+             <p class="subtitle is-6"><%= @service.exclusion_criteria%></p>
+             <p><span class="title is-6">Exit Criteria:</span></p>
+             <p class="subtitle is-6"><%= @service.exit_criteria%></p>
+           </div>
+         </div>
+       </div>
 
-        <div class="column one-half">
-            <div class="card large">
-                <div class="card-content">
-                    <p><span class="title is-6">Average Length of Stay</span></p>
-                    <p class="subtitle is-6"><%= @service.average_length_of_stay%></p>
-                    <p><span class="title is-6">Referral Process</span></p>
-                    <p class="subtitle is-6"><%= @service.referral_process%></p>
-                    <p><span class="title is-6">Matching Elements</span></p>
-                    <p class="subtitle is-6"><%= @service.matching_elements%></p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
+       <div class="column one-half">
+         <div class="card large">
+           <div class="card-content">
+             <p><span class="title is-6">Average Length of Stay:</span></p>
+             <p class="subtitle is-6"><%= @service.average_length_of_stay%></p>
+             <p><span class="title is-6">Referral Process:</span></p>
+             <p class="subtitle is-6"><%= @service.referral_process%></p>
+             <p><span class="title is-6">Matching Elements:</span></p>
+             <p class="subtitle is-6"><%= @service.matching_elements%></p>
+           </div>
+         </div>
+       </div>
+     </div>
 </div>
 
     <div class="container">
         <div class="rows">
             <div class="card large">
-                <div class="card-content"><span class="title is-6">Locations</span>
-                    <br>
-                    <br>
+                <div class="card-content"><span class="title is-6">Locations:</span>
+                  <br><br>
                     <div class="columns">
                         <% @s_locations.each do |i| %>
                             <div class="column">
@@ -214,8 +211,16 @@
                     <% end %>
                     </div>
                 </div>
+              <% end %>
             </div>
+            <div class="padding-top">
+              <% if current_user.service_owner? && current_user.service == @service %>
+                <%= link_to 'Add Contact', new_service_contact_path(service_id: @service.id), class: "button is-info is-rounded" %>
+              <% end %>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <% if logged_in? && current_user.admin? %>
@@ -234,7 +239,6 @@
 
     <div class="container padding-top">
         <div class="card large">
-
             <% if logged_in? %>
                 <div class="card-content"><span class="title is-6 p"> Comments </span>
                     <br><br>
@@ -259,18 +263,22 @@
                     </div>
                 </div>
             <% end %>
-        </div>
+            <div class="padding-top">
+              <%= link_to 'Add Comment', new_comment_path(service_id: @service.id), class: "button is-info is-rounded" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
 
     <div class="container">
-        <div class="column">
-            <% if can? :edit, @service %>
-                <%= link_to 'Edit', edit_service_path(@service), class: "button is-info is-rounded" %>
-            <% end %>
-            <%= link_to 'Back', services_path, class: "button is-info is-rounded" %>
-            <% if can? :delete, @service %>
-                <%= link_to 'Remove', @contact, method: :delete, data: { confirm: 'Are you sure?' } , class: "button is-danger is-rounded"%>
-            <% end %>
-        </div>
-
+      <div class="column">
+        <% if can? :edit, @service %>
+          <%= link_to 'Edit', edit_service_path(@service), class: "button is-info is-rounded" %>
+        <% end %>
+        <%= link_to 'Back', services_path, class: "button is-info is-rounded" %>
+        <% if can? :delete, @service %>
+          <%= link_to 'Remove', @contact, method: :delete, data: { confirm: 'Are you sure?' } , class: "button is-danger is-rounded"%>
+        <% end %>
+      </div>
     </div>
