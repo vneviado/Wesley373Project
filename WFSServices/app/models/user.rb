@@ -1,10 +1,11 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  belongs_to :service
   before_save :assign_role
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
+
+  serialize :services, Array
 
   def assign_role
   	self.role = "company_staff" if self.role.nil?

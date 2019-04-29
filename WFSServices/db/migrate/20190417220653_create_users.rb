@@ -4,7 +4,8 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :username
       t.string :role
       t.string :group_string
-      t.references :service
+
+      t.text :services
 
       t.timestamps
     end

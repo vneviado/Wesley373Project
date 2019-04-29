@@ -48,6 +48,12 @@
                                 <th>Avg los</th>
                                 <th>Rev los</th>
                                 <th>Frequency</th>
+                                <% if logged_in? && current_user.admin? %>
+                                    <th>Created By</th>
+                                    <th>Created At</th>
+                                    <th>Updated By</th>
+                                    <th>Updated At</th>
+                                <% end %>
                                 </tr>
                             </thead>
                             <tbody>
@@ -60,6 +66,12 @@
                                         <td><%= t.avg_los%></td>
                                         <td><%= t.rev_los%></td>
                                         <td><%= t.frequency%></td>
+                                        <% if logged_in? && current_user.admin? %>
+                                            <td><%= t.created_by%></td>
+                                            <td><%= t.created_at%></td>
+                                            <td><%= t.updated_by%></td>
+                                            <td><%= t.updated_at%></td>
+                                        <% end %>
                                         <% if can? :edit, t %>
                                             <td>
                                               <%= link_to edit_service_type_path(t) do %>
@@ -80,7 +92,7 @@
                         </table>
                     </div>
                     <div class="padding-top">
-                       <% if current_user.service_owner? && current_user.service == @service %>
+                        <% if (logged_in? && current_user.service_owner? && @current_user.services.include?(@service.id)) || (logged_in? && current_user.admin?) %>
                             <%= link_to 'Add New Service Type', new_service_type_path(service_id: @service.id), class: "button is-info is-rounded" %>
                         <% end %>
                     </div>
@@ -124,31 +136,31 @@
                 <div class="card-content"><span class="title is-6">Locations:</span>
                   <br><br>
                     <div class="columns">
-                      <% @s_locations.each do |i| %>
-                        <div class="column">
-                          <table>
-                            <tr>
-                              <td>
-                                <%= link_to i.location.name, i.location %>
-                                <% if can? :delete, i %>
-                                  <%= link_to(i, method: :delete, data: { confirm: 'Are you sure?' }) do %>
-                                    <i class="material-icons">delete</i>
-                                  <% end %>
-                                <% end %>
-                              </td>
-                            </tr>
-                            <tr>
-                                <td><%= i.location.street %></td>
-                            </tr>
-                            <tr>
-                                <td><%= i.location.city %>, PA <%= i.location.zipcode %></td>
-                            </tr>
-                          </table>
-                        </div>
-                      <% end %>
+                        <% @s_locations.each do |i| %>
+                            <div class="column">
+                                <table>
+                                    <tr>
+                                        <td><%= link_to i.location.name, i.location %></td>
+                                         <% if can? :delete, i %>
+                                            <td>
+                                                <%= link_to(i, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+                                                <i class="material-icons icon-grey">clear</i>
+                                                <% end %>
+                                            </td>
+                                        <% end %>
+                                    </tr>
+                                    <tr>
+                                        <td><%= i.location.street %></td>
+                                    </tr>
+                                    <tr>
+                                        <td><%= i.location.city %>, PA <%= i.location.zipcode %></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        <% end %>
                     </div>
                     <div class="padding-top">
-                     <% if current_user.service_owner? && current_user.service == @service %>
+                    <% if (logged_in? && current_user.service_owner? && @current_user.services.include?(@service.id)) || (logged_in? && current_user.admin?) %>
                         <%= link_to 'Add Location', new_service_location_path(service_id: @service.id), class: "button is-info is-rounded" %>
                     <% end %>
                     </div>
@@ -158,31 +170,44 @@
     </div>
 
     <div class="container">
-      <div class="rows">
-        <div class="card large">
-          <div class="card-content"><span class="title is-6 p">Contacts:</span>
-            <br><br>
-            <div class="columns">
-              <% @s_contacts.each do |c| %>
-                <div class="column">
-                  <table>
-                    <tr>
-                      <td>
-                        <%= link_to c.contact.name, c.contact %>
-                        <% if can? :delete, c %>
-                          <%= link_to(c, method: :delete, data: { confirm: 'Are you sure?' }) do %>
-                            <i class="material-icons">delete</i>
-                          <% end %>
+        <div class="rows">
+            <div class="card large">
+                <div class="card-content"><span class="title is-6 p">Contacts </span>
+                    <br>
+                    <br>
+                    <div class="columns">
+                        <% @s_contacts.each do |c| %>
+                            <div class="column">
+
+                                <table>
+                                    <tr>
+                                        <td><%= link_to c.contact.name, c.contact %></td>
+                                        <% if can? :delete, c.contact %>
+                                            <td>
+                                                <%= link_to(c, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+                                                <i class="material-icons icon-grey">clear</i>
+                                                <% end %>
+                                            </td>
+                                        <% end %>
+                                    </tr>
+                                    <tr>
+                                        <td><%= c.contact.role %></td>
+                                    </tr>
+                                    <tr>
+                                        <td><%= number_to_phone c.contact.work_number %></td>
+                                    </tr>
+
+                                </table>
+
+                            </div>
                         <% end %>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><%= c.contact.role %></td>
-                    </tr>
-                    <tr>
-                      <td><%= number_to_phone c.contact.work_number %></td>
-                    </tr>
-                  </table>
+                    </div>
+                    <div class="padding-top">
+
+                    <% if (logged_in? && current_user.service_owner? && @current_user.services.include?(@service.id)) || (logged_in? && current_user.admin?) %>
+                        <%= link_to 'Add Contact', new_service_contact_path(service_id: @service.id), class: "button is-info is-rounded" %>
+                    <% end %>
+                    </div>
                 </div>
               <% end %>
             </div>
@@ -196,13 +221,45 @@
       </div>
     </div>
 
+    <% if logged_in? && current_user.admin? %>
+
     <div class="container padding-top">
-      <div class="card large">
-        <% if logged_in? %>
-          <div class="card-content"><span class="title is-6 p"> Comments: </span>
-            <br>
-            <% @service.comments.chronological.each do |c| %>
-              <p><%= c.date_created.strftime("%m/%d/%y") %> <%= c.content %></p>
+        <div class="card large">
+            <div class="card-content"><strong>Admin Info: </strong><br/>
+                Created By: <%= @service.created_by %>, Created At: <%= @service.created_at %>
+                <br/>
+                Updated by: <%= @service.updated_by %>, Updated at: <%= @service.updated_at %>
+            </div>
+        </div>
+    </div>
+
+    <% end %>
+
+    <div class="container padding-top">
+        <div class="card large">
+            <% if logged_in? %>
+                <div class="card-content"><span class="title is-6 p"> Comments </span>
+                    <br><br>
+                    <p>
+                    <% @service.comments.chronological.each do |c| %>
+                        <% if can? :delete, c %>
+                            <td>
+                                <%= link_to(c, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+                                <i class="material-icons icon-grey">clear</i>
+                                <% end %>
+                            </td>
+                        <% end %>
+                            <%= c.date_created.strftime("%m/%d/%y") %> <%= c.content %>
+                            <div class="has-text-grey-light"> 
+                                Created by: <%= c.created_by %>
+                            </div>
+                        </p>
+                        <br>
+                    <% end %>
+                    <div class="padding-top">
+                        <%= link_to 'Add Comment', new_comment_path(service_id: @service.id), class: "button is-info is-rounded" %>
+                    </div>
+                </div>
             <% end %>
             <div class="padding-top">
               <%= link_to 'Add Comment', new_comment_path(service_id: @service.id), class: "button is-info is-rounded" %>
