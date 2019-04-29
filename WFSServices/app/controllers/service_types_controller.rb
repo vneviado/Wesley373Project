@@ -24,16 +24,19 @@ class ServiceTypesController < ApplicationController
   # GET /service_types/1/edit
   def edit
     @service_type = ServiceType.find(params[:id])
+    unless params[:service_id].nil?
+      @service = Service.find(params[:service_id])
+    end
   end
 
   def create
     @service_type = ServiceType.new(service_type_params)
     if @service_type.save
-      flash[:notice] = "Successfully added '#{service_type.name}' as a service type to '#{@service_type.service.name}'."
+      flash[:notice] = "Successfully added '#{@service_type.name}' as a service type to '#{@service_type.service.name}'."
       redirect_to service_path(@service_type.service)
     else
       @service = Service.find(params[:service_type][:service_id])
-        render action: 'new', locals: { service: @service }
+      render action: 'new', locals: { service: @service }
     end
   end
 
@@ -43,7 +46,8 @@ class ServiceTypesController < ApplicationController
       if @service_type.update_attributes(service_type_params)
         format.html { redirect_to @service_type.service, notice: "Updated information for Service Type: '#{@service_type.name}'." }
       else
-        format.html { render :action => "edit" }
+        @service = Service.find(params[:service_type][:service_id])
+        render action: 'edit', locals: { service: @service }
       end
     end
   end

@@ -70,13 +70,13 @@
                                         <td><%= t.frequency%></td>
                                         <% if logged_in? && current_user.admin? %>
                                             <td><%= t.created_by%></td>
-                                            <td><%= t.created_at%></td>
+                                            <td><%= t.created_at.strftime("%m/%d/%Y %T")%></td>
                                             <td><%= t.updated_by%></td>
-                                            <td><%= t.updated_at%></td>
+                                            <td><%= t.updated_at.strftime("%m/%d/%Y %T")%></td>
                                         <% end %>
                                         <% if can? :edit, t %>
                                             <td>
-                                              <%= link_to edit_service_type_path(t) do %>
+                                              <%= link_to edit_service_type_path(t, service_id: @service) do %>
                                                 <i class="material-icons">edit</i>
                                               <% end %>
                                             </td>
@@ -211,13 +211,8 @@
                     <% end %>
                     </div>
                 </div>
-              <% end %>
             </div>
-            <div class="padding-top">
-              <% if current_user.service_owner? && current_user.service == @service %>
-                <%= link_to 'Add Contact', new_service_contact_path(service_id: @service.id), class: "button is-info is-rounded" %>
-              <% end %>
-            </div>
+
           </div>
         </div>
       </div>
@@ -263,11 +258,8 @@
                     </div>
                 </div>
             <% end %>
-            <div class="padding-top">
-              <%= link_to 'Add Comment', new_comment_path(service_id: @service.id), class: "button is-info is-rounded" %>
-            </div>
+
           </div>
-        <% end %>
       </div>
     </div>
 

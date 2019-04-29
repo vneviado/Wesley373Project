@@ -1,10 +1,20 @@
+<div class="container">
+  <div class="row columns">
+    <div class="column">
+      <br/><br/>
+      <p class="title is-4 no-padding">Editing Service Type for <%= @service.name %> </p>
+      <br/>
+    </div>
+  </div>
+</div>
+
 <%= render 'form_edit', service_type: @service_type %>
 
 <div class="container">
   <div class="row columns">
     <div class="column">
     <br>
-      <%= link_to 'Back', @service_type.service, class: "button is-info is-rounded" %>
+      <%= link_to 'Back', @service, class: "button is-info is-rounded" %>
     </div>
   </div>
 </div>
