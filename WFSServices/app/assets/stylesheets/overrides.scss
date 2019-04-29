@@ -3,7 +3,7 @@
 }
 
 a {
-  color: #591b6b;
+  color: #7b1996;
 }
 
 .is-black{
@@ -104,6 +104,17 @@ input[type="submit" i] {
 .signin_item {
   color: #ff6394;
   text-align: right;
+}
+
+
+.tickbox input {
+  height: 18px;
+  width: 18px;
+  margin-right: 8px;
+}
+
+.tickbox text {
+  padding-bottom: -2px;
 }
 
 input {
