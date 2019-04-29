@@ -87,9 +87,9 @@ input[type="submit" i] {
   margin-left: -20px;
 }
 
-.section {
-    padding: 70px 10px;
-}
+// .section {
+//     padding: 70px 10px;
+// }
 
 .signin_item a {
   color: #fff;
@@ -122,4 +122,8 @@ input {
 
 i.icon-grey {
   color: grey;
+}
+
+.pad-top {
+  padding-top: 160px;
 }
