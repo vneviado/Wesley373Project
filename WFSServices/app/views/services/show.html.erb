@@ -102,6 +102,8 @@
                                     <th>Updated By</th>
                                     <th>Updated At</th>
                                 <% end %>
+                                <th></th>
+                                <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -116,21 +118,21 @@
                                         <td><%= t.frequency%></td>
                                         <% if logged_in? && current_user.admin? %>
                                             <td><%= t.created_by%></td>
-                                            <td><%= t.created_at%></td>
+                                            <td><%= t.created_at.strftime("%m/%d/%Y %T")%></td>
                                             <td><%= t.updated_by%></td>
-                                            <td><%= t.updated_at%></td>
+                                            <td><%= t.updated_at.strftime("%m/%d/%Y %T")%></td>
                                         <% end %>
                                         <% if can? :edit, t %>
                                             <td>
-                                              <%= link_to edit_service_type_path(t) do %>
-                                                <i class="materialize-icons">edit</i>
+                                              <%= link_to edit_service_type_path(t, service_id: @service) do %>
+                                                <i class="material-icons">edit</i>
                                               <% end %>
                                             </td>
                                         <% end %>
                                         <% if can? :delete, t %>
                                             <td>
                                               <%= link_to(t, method: :delete, data: { confirm: 'Are you sure?' }) do %>
-                                                <i class="materialize-icons">delete</i>
+                                                <i class="material-icons">delete</i>
                                               <% end %>
                                             </td>
                                         <% end %>
@@ -150,34 +152,32 @@
     </div>
 
      <div class="columns padding-top ">
-        <div class="column padding-bottom one-half">
-            <div class="card large">
-                <div class="card-content">
-                    <p><span class="title is-6">Entrance Criteria </span></p>
-                    <p class="subtitle is-6"><%= @service.entrance_criteria%></p>
-                    <p><span class="title is-6">Exclusion Criteria</span></p>
-                    <p class="subtitle is-6"><%= @service.exclusion_criteria%></p>
-                    <p><span class="title is-6">Exit Criteria</span></p>
-                    <p class="subtitle is-6"><%= @service.exit_criteria%></p>
-                </div>
-            </div>
-        </div>
+       <div class="column padding-bottom one-half">
+         <div class="card large">
+           <div class="card-content">
+             <p><span class="title is-6">Entrance Criteria:</span></p>
+             <p class="subtitle is-6"><%= @service.entrance_criteria%></p>
+             <p><span class="title is-6">Exclusion Criteria:</span></p>
+             <p class="subtitle is-6"><%= @service.exclusion_criteria%></p>
+             <p><span class="title is-6">Exit Criteria:</span></p>
+             <p class="subtitle is-6"><%= @service.exit_criteria%></p>
+           </div>
+         </div>
+       </div>
 
-        <div class="column one-half">
-            <div class="card large">
-                <div class="card-content">
-                    <p><span class="title is-6">Average Length of Stay</span></p>
-                    <p class="subtitle is-6"><%= @service.average_length_of_stay%></p>
-                    <p><span class="title is-6">Referral Process</span></p>
-                    <p class="subtitle is-6"><%= @service.referral_process%></p>
-                    <p><span class="title is-6">Matching Elements</span></p>
-                    <p class="subtitle is-6"><%= @service.matching_elements%></p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
+       <div class="column one-half">
+         <div class="card large">
+           <div class="card-content">
+             <p><span class="title is-6">Average Length of Stay:</span></p>
+             <p class="subtitle is-6"><%= @service.average_length_of_stay%></p>
+             <p><span class="title is-6">Referral Process:</span></p>
+             <p class="subtitle is-6"><%= @service.referral_process%></p>
+             <p><span class="title is-6">Matching Elements:</span></p>
+             <p class="subtitle is-6"><%= @service.matching_elements%></p>
+           </div>
+         </div>
+       </div>
+     </div>
 </div>
 
     <div class="container">
@@ -234,7 +234,7 @@
                                 <table>
                                     <tr>
                                         <td><%= link_to c.contact.name, c.contact %></td>
-                                        <% if can? :delete, c.contact %>
+                                        <% if can? :delete, c %>
                                             <td>
                                                 <%= link_to(c, method: :delete, data: { confirm: 'Are you sure?' }) do %>
                                                 <i class="material-icons icon-grey">clear</i>
@@ -261,11 +261,13 @@
                     </div>
                 </div>
             </div>
+
+          </div>
         </div>
+      </div>
     </div>
     <div class="container padding-top">
         <div class="card large">
-
             <% if logged_in? %>
                 <div class="card-content"><span class="title is-6 p"> Comments </span>
                     <br><br>
@@ -290,18 +292,19 @@
                     </div>
                 </div>
             <% end %>
-        </div>
+
+          </div>
+      </div>
     </div>
 
     <div class="container">
-        <div class="column">
-            <% if can? :edit, @service %>
-                <%= link_to 'Edit', edit_service_path(@service), class: "button is-info is-rounded" %>
-            <% end %>
-            <%= link_to 'Back', services_path, class: "button is-info is-rounded" %>
-            <% if can? :delete, @service %>
-                <%= link_to 'Remove', @contact, method: :delete, data: { confirm: 'Are you sure?' } , class: "button is-danger is-rounded"%>
-            <% end %>
-        </div>
-
+      <div class="column">
+        <% if can? :edit, @service %>
+          <%= link_to 'Edit', edit_service_path(@service), class: "button is-info is-rounded" %>
+        <% end %>
+        <%= link_to 'Back', services_path, class: "button is-info is-rounded" %>
+        <% if can? :delete, @service %>
+          <%= link_to 'Remove', @contact, method: :delete, data: { confirm: 'Are you sure?' } , class: "button is-danger is-rounded"%>
+        <% end %>
+      </div>
     </div>

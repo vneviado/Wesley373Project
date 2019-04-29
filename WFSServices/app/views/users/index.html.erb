@@ -22,6 +22,8 @@
                   <th>Username</th>
                   <th>Role</th>
                   <th>Services</th>
+                  <th></th>
+                  <th></th>
                 </tr>
               </thead>
                   <% @users.each do |u| %>
@@ -33,6 +35,16 @@
                           <% @s = Service.find(s) %>
                           <p><%= link_to @s.name, @s %></p>
                         <% end %>
+                    </td>
+                    <td>
+                      <%= link_to edit_user_path(u) do %>
+                          <i class="material-icons">edit</i>
+                      <% end %>
+                    </td>
+                    <td>
+                      <%= link_to(u, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+                        <i class="material-icons icon-grey">clear</i>
+                      <% end %>
                     </td>
                     </tr>
                   <% end %>
