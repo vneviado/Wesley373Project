@@ -79,6 +79,10 @@
                           </tr>
                       </table>
 
+                      <% if $value1.services.to_a.length == 0 %>
+                        <p>No services under this category currently exist.</p>
+                      <% end %>
+
                   </div>
                 </div>
               <% end %>
@@ -118,6 +122,10 @@
                           <% end %>
                           </tr>
                       </table>
+
+                      <% if $value2.services.to_a.length == 0 %>
+                        <p>No services under this category currently exist.</p>
+                      <% end %>
 
                   </div>
                 </div>
@@ -159,6 +167,10 @@
                           </tr>
                       </table>
 
+                      <% if $value3.services.to_a.length == 0 %>
+                        <p>No services under this category currently exist.</p>
+                      <% end %>
+
                   </div>
                 </div>
               <% end %>
@@ -197,9 +209,19 @@
 
                               <% rez = @services.for_lvl_arr("1", "Adult") %>
                               <% rez.each do |service| %>
-                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span>
+                                    <% if can? :edit, service %>
+                                      <%= link_to edit_contact_path(service) do %>
+                                        <i class="material-icons">edit</i>
+                                      <% end %>
+                                    <% end %>
+                                  </p>
                                   <p class="subtitle is-6"><%= service.description %></p>
                                   <br>
+                              <% end %>
+
+                              <% if rez.to_a.length == 0 %>
+                                <p>No services under this Level of Care currently exist.</p>
                               <% end %>
 
                           </div>
@@ -213,9 +235,19 @@
 
                               <% rez = @services.for_lvl_arr("2", "Adult") %>
                               <% rez.each do |service| %>
-                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span>
+                                    <% if can? :edit, service %>
+                                      <%= link_to edit_contact_path(service) do %>
+                                        <i class="material-icons">edit</i>
+                                      <% end %>
+                                    <% end %>
+                                  </p>
                                   <p class="subtitle is-6"><%= service.description %></p>
                                   <br>
+                              <% end %>
+
+                              <% if rez.to_a.length == 0 %>
+                                <p>No services under this Level of Care currently exist.</p>
                               <% end %>
 
                           </div>
@@ -229,9 +261,18 @@
 
                               <% rez = @services.for_lvl_arr("3", "Adult") %>
                               <% rez.each do |service| %>
-                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span>
+                                    <% if can? :edit, service %>
+                                      <%= link_to edit_contact_path(service) do %>
+                                        <i class="material-icons">edit</i>
+                                      <% end %>
+                                    <% end %></p>
                                   <p class="subtitle is-6"><%= service.description %></p>
                                   <br>
+                              <% end %>
+
+                              <% if rez.to_a.length == 0 %>
+                                <p>No services under this Level of Care currently exist.</p>
                               <% end %>
 
                           </div>
@@ -245,9 +286,19 @@
 
                               <% rez = @services.for_lvl_arr("4", "Adult") %>
                               <% rez.each do |service| %>
-                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span>
+                                    <% if can? :edit, service %>
+                                      <%= link_to edit_contact_path(service) do %>
+                                        <i class="material-icons">edit</i>
+                                      <% end %>
+                                    <% end %>
+                                  </p>
                                   <p class="subtitle is-6"><%= service.description %></p>
                                   <br>
+                              <% end %>
+
+                              <% if rez.to_a.length == 0 %>
+                                <p>No services under this Level of Care currently exist.</p>
                               <% end %>
 
                           </div>
@@ -261,9 +312,19 @@
 
                               <% rez = @services.for_lvl_arr("5", "Adult") %>
                               <% rez.each do |service| %>
-                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span>
+                                    <% if can? :edit, service %>
+                                      <%= link_to edit_contact_path(service) do %>
+                                        <i class="material-icons">edit</i>
+                                      <% end %>
+                                    <% end %>
+                                  </p>
                                   <p class="subtitle is-6"><%= service.description %></p>
                                   <br>
+                              <% end %>
+
+                              <% if rez.to_a.length == 0 %>
+                                <p>No services under this Level of Care currently exist.</p>
                               <% end %>
 
                           </div>
@@ -283,9 +344,19 @@
 
                               <% rez = @services.for_lvl_arr("1", "Child") %>
                               <% rez.each do |service| %>
-                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span>
+                                    <% if can? :edit, service %>
+                                      <%= link_to edit_contact_path(service) do %>
+                                        <i class="material-icons">edit</i>
+                                      <% end %>
+                                    <% end %>
+                                  </p>
                                   <p class="subtitle is-6"><%= service.description %></p>
                                   <br>
+                              <% end %>
+
+                              <% if rez.to_a.length == 0 %>
+                                <p>No services under this Level of Care currently exist.</p>
                               <% end %>
 
                           </div>
@@ -299,9 +370,19 @@
 
                               <% rez = @services.for_lvl_arr("2", "Child") %>
                               <% rez.each do |service| %>
-                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span>
+                                    <% if can? :edit, service %>
+                                      <%= link_to edit_contact_path(service) do %>
+                                        <i class="material-icons">edit</i>
+                                      <% end %>
+                                    <% end %>
+                                  </p>
                                   <p class="subtitle is-6"><%= service.description %></p>
                                   <br>
+                              <% end %>
+
+                              <% if rez.to_a.length == 0 %>
+                                <p>No services under this Level of Care currently exist.</p>
                               <% end %>
 
                           </div>
@@ -315,9 +396,19 @@
 
                               <% rez = @services.for_lvl_arr("3", "Child") %>
                               <% rez.each do |service| %>
-                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span>
+                                    <% if can? :edit, service %>
+                                      <%= link_to edit_contact_path(service) do %>
+                                        <i class="material-icons">edit</i>
+                                      <% end %>
+                                    <% end %>
+                                  </p>
                                   <p class="subtitle is-6"><%= service.description %></p>
                                   <br>
+                              <% end %>
+
+                              <% if rez.to_a.length == 0 %>
+                                <p>No services under this Level of Care currently exist.</p>
                               <% end %>
 
                           </div>
@@ -331,9 +422,19 @@
 
                               <% rez = @services.for_lvl_arr("4", "Child") %>
                               <% rez.each do |service| %>
-                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span>
+                                    <% if can? :edit, service %>
+                                      <%= link_to edit_contact_path(service) do %>
+                                        <i class="material-icons">edit</i>
+                                      <% end %>
+                                    <% end %>
+                                  </p>
                                   <p class="subtitle is-6"><%= service.description %></p>
                                   <br>
+                              <% end %>
+
+                              <% if rez.to_a.length == 0 %>
+                                <p>No services under this Level of Care currently exist.</p>
                               <% end %>
 
                           </div>
@@ -347,9 +448,19 @@
 
                               <% rez = @services.for_lvl_arr("5", "Child") %>
                               <% rez.each do |service| %>
-                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span>
+                                    <% if can? :edit, service %>
+                                      <%= link_to edit_contact_path(service) do %>
+                                        <i class="material-icons">edit</i>
+                                      <% end %>
+                                    <% end %>
+                                  </p>
                                   <p class="subtitle is-6"><%= service.description %></p>
                                   <br>
+                              <% end %>
+
+                              <% if rez.to_a.length == 0 %>
+                                <p>No services under this Level of Care currently exist.</p>
                               <% end %>
 
                           </div>
@@ -369,9 +480,19 @@
 
                               <% rez = @services.for_lvl_arr("1", "Intellectual and Developmental Disabilities") %>
                               <% rez.each do |service| %>
-                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span>
+                                    <% if can? :edit, service %>
+                                      <%= link_to edit_contact_path(service) do %>
+                                        <i class="material-icons">edit</i>
+                                      <% end %>
+                                    <% end %>
+                                  </p>
                                   <p class="subtitle is-6"><%= service.description %></p>
                                   <br>
+                              <% end %>
+
+                              <% if rez.to_a.length == 0 %>
+                                <p>No services under this Level of Care currently exist.</p>
                               <% end %>
 
                           </div>
@@ -385,9 +506,19 @@
 
                               <% rez = @services.for_lvl_arr("2", "Intellectual and Developmental Disabilities") %>
                               <% rez.each do |service| %>
-                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span>
+                                    <% if can? :edit, service %>
+                                      <%= link_to edit_contact_path(service) do %>
+                                        <i class="material-icons">edit</i>
+                                      <% end %>
+                                    <% end %>
+                                  </p>
                                   <p class="subtitle is-6"><%= service.description %></p>
                                   <br>
+                              <% end %>
+
+                              <% if rez.to_a.length == 0 %>
+                                <p>No services under this Level of Care currently exist.</p>
                               <% end %>
 
                           </div>
@@ -401,9 +532,19 @@
 
                               <% rez = @services.for_lvl_arr("3", "Intellectual and Developmental Disabilities") %>
                               <% rez.each do |service| %>
-                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span>
+                                    <% if can? :edit, service %>
+                                      <%= link_to edit_contact_path(service) do %>
+                                        <i class="material-icons">edit</i>
+                                      <% end %>
+                                    <% end %>
+                                  </p>
                                   <p class="subtitle is-6"><%= service.description %></p>
                                   <br>
+                              <% end %>
+
+                              <% if rez.to_a.length == 0 %>
+                                <p>No services under this Level of Care currently exist.</p>
                               <% end %>
 
                           </div>
@@ -417,17 +558,25 @@
 
                               <% rez = @services.for_lvl_arr("4", "Intellectual and Developmental Disabilities") %>
                               <% rez.each do |service| %>
-                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span>
+                                    <% if can? :edit, service %>
+                                      <%= link_to edit_contact_path(service) do %>
+                                        <i class="material-icons">edit</i>
+                                      <% end %>
+                                    <% end %>
+                                  </p>
                                   <p class="subtitle is-6"><%= service.description %></p>
                                   <br>
+                              <% end %>
+
+                              <% if rez.to_a.length == 0 %>
+                                <p>No services under this Level of Care currently exist.</p>
                               <% end %>
 
                           </div>
                         </div>
                       </div>
-
                     </div>
-
                   </div>
 
                   <div class="tabi__content">
@@ -440,9 +589,19 @@
 
                               <% rez = @services.for_lvl_arr("1", "Older Adult") %>
                               <% rez.each do |service| %>
-                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span>
+                                    <% if can? :edit, service %>
+                                      <%= link_to edit_contact_path(service) do %>
+                                        <i class="material-icons">edit</i>
+                                      <% end %>
+                                    <% end %>
+                                  </p>
                                   <p class="subtitle is-6"><%= service.description %></p>
                                   <br>
+                              <% end %>
+
+                              <% if rez.to_a.length == 0 %>
+                                <p>No services under this Level of Care currently exist.</p>
                               <% end %>
 
                           </div>
@@ -456,9 +615,19 @@
 
                               <% rez = @services.for_lvl_arr("2", "Older Adult") %>
                               <% rez.each do |service| %>
-                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span>
+                                    <% if can? :edit, service %>
+                                      <%= link_to edit_contact_path(service) do %>
+                                        <i class="material-icons">edit</i>
+                                      <% end %>
+                                    <% end %>
+                                  </p>
                                   <p class="subtitle is-6"><%= service.description %></p>
                                   <br>
+                              <% end %>
+
+                              <% if rez.to_a.length == 0 %>
+                                <p>No services under this Level of Care currently exist.</p>
                               <% end %>
 
                           </div>
@@ -472,16 +641,25 @@
 
                               <% rez = @services.for_lvl_arr("1", "Older Adult") %>
                               <% rez.each do |service| %>
-                                  <p><span class="title is-5"><%=link_to service.name, service %></span></p>
+                                  <p><span class="title is-5"><%=link_to service.name, service %></span>
+                                    <% if can? :edit, service %>
+                                      <%= link_to edit_contact_path(service) do %>
+                                        <i class="material-icons">edit</i>
+                                      <% end %>
+                                    <% end %>
+                                  </p>
                                   <p class="subtitle is-6"><%= service.description %></p>
                                   <br>
+                              <% end %>
+
+                              <% if rez.to_a.length == 0 %>
+                                <p>No services under this Level of Care currently exist.</p>
                               <% end %>
 
                           </div>
                         </div>
                       </div>
                     </div>
-
                   </div>
                 </div>
             </div>

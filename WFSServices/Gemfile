@@ -20,6 +20,10 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'cancancan'
+
+#For photo uploader
+gem 'carrierwave'
+
 gem 'devise'
 
 gem 'jquery-rails', '4.3.1'

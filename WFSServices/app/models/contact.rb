@@ -3,6 +3,9 @@ class Contact < ApplicationRecord
   has_many :service_contacts
   has_many :services, through: :service_contacts
 
+  #photo uploader
+  mount_uploader :photo, PhotoUploader
+
   #Validations
 
   validates_presence_of :first_name, :last_name, :role, :work_number, :street_1, :city_1, :zipcode_1

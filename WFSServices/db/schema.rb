@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20190424230254) do
     t.string "city_2"
     t.string "zipcode_2"
     t.string "role"
+    t.string "photo"
     t.string "created_by"
     t.string "updated_by"
     t.datetime "created_at", null: false
@@ -67,7 +68,7 @@ ActiveRecord::Schema.define(version: 20190424230254) do
     t.string "street"
     t.string "city"
     t.string "zipcode"
-    t.string "picture"
+    t.string "photo"
     t.text "map_link"
     t.string "created_by"
     t.string "updated_by"

@@ -11,7 +11,14 @@
             </div>
           </article>
         <% end %>
-
+        
+          <div class="photo">
+            <% if !@location.photo_url.nil? %>
+              <span class="title is-6"> Photo: </span><br/>
+              <p><%= image_tag @location.photo_url %></p><br/>
+            <% end %>
+          </div>
+      
         <div class="card large">
           <div class="card-content">
             <div class="media">
@@ -43,8 +50,8 @@
                 <%= link_to s.name, s %><br/>
               <% end %>
             </div>
-              
 
+          <% end %>
           </div>
         </div>
       <% else %>
@@ -111,7 +118,7 @@
 
           <% if logged_in? && current_user.admin? %>
               <%= link_to 'Edit', edit_location_path(@location), class: "button is-info is-rounded" %>
-              <%= link_to 'Remove', @location, method: :delete, data: { confirm: 'Are you sure?' } , class: "button is-danger is-rounded"%>  
+              <%= link_to 'Remove', @location, method: :delete, data: { confirm: 'Are you sure?' } , class: "button is-danger is-rounded"%>
           <% end %>
       </div>
 

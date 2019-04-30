@@ -2,7 +2,6 @@
   <div class="row columns">
     <% unless logged_in? && current_user.admin? %>
       <div class="column">
-
         <% if notice != nil %>
           <article class="message is-primary">
             <div class="message-body">
@@ -15,6 +14,13 @@
         <div class="card large">
           <div class="card-content">
 
+          <div class="photo">
+            <% if !@contact.photo_url.nil? %>
+              <span class="title is-6"> Photo: </span><br/>
+              <p><%= image_tag @contact.photo_url %></p><br/>
+            <% end %>
+          </div>
+
             <div class="media">
               <div class="media-content">
                 <p class="title is-4 no-padding"><%= @contact.name %></p>
@@ -24,7 +30,6 @@
             </div>
 
             <div class="content"><span class="title is-6">Contact Information: </span>
-              <br/>Role: <%= @contact.role %>
               <br/>Work number: <%= number_to_phone @contact.work_number %>
               <% if (@contact.phone_number != "")%>
                 <br/>Cell phone number: <%= number_to_phone @contact.phone_number %>

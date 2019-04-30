@@ -24,6 +24,12 @@
 
               <div class="field">
                 <div class="control">
+                  <%= f.input :photo, label_html: {class: 'active' }, wrapper: false, wrapper_html: { class: 'input' } %>
+                </div>
+              </div>
+
+              <div class="field">
+                <div class="control">
                   <%= f.input :work_number, label_html: { class: 'active' }, wrapper: false,  wrapper_html: { class: 'input' } %>
                 </div>
               </div>
@@ -44,43 +50,51 @@
                 <div class="control">
                   <%= f.input :city_1, label_html: { class: 'active' }, wrapper: false,  wrapper_html: { class: 'input' } %>
                 </div>
-              </div>            
+              </div>
 
               <div class="field">
                 <div class="control">
                   <%= f.input :zipcode_1, label_html: { class: 'active' }, wrapper: false,  wrapper_html: { class: 'input' } %>
                 </div>
-              </div>  
+              </div>
 
               <div class="field">
                 <div class="control">
                   <%= f.input :street_2, label_html: { class: 'active' }, wrapper: false,  wrapper_html: { class: 'input' } %>
                 </div>
-              </div>  
+              </div>
 
               <div class="field">
                 <div class="control">
                   <%= f.input :city_2, label_html: { class: 'active' }, wrapper: false,  wrapper_html: { class: 'input' } %>
                 </div>
-              </div>  
+              </div>
 
               <div class="field">
                 <div class="control">
                   <%= f.input :zipcode_2, label_html: { class: 'active' }, wrapper: false,  wrapper_html: { class: 'input' } %>
                 </div>
-              </div> 
+              </div>
 
+<<<<<<< HEAD
+              <div class="field">
+                <div class="control">
+                  <%= f.input :updated_by, label_html: { class: 'active' }, wrapper: false,  wrapper_html: { class: 'input' } %>
+                </div>
+              </div>
+
+=======
+>>>>>>> f6ce4db1c5908945be43e7bdc5df8a83c260f167
               <%= f.input :updated_by, as: :hidden, input_html: { value: current_user.username }, wrapper:false %>
 
               <%= f.input :updated_at, as: :hidden, input_html: { value: Date.current }, wrapper:false %>
-              
+
               <%= f.button :submit %>
 
             <% end %>
-            
+
           </div>
         </div>
       </div>
     </div>
   </div>
-
