@@ -7,16 +7,16 @@ class ApplicationController < ActionController::Base
 	  redirect_to root_url
 	end
 
-	  private
+	private
 	  
-	  def logged_in?
-	    current_user
-	  end
-	  helper_method :logged_in?
+	def logged_in?
+	  current_user
+	end
+	helper_method :logged_in?
 	  
-	  def check_login
-	    redirect_to login_path, alert: "You need to log in to view this page." if current_user.nil?
-	  end
+	def check_login
+	  redirect_to login_path, alert: "You need to log in to view this page." if current_user.nil?
+	end
 	
 	protected
 	def configure_permitted_parameters

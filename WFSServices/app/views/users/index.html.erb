@@ -16,27 +16,41 @@
           <div class="column">
 
           <% if can? :read, User %>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Username</th>
-                  <th>Role</th>
-                  <th>Services</th>
-                </tr>
-              </thead>
-                  <% @users.each do |u| %>
-                    <tr>
-                    <td><%= u.username %></td>
-                    <td><%= u.role %></td>
-                    <td>
-                        <% u.services.each do |s| %>
-                          <% @s = Service.find(s) %>
-                          <p><%= link_to @s.name, @s %></p>
+            <div class="container">
+              <table class="table is-striped is-fullwidth">
+                <thead>
+                  <tr>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>Services</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                    <% @users.each do |u| %>
+                      <tr>
+                      <td><%= u.username %></td>
+                      <td><%= u.role %></td>
+                      <td>
+                          <% u.services.each do |s| %>
+                            <% @s = Service.find(s) %>
+                            <p><%= link_to @s.name, @s %></p>
+                          <% end %>
+                      </td>
+                      <td>
+                        <%= link_to edit_user_path(u) do %>
+                            <i class="material-icons">edit</i>
                         <% end %>
-                    </td>
-                    </tr>
-                  <% end %>
-            </table>
+                      </td>
+                      <td>
+                        <%= link_to(u, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+                          <i class="material-icons icon-grey">clear</i>
+                        <% end %>
+                      </td>
+                      </tr>
+                    <% end %>
+              </table>
+            </div>
           <% end %>
           </div>
         </div>

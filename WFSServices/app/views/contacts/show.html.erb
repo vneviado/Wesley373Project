@@ -1,25 +1,18 @@
 <div class="container">
   <div class="row columns">
-    <div class="column">
-
-      <% if notice != nil %>
-        <article class="message is-primary">
-          <div class="message-body">
-            <p id="notice"><%= notice %></p>
-          </div>
-        </article>
-      <% end %>
-
-      <br/>
-      <div class="card large">
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-4 no-padding"><%= @contact.name %></p>
-              <span class="title is-6"> Role: </span><br/>
-                <%= @contact.role %><br/>
+    <% unless logged_in? && current_user.admin? %>
+      <div class="column">
+        <% if notice != nil %>
+          <article class="message is-primary">
+            <div class="message-body">
+              <p id="notice"><%= notice %></p>
             </div>
-          </div>
+          </article>
+        <% end %>
+        
+        <br/>
+        <div class="card large">
+          <div class="card-content">
 
           <div class="photo">
             <% if !@contact.photo_url.nil? %>
@@ -28,48 +21,114 @@
             <% end %>
           </div>
 
-          <div class="content"><span class="title is-6">Contact Information: </span>
-            <br/>Role: <%= @contact.role %>
-            <br/>Work number: <%= number_to_phone @contact.work_number %>
-            <% if (@contact.phone_number != "")%>
-              <br/>Cell phone number: <%= number_to_phone @contact.phone_number %>
-            <% end %>
-          </div>
-
-          <div class="content"><strong>Address: </strong><br/>
-            Street: <%= @contact.street_1 %>
-            <br/>
-            City: <%= @contact.city_1 %>
-            <br/>
-            Zipcode: <%= @contact.zipcode_1 %>
-          </div>
-
-          <% if (@contact.street_2 != nil && @contact.street_2 != "") && (@contact.city_2 != nil && @contact.city_2 != "") && (@contact.zipcode_2 != nil && @contact.zipcode_2 != "") %>
-            <div class="content"><strong>Secondary Address: </strong><br/>
-              Street: <%= @contact.street_2 %>
-              <br/>
-              City: <%= @contact.city_2 %>
-              <br/>
-              Zipcode: <%= @contact.zipcode_2 %>
+            <div class="media">
+              <div class="media-content">
+                <p class="title is-4 no-padding"><%= @contact.name %></p>
+                <span class="title is-6"> Role: </span><br/>
+                <%= @contact.role %><br/>
+              </div>
             </div>
-          <% end %>
+
+            <div class="content"><span class="title is-6">Contact Information: </span>
+              <br/>Work number: <%= number_to_phone @contact.work_number %>
+              <% if (@contact.phone_number != "")%>
+                <br/>Cell phone number: <%= number_to_phone @contact.phone_number %>
+                <% end %>
+            </div>
+
+            <div class="content"><strong>Address: </strong><br/>
+              Street: <%= @contact.street_1 %>
+              <br/>
+              City: <%= @contact.city_1 %>
+              <br/>
+              Zipcode: <%= @contact.zipcode_1 %>
+            </div>
+
+            <% if (@contact.street_2 != nil && @contact.street_2 != "") && (@contact.city_2 != nil && @contact.city_2 != "") && (@contact.zipcode_2 != nil && @contact.zipcode_2 != "") %>
+              <div class="content"><strong>Secondary Address: </strong><br/>
+                Street: <%= @contact.street_2 %>
+                <br/>
+                City: <%= @contact.city_2 %>
+                <br/>
+                Zipcode: <%= @contact.zipcode_2 %>
+              </div>
+            <% end %>
 
             <div class="content"><span class="title is-6">Services: </span><br/>
               <% @contact.services.alphabetical.each do |s| %>
                 <%= link_to s.name, s %><br/>
               <% end %>
             </div>
+      <% else %>
+        <div class="container padding-top">
+          <div class="columns padding-top ">
+              <div class="column is-three-quarters">
+                  <% if notice != nil %>
+                      <article class="message is-primary">
+                          <div class="message-body">
+                              <p id="notice"><%= notice %></p>
+                          </div>
+                      </article>
+                  <% end %>
+                  <div class="card large">
+                    <div class="card-content">
+                      <div class="media">
+                        <div class="media-content">
+                            <p class="title is-4 no-padding"><%= @contact.name %></p>
+                            <span class="title is-6"> Role: </span><br/>
+                            <%= @contact.role %><br/>
+                      
+                        <div class="content">
+                          <span class="title is-6">Contact Information: </span>
+                          <br/>Work number: <%= number_to_phone @contact.work_number %>
+                          <% if (@contact.phone_number != "")%>
+                            <br/>Cell phone number: <%= number_to_phone @contact.phone_number %>
+                          <% end %>
+                        </div>
 
-          <% if logged_in? && current_user.admin? %>
-              <div class="content"><strong>Admin Info: </strong><br/>
-              Created By: <%= @contact.created_by %>, Created At: <%= @contact.created_at %>
-              <br/>
-              Updated by: <%= @contact.updated_by %>, Updated at: <%= @contact.updated_at %>
+                      <div class="content"><strong>Address: </strong><br/>
+                        Street: <%= @contact.street_1 %>
+                        <br/>
+                        City: <%= @contact.city_1 %>
+                        <br/>
+                        Zipcode: <%= @contact.zipcode_1 %>
+                      </div>
+
+                      <% if (@contact.street_2 != nil && @contact.street_2 != "") && (@contact.city_2 != nil && @contact.city_2 != "") && (@contact.zipcode_2 != nil && @contact.zipcode_2 != "") %>
+                        <div class="content"><strong>Secondary Address: </strong><br/>
+                          Street: <%= @contact.street_2 %>
+                          <br/>
+                          City: <%= @contact.city_2 %>
+                          <br/>
+                          Zipcode: <%= @contact.zipcode_2 %>
+                        </div>
+                      <% end %>
+
+                      <div class="content"><span class="title is-6">Services: </span><br/>
+                        <% @contact.services.alphabetical.each do |s| %>
+                          <%= link_to s.name, s %><br/>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          <% end %>
-
+              <div class="column is-two-quarters">
+                  <div class="card">
+                      <div class="card-content">
+                          <span class="title is-6">Admin Information</span><br/><br/>
+                          <strong>Created By: </strong> <%= @contact.created_by %><br>
+                          <strong>Created On: </strong><%= @contact.created_at %><br/>
+                          <strong>Updated by: </strong><%= @contact.updated_by %><br/>
+                          <strong>Recent Update: </strong><%= @contact.updated_at %>
+                      </div>
+                  </div>
+                   
+        
+        <% end %>
+         </div>
         </div>
-      </div>
         <div class="column">
           <%= link_to 'Back', contacts_path, class: "button is-info is-rounded" %>
 
