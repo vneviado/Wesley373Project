@@ -1,63 +1,110 @@
 <div class="container">
-  <div class="row columns">
-    <div class="column">
-      <br/>
+  <% unless logged_in? && current_user.admin? %>
+    <div class="row columns">
+      <div class="column">
+        <br/>
 
-      <% if notice != nil %>
-        <article class="message is-primary">
-          <div class="message-body">
-            <p id="notice"><%= notice %></p>
-          </div>
-        </article>
-      <% end %>
-
-      <div class="card large">
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-4 no-padding"><%= @location.name %></p>
+        <% if notice != nil %>
+          <article class="message is-primary">
+            <div class="message-body">
+              <p id="notice"><%= notice %></p>
             </div>
-          </div>
+          </article>
+        <% end %>
 
-          <div class="content"><strong>Address: </strong><br/>
-            Street: <%= @location.street %>
-            <br/>
-            City: <%= @location.city %>
-            <br/>
-            Zipcode: <%= @location.zipcode %>
-          </div>
-
-          <% if @location.map_link != nil && @location.map_link != "" %>
-            <div class="content"><strong>Directions: </strong><br/>
-
-              <iframe src=<%=@location.map_link%> width="600" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <div class="card large">
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="title is-4 no-padding"><%= @location.name %></p>
+              </div>
             </div>
-          <% end %>
 
-          <div class="content"><span class="title is-6">Contact: </span>
-            <br/>Phone number: <%= number_to_phone @location.phone_number %>
-          </div>
+            <div class="content"><strong>Address: </strong><br/>
+              Street: <%= @location.street %>
+              <br/>
+              City: <%= @location.city %>
+              <br/>
+              Zipcode: <%= @location.zipcode %>
+            </div>
 
-          <% if logged_in? %>
+            <% if @location.map_link != nil && @location.map_link != "" %>
+              <div class="content"><strong>Directions: </strong><br/>
+                <iframe src=<%=@location.map_link%> width="600" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+              </div>
+            <% end %>
+
+            <div class="content"><span class="title is-6">Contact: </span>
+              <br/>Phone number: <%= number_to_phone @location.phone_number %>
+            </div>
 
             <div class="content"><span class="title is-6">Services: </span><br/>
               <% @location.services.alphabetical.each do |s| %>
                 <%= link_to s.name, s %><br/>
               <% end %>
             </div>
-            
-          <% end %>
+              
 
-          <% if logged_in? && current_user.admin? %>
-              <div class="content"><strong>Admin Info: </strong><br/>
-              Created By: <%= @location.created_by %>, Created At: <%= @location.created_at %>
-              <br/>
-              Updated by: <%= @location.updated_by %>, Updated at: <%= @location.updated_at %>
-            </div>
-          <% end %>
-
+          </div>
         </div>
-      </div>
+      <% else %>
+          <div class="container">
+              <div class="columns padding-top ">
+                  <div class="column is-three-quarters">
+                      <% if notice != nil %>
+                          <article class="message is-primary">
+                              <div class="message-body">
+                                  <p id="notice"><%= notice %></p>
+                              </div>
+                          </article>
+                      <% end %>
+                      <div class="card large">
+                          <div class="card-content">
+                              <div class="media">
+                                  <div class="media-content">
+                                       <p class="title is-4 no-padding"><%= @location.name %></p>
+                                       <div class="content"><strong>Address: </strong><br/>
+                                          Street: <%= @location.street %>
+                                          <br/>
+                                          City: <%= @location.city %>
+                                          <br/>
+                                          Zipcode: <%= @location.zipcode %>
+                                        </div>
+
+                                        <% if @location.map_link != nil && @location.map_link != "" %>
+                                          <div class="content"><strong>Directions: </strong><br/>
+                                            <iframe src=<%=@location.map_link%> width="600" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                          </div>
+                                        <% end %>
+
+                                        <div class="content"><span class="title is-6">Contact: </span>
+                                          <br/>Phone number: <%= number_to_phone @location.phone_number %>
+                                        </div>
+
+                                        <div class="content"><span class="title is-6">Services: </span><br/>
+                                          <% @location.services.alphabetical.each do |s| %>
+                                            <%= link_to s.name, s %><br/>
+                                          <% end %>
+                                        </div>
+
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="column is-two-quarters">
+                      <div class="card">
+                          <div class="card-content">
+                              <span class="title is-6">Admin Information</span><br/><br/>
+                              <strong>Created By: </strong> <%= @location.created_by %><br>
+                              <strong>Created On: </strong><%= @location.created_at %><br/>
+                              <strong>Updated by: </strong><%= @location.updated_by %><br/>
+                              <strong>Recent Update: </strong><%= @location.updated_at %>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+      <% end %>
 
       <div class="column">
           <%= link_to 'Back', locations_path, class: "button is-info is-rounded" %>
