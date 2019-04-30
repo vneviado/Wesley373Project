@@ -209,7 +209,6 @@
                     <% end %>
                     </div>
                 </div>
-              <% end %>
             </div>
             <div class="padding-top">
               <% if current_user.service_owner? && current_user.service == @service %>
@@ -250,7 +249,7 @@
                             </td>
                         <% end %>
                             <%= c.date_created.strftime("%m/%d/%y") %> <%= c.content %>
-                            <div class="has-text-grey-light"> 
+                            <div class="has-text-grey-light">
                                 Created by: <%= c.created_by %>
                             </div>
                         </p>
@@ -261,11 +260,7 @@
                     </div>
                 </div>
             <% end %>
-            <div class="padding-top">
-              <%= link_to 'Add Comment', new_comment_path(service_id: @service.id), class: "button is-info is-rounded" %>
-            </div>
           </div>
-        <% end %>
       </div>
     </div>
 

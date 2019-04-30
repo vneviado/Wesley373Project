@@ -26,22 +26,12 @@
                   </p>
                   <span class="title is-6">Address: </span><br/>
                   <%= location.street %>, <%= location.city %> PA, <%= location.zipcode %><br/><br/>
-<<<<<<< HEAD
-
                   <% if logged_in? %>
-
-=======
-                  
->>>>>>> f6ce4db1c5908945be43e7bdc5df8a83c260f167
                     <span class="title is-6">Services: </span><br/>
                     <% location.services.each do |s| %>
                       - <%= link_to s.name, s %><br/>
                     <% end %>
-
-<<<<<<< HEAD
                   <% end %>
-=======
->>>>>>> f6ce4db1c5908945be43e7bdc5df8a83c260f167
                 </div>
               </div><br/>
             <% end %>
