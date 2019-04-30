@@ -7,9 +7,8 @@
       </div>
 
     <div class="column is-5">
-    <div class="card large">
+    <div class="card large is-wide has-text-centered ">
     <div class="card-content is-light-grey">
-
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           
           <div class="field">
@@ -17,12 +16,6 @@
               <%= f.input :username, label_html: { class: 'active' }, wrapper: false,  wrapper_html: { class: 'input' } %>
             </div>
           </div>
-
-<!--            <div class="field">
-            <div class="control">  
-              <%#= f.input :email, label_html: { class: 'active' }, wrapper: false,  wrapper_html: { class: 'input' }, required: false, autofocus: true, input_html: { autocomplete: "email" } %>
-            </div>
-          </div> -->
 
           <div class="field">
             <div class="control">  
@@ -37,7 +30,6 @@
               <div class="tickbox">
                 <label class="checkbox">
                 <%= f.input :remember_me, wrapper: false, label_html: { class: 'active' }, wrapper_html: { class: 'input' }, as: :boolean if devise_mapping.rememberable? %>
-                <
               </div>
             </div>
           </div>
