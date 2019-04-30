@@ -76,7 +76,8 @@
                 </div>
               </div>
 
-              <%= f.input :created_by, input_html: { value: current_user.username} , wrapper: false %>
+              <%= f.input :created_by, as: :hidden, input_html: { value: current_user.username }, wrapper:false %>
+
               <%= f.input :created_at, as: :hidden, input_html: { value: Date.current }, wrapper:false %>
 
               <%= f.button :submit %>

@@ -54,6 +54,14 @@
 
           <% end %>
 
+          <% if logged_in? && current_user.admin? %>
+              <div class="content"><strong>Admin Info: </strong><br/>
+              Created By: <%= @location.created_by %>, Created At: <%= @location.created_at %>
+              <br/>
+              Updated by: <%= @location.updated_by %>, Updated at: <%= @location.updated_at %>
+            </div>
+          <% end %>
+
         </div>
       </div>
 

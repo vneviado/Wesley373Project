@@ -4,21 +4,20 @@
 
   	<div class="columns is-multiline is-mobile">
 
-    	<div class="column is-7"><%= image_tag('white_logo.png') %></div>
+    	<div class="column is-8"><%= image_tag('white_logo.png', height: '50%', width: '50%') %></div>
 
-    	<div class="column is-5">
+    	<div class="column is-4">
 		   	<div class="signin_item padding-left">
 
 			    <% if user_signed_in? %>
-			        Signed in as <%= current_user.email %>. <%= link_to "Edit profile", edit_user_registration_path %>
-							<br>
-							Not you?
+
+			        <p>Signed in as <%= current_user.username %></p>
 			        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+
 			    <% else %>
-			        <p><%= link_to "Sign up", new_user_registration_path %> or
-			        <%= link_to "sign in", new_user_session_path %></p>
+			        <%= link_to "Sign in", new_user_session_path %></p>
 			    <% end %>
-			    
+
 		    </div>
     	</div>
     </div>

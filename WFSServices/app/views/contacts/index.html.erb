@@ -40,6 +40,10 @@
                         <% if $value1.phone_number != "" %>
                           <span class="title is-6">Cell phone number: </span><br/>
                             <%= number_to_phone $value1.phone_number %><br/><br/>
+                        <% end %>                  
+                        <span class="title is-6">Services: </span><br/>
+                        <% $value1.services.each do |s| %>
+                          - <%= link_to s.name, s %><br/>
                         <% end %>
                       </div>
                     <br/>
@@ -70,6 +74,11 @@
                           <span class="title is-6">Cell phone number: </span><br/>
                             <%= number_to_phone $value2.phone_number %><br/><br/>
                         <% end %>
+                        <span class="title is-6">Services: </span><br/>
+                        <% $value2.services.each do |s| %>
+                          - <%= link_to s.name, s %><br/>
+                        <% end %>
+
                       </div>
                     <br/>
                   </table>
@@ -99,6 +108,10 @@
                         <% if $value3.phone_number != "" %>
                           <span class="title is-6">Cell phone number: </span><br/>
                             <%= number_to_phone $value3.phone_number %><br/><br/>
+                        <% end %>
+                        <span class="title is-6">Services: </span><br/>
+                        <% $value3.services.each do |s| %>
+                          - <%= link_to s.name, s %><br/>
                         <% end %>
                       </div>
                     <br/>
