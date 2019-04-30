@@ -59,7 +59,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <% @service.service_types.each do |t| %>
+                                <% @service.service_types.each do |t| %> <!-- looping through the service_types of the 
+                                specified service -->
                                     <tr>
                                         <th><%= t.name %></th>
                                         <td><%= t.staff%></td>
