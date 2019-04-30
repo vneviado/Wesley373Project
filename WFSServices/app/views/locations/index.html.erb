@@ -17,22 +17,28 @@
             <% @locations.alphabetical.each do |location| %>
               <div class="card large">
                 <div class="card-content">
-                  <p class="title is-4 no-padding"><%= link_to location.name, location %></p>
+                  <p class="title is-4 no-padding"><%= link_to location.name, location %>
+                    <% if can? :edit, location %>
+                      <%= link_to edit_location_path(location) do %>
+                        <i class="material-icons">edit</i>
+                      <% end %>
+                    <% end %>
+                  </p>
                   <span class="title is-6">Address: </span><br/>
                   <%= location.street %>, <%= location.city %> PA, <%= location.zipcode %><br/><br/>
 
                   <% if logged_in? %>
-                  
+
                     <span class="title is-6">Services: </span><br/>
                     <% location.services.each do |s| %>
                       - <%= link_to s.name, s %><br/>
                     <% end %>
 
-                  <% end %> 
+                  <% end %>
                 </div>
               </div><br/>
             <% end %>
-            
+
             <% if logged_in? && current_user.admin? %>
             <!--  -->
               <%= link_to 'New Location', new_location_path, class: "button is-info is-rounded" %>

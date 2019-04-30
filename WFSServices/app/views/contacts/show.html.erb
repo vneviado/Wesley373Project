@@ -9,7 +9,7 @@
           </div>
         </article>
       <% end %>
-      
+
       <br/>
       <div class="card large">
         <div class="card-content">
@@ -19,6 +19,13 @@
               <span class="title is-6"> Role: </span><br/>
                 <%= @contact.role %><br/>
             </div>
+          </div>
+
+          <div class="photo">
+            <% if !@contact.photo_url.nil? %>
+              <span class="title is-6"> Photo: </span><br/>
+              <p><%= image_tag @contact.photo_url %></p><br/>
+            <% end %>
           </div>
 
           <div class="content"><span class="title is-6">Contact Information: </span>
@@ -64,7 +71,7 @@
             <%= link_to 'Edit', edit_contact_path(@contact), class: "button is-info is-rounded" %>
             <%= link_to 'Remove', @contact, method: :delete, data: { confirm: 'Are you sure?' } , class: "button is-danger is-rounded"%>
           <% end %>
-          
+
         </div>
       </div>
     </div>

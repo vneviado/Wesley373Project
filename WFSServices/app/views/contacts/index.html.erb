@@ -25,7 +25,13 @@
               <div class="card large">
                   <table>
                       <div class="card-content">
-                        <p class="title is-4 no-padding"><%= link_to $value1.name, $value1 %></p>
+                        <p class="title is-4 no-padding"><%= link_to $value1.name, $value1 %>
+                          <% if can? :edit, $value1 %>
+                            <%= link_to edit_contact_path($value1) do %>
+                              <i class="material-icons">edit</i>
+                            <% end %>
+                          <% end %>
+                        </p>
 
                         <span class="title is-6"> Role: </span><br/>
                           <%= $value1.role %><br/><br/>
@@ -48,7 +54,13 @@
               <div class="card large">
                   <table>
                       <div class="card-content">
-                        <p class="title is-4 no-padding"><%= link_to $value2.name, $value2 %></p>
+                        <p class="title is-4 no-padding"><%= link_to $value2.name, $value2 %>
+                          <% if can? :edit, $value2 %>
+                            <%= link_to edit_contact_path($value2) do %>
+                              <i class="material-icons">edit</i>
+                            <% end %>
+                          <% end %>
+                        </p>
 
                         <span class="title is-6"> Role: </span><br/>
                           <%= $value2.role %><br/><br/>
@@ -71,7 +83,13 @@
               <div class="card large">
                   <table>
                       <div class="card-content">
-                        <p class="title is-4 no-padding"><%= link_to $value3.name, $value3 %></p>
+                        <p class="title is-4 no-padding"><%= link_to $value3.name, $value3 %>
+                          <% if can? :edit, $value3 %>
+                            <%= link_to edit_contact_path($value3) do %>
+                              <i class="material-icons">edit</i>
+                            <% end %>
+                          <% end %>
+                        </p>
 
                         <span class="title is-6"> Role: </span><br/>
                           <%= $value3.role %><br/><br/>

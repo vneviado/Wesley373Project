@@ -6,7 +6,7 @@ class CreateLocations < ActiveRecord::Migration[5.1]
       t.string :street
       t.string :city
       t.string :zipcode
-      t.string :picture
+      t.string :photo
       t.text :map_link
       t.string :created_by
       t.string :updated_by

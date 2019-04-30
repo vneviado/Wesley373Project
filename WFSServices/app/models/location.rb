@@ -1,8 +1,10 @@
 class Location < ApplicationRecord
   #Relationships
-
   has_many :service_locations
   has_many :services, through: :service_locations
+
+  #photo uploader
+  mount_uploader :photo, PhotoUploader
 
   #Validations
   validates_presence_of :name, :phone_number
