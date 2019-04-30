@@ -1,39 +1,87 @@
 <div class="container">
-  <div class="columns padding-top ">
-    <div class="column ">
-      <% if notice != nil %>
-        <article class="message is-primary">
-          <div class="message-body">
-            <p id="notice"><%= notice %></p>
-          </div>
-        </article>
-      <% end %>
 
-      <div class="card large">
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-4 no-padding has-text-purple"><%=@service.name%></p>
-              <p><span class="title is-6">Website:</span></p>
-              <p class="subtitle is-6"><%= link_to @service.web_address, @service.web_address%></p>
-              <p><span class="title is-6">Philosophy:</span></p>
-              <p class="subtitle is-6"><%= @service.philosophy%></p>
-              <p><span class="title is-6">Description:</span></p>
-              <p class="subtitle is-6"><%= @service.description%></p>
-              <p><span class="title is-6">Level of Care:</span></p>
-              <p class="subtitle is-6"><%= @service.level_of_care%></p>
-              <p><span class="title is-6">Micro-Enterprise:</span></p>
-              <p class="subtitle is-6"><%= @service.microenterprise%></p>
-              <p><span class="title is-6">Payment Information:</span></p>
-              <p class="subtitle is-6"><%= @service.payment_insurance%></p>
+     <% unless logged_in? && current_user.admin? %>
+        <div class="columns padding-top ">
+            <div class="column ">
+
+                <% if notice != nil %>
+                    <article class="message is-primary">
+                        <div class="message-body">
+                            <p id="notice"><%= notice %></p>
+                        </div>
+                    </article>
+                <% end %>
+                    <div class="card large">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-4 no-padding has-text-purple"><%=@service.name%></p>
+                                    <p><span class="title is-6">Website</span></p>
+                                    <p class="subtitle is-6"><%= link_to @service.web_address, @service.web_address%></p>
+                                    <p><span class="title is-6">Philosophy</span></p>
+                                    <p class="subtitle is-6"><%= @service.philosophy%></p>
+                                    <p><span class="title is-6">Description</span></p>
+                                    <p class="subtitle is-6"><%= @service.description%></p>
+                                    <p><span class="title is-6">Level of Care</span></p>
+                                    <p class="subtitle is-6"><%= @service.level_of_care%></p>
+                                    <p><span class="title is-6">Micro-Enterprise</span></p>
+                                    <p class="subtitle is-6"><%= @service.microenterprise%></p>
+                                    <p><span class="title is-6">Payment Information</span></p>
+                                    <p class="subtitle is-6"><%= @service.payment_insurance%></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <% else %>
+        <div class="container">
+            <div class="columns padding-top ">
+                <div class="column is-three-quarters">
+                    <% if notice != nil %>
+                        <article class="message is-primary">
+                            <div class="message-body">
+                                <p id="notice"><%= notice %></p>
+                            </div>
+                        </article>
+                    <% end %>
+                    <div class="card large">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-4 no-padding has-text-purple"><%=@service.name%></p>
+                                    <p><span class="title is-6">Website</span></p>
+                                    <p class="subtitle is-6"><%= link_to @service.web_address, @service.web_address%></p>
+                                    <p><span class="title is-6">Philosophy</span></p>
+                                    <p class="subtitle is-6"><%= @service.philosophy%></p>
+                                    <p><span class="title is-6">Description</span></p>
+                                    <p class="subtitle is-6"><%= @service.description%></p>
+                                    <p><span class="title is-6">Level of Care</span></p>
+                                    <p class="subtitle is-6"><%= @service.level_of_care%></p>
+                                    <p><span class="title is-6">Micro-Enterprise</span></p>
+                                    <p class="subtitle is-6"><%= @service.microenterprise%></p>
+                                    <p><span class="title is-6">Payment Information</span></p>
+                                    <p class="subtitle is-6"><%= @service.payment_insurance%></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-two-quarters pad-top">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="title is-6">Admin Information</span><br/><br/>
+                            <strong>Created By: </strong> <%= @service.created_by %><br>
+                            <strong>Created On: </strong><%= @service.created_at %><br/>
+                            <strong>Updated by: </strong><%= @service.updated_by %><br/>
+                            <strong>Recent Update: </strong><%= @service.updated_at %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <% end %>
 
-    <div class="container padding-bottom">
+    <div class="container padding-bottom padding-top">
         <div class="rows">
             <div class="card large">
                 <div class="card-content">
@@ -95,7 +143,7 @@
                         </table>
                     </div>
                     <div class="padding-top">
-                        <% if (logged_in? && current_user.service_owner? && @current_user.services.include?(@service.id)) || (logged_in? && current_user.admin?) %>
+                        <% if (logged_in? && current_user.service_owner? && current_user.services.include?(@service.id)) || (logged_in? && current_user.admin?) %>
                             <%= link_to 'Add New Service Type', new_service_type_path(service_id: @service.id), class: "button is-info is-rounded" %>
                         <% end %>
                     </div>
@@ -136,8 +184,10 @@
     <div class="container">
         <div class="rows">
             <div class="card large">
-                <div class="card-content"><span class="title is-6">Locations:</span>
-                  <br><br>
+                <div class="card-content">
+                    <span class="title is-6">Locations</span>
+                    <br>
+                    <br>
                     <div class="columns">
                         <% @s_locations.each do |i| %>
                             <div class="column">
@@ -163,7 +213,7 @@
                         <% end %>
                     </div>
                     <div class="padding-top">
-                    <% if (logged_in? && current_user.service_owner? && @current_user.services.include?(@service.id)) || (logged_in? && current_user.admin?) %>
+                     <% if (logged_in? && current_user.service_owner? && current_user.services.include?(@service.id)) || (logged_in? && current_user.admin?) %>
                         <%= link_to 'Add Location', new_service_location_path(service_id: @service.id), class: "button is-info is-rounded" %>
                     <% end %>
                     </div>
@@ -206,8 +256,7 @@
                         <% end %>
                     </div>
                     <div class="padding-top">
-
-                    <% if (logged_in? && current_user.service_owner? && @current_user.services.include?(@service.id)) || (logged_in? && current_user.admin?) %>
+                    <% if (logged_in? && current_user.service_owner? && current_user.services.include?(@service.id)) || (logged_in? && current_user.admin?) %>
                         <%= link_to 'Add Contact', new_service_contact_path(service_id: @service.id), class: "button is-info is-rounded" %>
                     <% end %>
                     </div>
@@ -218,21 +267,6 @@
         </div>
       </div>
     </div>
-
-    <% if logged_in? && current_user.admin? %>
-
-    <div class="container padding-top">
-        <div class="card large">
-            <div class="card-content"><strong>Admin Info: </strong><br/>
-                Created By: <%= @service.created_by %>, Created At: <%= @service.created_at %>
-                <br/>
-                Updated by: <%= @service.updated_by %>, Updated at: <%= @service.updated_at %>
-            </div>
-        </div>
-    </div>
-
-    <% end %>
-
     <div class="container padding-top">
         <div class="card large">
             <% if logged_in? %>
