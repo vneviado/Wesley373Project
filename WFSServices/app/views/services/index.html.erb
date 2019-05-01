@@ -31,14 +31,16 @@
       </div>
 
       <div class="container section">
+
+        <!-- tab #1: organized by categories -->
         <div id="Categories" class="content-tab" >
 
           <div class="columns is-multiline is-mobile">
 
-          <%# @categories.each do |category| %>
+          <!-- looping through categories here to create a 3-card deck on every row. -->
           <% len = @categories.to_a.length - 1 %>
           <% (0..len).step(3).each do |i| %>
-          <% $value1 = @categories.to_a[i].nil? ? 0 : @categories.to_a[i] %>
+          <% $value1 = @categories.to_a[i].nil? ? 0 : @categories.to_a[i] %> <!-- assigning the category a value -->
           <% $value2 = @categories.to_a[i+1].nil? ? 0 : @categories.to_a[i+1] %>
           <% $value3 = @categories.to_a[i+2].nil? ? 0 : @categories.to_a[i+2] %>
 
@@ -53,7 +55,7 @@
                       <% end %>
                     <% end %>
                       <% if $value1.services.to_a.length == 0 %>
-                        <% if can? :delete, Category %>
+                        <% if can? :delete, Category %> <!-- if user is capable of deleting -->
                           <%= link_to($value1, method: :delete, data: { confirm: 'Are you sure?' }) do %>
                             <i class="material-icons">delete</i>
                           <% end %>
@@ -62,7 +64,7 @@
                     </p>
 
                       <table>
-                      <% $value1.services.alphabetical.each do |service| %>
+                      <% $value1.services.alphabetical.each do |service| %> <!-- for every service within the category -->
                           <tr>
                           <td style="table-layout: fixed; width: 350px;">
                             <p><span class="title is-5"><%=link_to service.name, service %>
@@ -103,7 +105,7 @@
                       <% end %>
                     </p>
                       <table>
-                      <% $value2.services.alphabetical.each do |service| %>
+                      <% $value2.services.alphabetical.each do |service| %> <!-- for every service within the category -->
                           <tr>
                           <td style="table-layout: fixed; width: 350px;">
                             <p><span class="title is-5"><%=link_to service.name, service %>
@@ -143,7 +145,7 @@
                       <% end %>
                     </p>
                       <table>
-                      <% $value3.services.alphabetical.each do |service| %>
+                      <% $value3.services.alphabetical.each do |service| %> <!-- for every service within the category -->
                           <tr>
                           <td style="table-layout: fixed; width: 350px;">
                             <p><span class="title is-5"><%=link_to service.name, service %>
@@ -168,7 +170,7 @@
           </div>
         </div>
 
-
+        <!-- tab #2: organized by level of care -->
         <div id="Levels of Care" class="content-tab" style="display:none">
 
               <div class="container">
@@ -488,6 +490,8 @@
         </div>
 
 
+        <!-- tab #1: organized by microenterprises -->
+
         <div id="ME" class="content-tab" style="display:none">
 
           <div class="columns is-multiline is-mobile">
@@ -498,7 +502,8 @@
              "Psychiatric Services", "Outpatient Services"] %>
 
           <% len = me.length - 1 %>
-          <% (0..len).step(3).each do |i| %>
+          <% (0..len).step(3).each do |i| %> <!-- same logic as in categories: looping through the me array of microenterprises -->
+          <!-- to get the three card in the row view -->
           <% $value1 = me[i].nil? ? 0 : me[i] %>
           <% $value2 = me[i+1].nil? ? 0 : me[i+1] %>
           <% $value3 = me[i+2].nil? ? 0 : me[i+2] %>

@@ -28,14 +28,14 @@
                         </div>
 
                          <div class="field">
-                            <div class="control">
+                            <div class="control"> <!-- below is the array of all possible arrays of service -->
                                 <% aos = Array["Adult", "Child", "Intellectual and Developmental Disabilities", "Older Adult"] %>
                                 <%= f.input :array_of_services, collection: aos, include_blank: true, wrapper: false %>
                             </div>
                         </div>
 
                          <div class="field">
-                            <div class="control">
+                            <div class="control"> <!-- below is the array of all possible micro-enterprises -->
                                 <% me = Array["Older Adult Services", "Family Support Services", "Child/Family 
                                     Behavioral Health", "Educational/School Services", "Behavioral Health & Recovery",
                                     "Intellectual & Developmental Disabilities", "Central Access/Community Programs", 
